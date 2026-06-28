@@ -1,0 +1,624 @@
+/* ============================================
+   U.E. Mario Oña Perdomo — Estilos personalizados
+   ============================================ */
+
+/* ---------- Variables de diseño ---------- */
+:root {
+  /* Colores */
+  --rojo:        #B22222;
+  --rojo-oscuro: #8B1A1A;
+  --rojo-claro:  #D32F2F;
+  --rojo-suave:  #FDECEA;
+  --dorado:      #E8A020;
+  --gris-texto:  #1F2937;
+  --gris-medio:  #6B7280;
+  --gris-fondo:  #F9FAFB;
+
+  /* Escala tipográfica — 4 niveles */
+  --text-display: clamp(2.4rem, 5vw, 3.2rem);
+  --text-h1:      clamp(1.9rem, 4vw, 2.75rem);
+  --text-h2:      clamp(1.55rem, 2.5vw, 1.875rem);
+  --text-h3:      1.0625rem;
+  --lh-tight:     1.15;
+  --lh-heading:   1.3;
+  --lh-body:      1.7;
+
+  /* Espaciado base-8 */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  24px;
+  --space-lg:  48px;
+  --space-xl:  80px;
+  --space-2xl: 120px;
+
+  /* Sombras */
+  --shadow-card:       0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-card-hover: 0 8px 24px rgba(178,34,34,0.14), inset 4px 0 0 var(--rojo);
+  --shadow-elevated:   0 20px 48px rgba(0,0,0,0.12);
+
+  /* Curvas de animación */
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ============================================================
+   ACCESIBILIDAD — No modificar estas reglas
+   ============================================================ */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 99999;
+  background: var(--rojo);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+/* Focus visible */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 3px solid var(--rojo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+#lightbox *:focus-visible { outline-color: white; }
+
+/* Movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-left, .fade-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card-hover            { transition: none; }
+  .card-hover:hover      { transform: none; box-shadow: var(--shadow-card); }
+  .gallery-item:hover .gallery-placeholder,
+  .gallery-item:hover img { transform: none; }
+  html                   { scroll-behavior: auto; }
+  #lightbox              { animation: none; }
+  .btn-primary           { transition: none; }
+  .hero-btn-primary,
+  .hero-btn-secondary    { transition: none; }
+  .nav-login-btn         { animation: none; }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--gris-texto);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   TIPOGRAFÍA — Jerarquía de 4 niveles
+   ============================================================ */
+
+/* Nivel 1 – Display (hero h1) */
+.text-display {
+  font-size: var(--text-display);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+
+/* Nivel 2 – H2 de sección */
+.section-title {
+  font-size: var(--text-h2);
+  font-weight: 800;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: #111827;
+}
+
+/* Nivel 3 – H3 de card */
+.card-title {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  color: #111827;
+}
+
+/* Body legible */
+.body-text {
+  font-size: 0.9375rem;
+  line-height: var(--lh-body);
+  color: var(--gris-medio);
+}
+
+/* ============================================================
+   NAVBAR — Acento rojo superior + refinamiento
+   ============================================================ */
+nav {
+  border-top: 3px solid var(--rojo);
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--rojo);
+  transition: width 0.3s var(--ease-smooth);
+  border-radius: 2px;
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after { width: 100%; }
+
+/* Botón login con pulso sutil */
+.nav-login-btn {
+  position: relative;
+  overflow: hidden;
+}
+.nav-login-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.2s ease;
+}
+.nav-login-btn:hover::after { opacity: 0.08; }
+
+/* ============================================================
+   HERO — Textura + botones diferenciados
+   ============================================================ */
+.hero-bg {
+  background: linear-gradient(135deg, #7A0000 0%, var(--rojo) 55%, var(--rojo-claro) 100%);
+  position: relative;
+}
+
+/* Textura de puntos CSS-only (sin imagen) */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Contenido del hero encima de la textura */
+.hero-bg > * { position: relative; z-index: 2; }
+
+/* Botón primario del hero (blanco sólido) */
+.hero-btn-primary {
+  background: white;
+  color: var(--rojo-oscuro);
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease, background 0.2s ease;
+}
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+  background: #fff5f5;
+}
+.hero-btn-primary:active { transform: translateY(0); }
+
+/* Botón secundario del hero (outline) */
+.hero-btn-secondary {
+  border: 2px solid rgba(255,255,255,0.7);
+  color: white;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s var(--ease-spring);
+}
+.hero-btn-secondary:hover {
+  border-color: white;
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECTION HEADERS — Patrón estandarizado con línea roja
+   ============================================================ */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--rojo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--rojo);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Variante para fondos oscuros (sección roja) */
+.section-eyebrow--light {
+  color: rgba(255, 255, 255, 0.75);
+}
+.section-eyebrow--light::before {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   CARDS — Hover con acento izquierdo + spring animation
+   ============================================================ */
+.card-hover {
+  transition:
+    transform 0.3s var(--ease-spring),
+    box-shadow 0.3s var(--ease-smooth);
+  box-shadow: var(--shadow-card);
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============================================================
+   GALERÍA — Transiciones mejoradas
+   ============================================================ */
+.gallery-item {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s var(--ease-smooth), transform 0.3s var(--ease-spring);
+}
+.gallery-item:hover {
+  box-shadow: var(--shadow-elevated);
+  transform: scale(1.02);
+}
+.gallery-item img,
+.gallery-item .gallery-placeholder {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-item:hover img,
+.gallery-item:hover .gallery-placeholder {
+  transform: scale(1.06);
+}
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(178,34,34,0.7) 0%, rgba(110,20,20,0.8) 100%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.35s var(--ease-smooth);
+  border-radius: 12px;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* ============================================================
+   SECCIÓN MISIÓN/VISIÓN — Patrón diagonal CSS-only
+   ============================================================ */
+.mision-section {
+  position: relative;
+  overflow: hidden;
+}
+.mision-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 24px,
+    rgba(255, 255, 255, 0.03) 24px,
+    rgba(255, 255, 255, 0.03) 48px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.mision-section > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   FORMULARIO
+   ============================================================ */
+.form-error         { display: none; }
+.form-error.visible { display: block; }
+
+.input-field[aria-invalid="true"] {
+  border-color: var(--rojo-claro);
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.12);
+}
+
+.input-field {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
+  outline: none;
+  background: white;
+  color: var(--gris-texto);
+  font-family: inherit;
+}
+.input-field:focus {
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.1);
+}
+.input-field::placeholder { color: #9CA3AF; }
+
+.btn-primary {
+  background: var(--rojo);
+  color: white;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, filter 0.2s ease, transform 0.15s var(--ease-spring);
+  width: 100%;
+  font-family: inherit;
+}
+.btn-primary:hover {
+  background: var(--rojo-oscuro);
+  filter: brightness(1.08);
+}
+.btn-primary:active { transform: scale(0.98); }
+
+/* ============================================================
+   FOOTER — Línea de acento superior
+   ============================================================ */
+footer {
+  border-top: 3px solid var(--rojo);
+}
+
+/* ============================================================
+   BARRA DE PROGRESO DE SCROLL
+   ============================================================ */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(to right, var(--rojo-oscuro), var(--rojo-claro));
+  z-index: 9999;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* ============================================================
+   BOTÓN VOLVER ARRIBA
+   ============================================================ */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  background: var(--rojo);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(178, 34, 34, 0.38);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-spring), background 0.2s ease;
+  z-index: 1000;
+  pointer-events: none;
+}
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#back-to-top:hover {
+  background: var(--rojo-oscuro);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(178, 34, 34, 0.45);
+}
+#back-to-top:active { transform: scale(0.95); }
+
+/* prefers-reduced-motion: ocultar progress bar y botón sin animación */
+@media (prefers-reduced-motion: reduce) {
+  #back-to-top { transition: opacity 0.1s linear; }
+  #scroll-progress { transition: none; }
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s var(--ease-smooth);
+}
+#lightbox.active { display: flex; }
+
+#lightbox-img {
+  max-width: 90vw;
+  max-height: 82vh;
+  border-radius: 10px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.75rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s var(--ease-spring);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+#lightbox-close:hover {
+  color: white;
+  background: rgba(255,255,255,0.18);
+  transform: scale(1.05);
+}
+
+#lightbox-prev,
+#lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.8);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 12px 18px;
+  user-select: none;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s var(--ease-spring);
+  line-height: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+}
+#lightbox-prev { left: 16px; }
+#lightbox-next { right: 16px; }
+#lightbox-prev:hover,
+#lightbox-next:hover {
+  color: white;
+  background: rgba(255,255,255,0.18);
+}
+#lightbox-prev:hover { transform: translateY(-50%) translateX(-2px); }
+#lightbox-next:hover { transform: translateY(-50%) translateX(2px); }
+
+#lightbox-caption {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  padding: 8px 20px;
+  border-radius: 24px;
+  white-space: nowrap;
+  margin: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #15803d;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 10000;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: transform 0.35s var(--ease-spring), opacity 0.35s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+}
+.fade-up.visible   { opacity: 1; transform: translateY(0); }
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+}
+.fade-left.visible { opacity: 1; transform: translateX(0); }
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+}
+.fade-right.visible { opacity: 1; transform: translateX(0); }
+
+.delay-100 { transition-delay: 0.08s; }
+.delay-200 { transition-delay: 0.16s; }
+.delay-300 { transition-delay: 0.24s; }
+.delay-400 { transition-delay: 0.32s; }
+
+/* ============================================================
+   STAT COUNTER
+   ============================================================ */
+.stat-number { display: inline-block; }
