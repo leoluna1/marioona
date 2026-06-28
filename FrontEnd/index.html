@@ -1,835 +1,1086 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>U.E. Mario Oña Perdomo — Ibarra, Ecuador</title>
-  <meta name="description" content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en Ibarra, Imbabura, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
-  <meta name="keywords" content="Mario Oña Perdomo, colegio Ibarra, unidad educativa Ibarra, bachillerato Ibarra, educación pública Ecuador, Imbabura" />
-  <meta name="author" content="U.E. Mario Oña Perdomo" />
-  <meta name="robots" content="index, follow" />
-  <!-- Open Graph — Facebook, WhatsApp, LinkedIn -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://uemoperdomo.es" />
-  <meta property="og:title"       content="U.E. Mario Oña Perdomo — Ibarra, Ecuador" />
-  <meta property="og:description" content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979." />
-  <meta property="og:image"       content="https://uemoperdomo.es/og-image.jpg" />
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="U.E. Mario Oña Perdomo — Ibarra, Ecuador" />
-  <meta name="twitter:description" content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            rojo: {
-              50:  '#FDECEA',
-              100: '#FAD0CC',
-              500: '#D32F2F',
-              600: '#B22222',
-              700: '#8B1A1A',
-              800: '#6E1414',
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U.E. Mario Oña Perdomo — Ibarra, Ecuador</title>
+    <meta name="description"
+        content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en Ibarra, Imbabura, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
+    <meta name="keywords"
+        content="Mario Oña Perdomo, colegio Ibarra, unidad educativa Ibarra, bachillerato Ibarra, educación pública Ecuador, Imbabura" />
+    <meta name="author" content="U.E. Mario Oña Perdomo" />
+    <meta name="robots" content="index, follow" />
+    <!-- Open Graph — Facebook, WhatsApp, LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://uemoperdomo.es" />
+    <meta property="og:title" content="U.E. Mario Oña Perdomo — Ibarra, Ecuador" />
+    <meta property="og:description"
+        content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979." />
+    <meta property="og:image" content="https://uemoperdomo.es/og-image.jpg" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="U.E. Mario Oña Perdomo — Ibarra, Ecuador" />
+    <meta name="twitter:description"
+        content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rojo: {
+                            50: '#FDECEA',
+                            100: '#FAD0CC',
+                            500: '#D32F2F',
+                            600: '#B22222',
+                            700: '#8B1A1A',
+                            800: '#6E1414',
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  </script>
-  <!-- Preconnect para mejorar carga de fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+    </script>
+    <!-- Preconnect para mejorar carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body class="text-gray-800 bg-white">
 
-  <!-- Barra de progreso de lectura -->
-  <div id="scroll-progress" aria-hidden="true"></div>
+    <!-- Barra de progreso de lectura -->
+    <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Skip link: permite saltar al contenido principal con teclado -->
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <!-- Skip link: permite saltar al contenido principal con teclado -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- ============================================================
+    <!-- ============================================================
        NAVBAR
   ============================================================ -->
-  <nav class="bg-white sticky top-0 z-50 border-b border-gray-100" aria-label="Navegación principal">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
+    <nav class="bg-white sticky top-0 z-50 border-b border-gray-100" aria-label="Navegación principal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
 
-        <!-- Logo -->
-        <a href="#inicio" class="flex items-center gap-3" aria-label="U.E. Mario Oña Perdomo — Inicio">
-          <div class="w-10 h-10 bg-rojo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0" aria-hidden="true">
-            UE
-          </div>
-          <div>
-            <span class="block text-rojo-700 font-bold text-sm leading-tight">U.E. Mario Oña Perdomo</span>
-            <span class="block text-gray-500 text-xs">Ibarra, Ecuador</span>
-          </div>
-        </a>
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3" aria-label="U.E. Mario Oña Perdomo — Inicio">
+                    <div class="w-10 h-10 bg-rojo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                        aria-hidden="true">
+                        UE
+                    </div>
+                    <div>
+                        <span class="block text-rojo-700 font-bold text-sm leading-tight">U.E. Mario Oña Perdomo</span>
+                        <span class="block text-gray-500 text-xs">Ibarra, Ecuador</span>
+                    </div>
+                </a>
 
-        <!-- Links desktop -->
-        <div class="hidden md:flex items-center gap-6">
-          <a href="#inicio"      class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Inicio</a>
-          <a href="#eventos"     class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Eventos</a>
-          <a href="#galeria"     class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Galería</a>
-          <a href="#oferta"      class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Oferta Educativa</a>
-          <a href="#mision"      class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Misión & Visión</a>
-          <a href="#autoridades" class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Autoridades</a>
-          <a href="#contacto"    class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Contacto</a>
+                <!-- Links desktop -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#inicio"
+                        class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Inicio</a>
+                    <a href="#eventos"
+                        class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Eventos</a>
+                    <a href="#galeria"
+                        class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Galería</a>
+                    <a href="#oferta"
+                        class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Oferta
+                        Educativa</a>
+                    <a href="#mision"
+                        class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Misión
+                        & Visión</a>
+                    <a href="#autoridades"
+                        class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Autoridades</a>
+                    <a href="#contacto"
+                        class="nav-link text-gray-600 hover:text-rojo-600 font-medium text-sm transition-colors">Contacto</a>
+                </div>
+
+                <!-- Botón login -->
+                <a href="#"
+                    class="hidden md:inline-flex items-center gap-2 bg-rojo-600 hover:bg-rojo-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Iniciar Sesión
+                </a>
+
+                <!-- Hamburguesa mobile -->
+                <button id="menuBtn" class="md:hidden p-2 rounded-md text-gray-600 hover:text-rojo-600 hover:bg-rojo-50"
+                    aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
+                    <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <!-- Botón login -->
-        <a href="#" class="hidden md:inline-flex items-center gap-2 bg-rojo-600 hover:bg-rojo-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
-          </svg>
-          Iniciar Sesión
-        </a>
+        <!-- Menú mobile -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-3 space-y-1">
+            <a href="#inicio"
+                class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Inicio</a>
+            <a href="#eventos"
+                class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Eventos</a>
+            <a href="#galeria"
+                class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Galería</a>
+            <a href="#oferta"
+                class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Oferta
+                Educativa</a>
+            <a href="#mision"
+                class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Misión
+                & Visión</a>
+            <a href="#autoridades"
+                class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Autoridades</a>
+            <a href="#contacto"
+                class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Contacto</a>
+            <a href="#"
+                class="block mt-2 bg-rojo-600 text-white text-center py-2 rounded-lg font-semibold text-sm">Iniciar
+                Sesión</a>
+        </div>
+    </nav>
 
-        <!-- Hamburguesa mobile -->
-        <button id="menuBtn"
-                class="md:hidden p-2 rounded-md text-gray-600 hover:text-rojo-600 hover:bg-rojo-50"
-                aria-label="Abrir menú de navegación"
-                aria-expanded="false"
-                aria-controls="mobileMenu">
-          <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Menú mobile -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-3 space-y-1">
-      <a href="#inicio"      class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Inicio</a>
-      <a href="#eventos"     class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Eventos</a>
-      <a href="#galeria"     class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Galería</a>
-      <a href="#oferta"      class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Oferta Educativa</a>
-      <a href="#mision"      class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Misión & Visión</a>
-      <a href="#autoridades" class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Autoridades</a>
-      <a href="#contacto"    class="block py-2 px-3 rounded-lg text-gray-700 hover:bg-rojo-50 hover:text-rojo-600 font-medium text-sm">Contacto</a>
-      <a href="#" class="block mt-2 bg-rojo-600 text-white text-center py-2 rounded-lg font-semibold text-sm">Iniciar Sesión</a>
-    </div>
-  </nav>
-
-  <!-- ============================================================
+    <!-- ============================================================
        HERO
   ============================================================ -->
-  <main id="main-content">
-  <section id="inicio" class="hero-bg min-h-[88vh] flex items-center relative overflow-hidden" aria-labelledby="hero-titulo">
-    <!-- Círculos decorativos (ocultos a lectores de pantalla) -->
-    <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-white opacity-5 translate-x-1/3 -translate-y-1/4" aria-hidden="true"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white opacity-5 -translate-x-1/4 translate-y-1/4" aria-hidden="true"></div>
+    <main id="main-content">
+        <section id="inicio" class="hero-bg min-h-[88vh] flex items-center relative overflow-hidden"
+            aria-labelledby="hero-titulo">
+            <!-- Círculos decorativos (ocultos a lectores de pantalla) -->
+            <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-white opacity-5 translate-x-1/3 -translate-y-1/4"
+                aria-hidden="true"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white opacity-5 -translate-x-1/4 translate-y-1/4"
+                aria-hidden="true"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
-      <div class="grid lg:grid-cols-2 gap-14 items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
+                <div class="grid lg:grid-cols-2 gap-14 items-center">
 
-        <!-- Texto -->
-        <div class="text-white">
-          <span class="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4 backdrop-blur-sm">
-            📅 Año Lectivo 2024 – 2025
-          </span>
-          <h1 id="hero-titulo" class="text-display font-extrabold leading-tight mb-4">
-            Unidad Educativa<br/>
-            <span class="text-red-200">Mario Oña Perdomo</span>
-          </h1>
-          <p class="text-red-100 text-lg italic font-medium mb-3">
-            "Cada día es una nueva oportunidad para aprender"
-          </p>
-          <p class="text-sm text-red-200 font-semibold mb-6 tracking-wide">FORMANDO LÍDERES DESDE 1979</p>
-          <p class="text-red-100 leading-relaxed mb-8">
-            Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra, Imbabura, con valores éticos y excelencia académica.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#oferta" class="hero-btn-primary">Ver Oferta Educativa</a>
-            <a href="#contacto" class="hero-btn-secondary">Contáctanos</a>
-          </div>
-        </div>
+                    <!-- Texto -->
+                    <div class="text-white">
+                        <span
+                            class="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4 backdrop-blur-sm">
+                            📅 Año Lectivo 2025 – 2026
+                        </span>
+                        <h1 id="hero-titulo" class="text-display font-extrabold leading-tight mb-4">
+                            Unidad Educativa<br />
+                            <span class="text-red-200">Mario Oña Perdomo</span>
+                        </h1>
+                        <p class="text-red-100 text-lg italic font-medium mb-3">
+                            "Cada día es una nueva oportunidad para aprender"
+                        </p>
+                        <p class="text-sm text-red-200 font-semibold mb-6 tracking-wide">FORMANDO LÍDERES DESDE 1979</p>
+                        <p class="text-red-100 leading-relaxed mb-8">
+                            Institución educativa pública comprometida con la formación integral de niños y jóvenes de
+                            Ibarra, Imbabura, con valores éticos y excelencia académica.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#oferta" class="hero-btn-primary">Ver Oferta Educativa</a>
+                            <a href="#contacto" class="hero-btn-secondary">Contáctanos</a>
+                        </div>
+                    </div>
 
-        <!-- Pilares institucionales -->
-        <div class="grid grid-cols-2 gap-4">
+                    <!-- Pilares institucionales -->
+                    <div class="grid grid-cols-2 gap-4">
 
-          <div class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
-            <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-              </svg>
+                        <div
+                            class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
+                            <div
+                                class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 14l9-5-9-5-9 5 9 5z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white text-sm leading-tight">Excelencia Académica</p>
+                                <p class="text-red-100 text-xs mt-1 leading-relaxed">Formación rigurosa en todos los
+                                    niveles educativos.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
+                            <div
+                                class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white text-sm leading-tight">Educación en Valores</p>
+                                <p class="text-red-100 text-xs mt-1 leading-relaxed">Respeto, honestidad y
+                                    responsabilidad como pilares de convivencia.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
+                            <div
+                                class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white text-sm leading-tight">Innovación Pedagógica</p>
+                                <p class="text-red-100 text-xs mt-1 leading-relaxed">Metodologías activas que preparan
+                                    estudiantes para el futuro.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
+                            <div
+                                class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white text-sm leading-tight">Compromiso Comunitario</p>
+                                <p class="text-red-100 text-xs mt-1 leading-relaxed">Institución arraigada en Ibarra, al
+                                    servicio de su comunidad.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-tight">Excelencia Académica</p>
-              <p class="text-red-100 text-xs mt-1 leading-relaxed">Formación rigurosa en todos los niveles educativos.</p>
-            </div>
-          </div>
+        </section>
 
-          <div class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
-            <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-tight">Educación en Valores</p>
-              <p class="text-red-100 text-xs mt-1 leading-relaxed">Respeto, honestidad y responsabilidad como pilares de convivencia.</p>
-            </div>
-          </div>
-
-          <div class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
-            <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-tight">Innovación Pedagógica</p>
-              <p class="text-red-100 text-xs mt-1 leading-relaxed">Metodologías activas que preparan estudiantes para el futuro.</p>
-            </div>
-          </div>
-
-          <div class="bg-white/12 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 flex flex-col gap-3">
-            <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-bold text-white text-sm leading-tight">Compromiso Comunitario</p>
-              <p class="text-red-100 text-xs mt-1 leading-relaxed">Institución arraigada en Ibarra, al servicio de su comunidad.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
+        <!-- ============================================================
        EVENTOS
   ============================================================ -->
-  <section id="eventos" class="py-20 bg-gray-50" aria-labelledby="eventos-titulo">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="eventos" class="py-20 bg-gray-50" aria-labelledby="eventos-titulo">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12 fade-up">
-        <span class="section-eyebrow" aria-hidden="true">Noticias</span>
-        <h2 id="eventos-titulo" class="section-title mt-1">Eventos Importantes</h2>
-        <p class="text-gray-500 mt-2 max-w-xl mx-auto">Mantente al día con las actividades más recientes de nuestra institución.</p>
-      </div>
+                <div class="text-center mb-12 fade-up">
+                    <span class="section-eyebrow" aria-hidden="true">Noticias</span>
+                    <h2 id="eventos-titulo" class="section-title mt-1">Eventos Importantes</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl mx-auto">Mantente al día con las actividades más recientes de
+                        nuestra institución.</p>
+                </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+                <div id="eventos-grid" class="grid md:grid-cols-3 gap-6">
 
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-100">
-          <div class="bg-gradient-to-br from-rojo-600 to-rojo-800 h-40 flex items-center justify-center">
-            <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 12h6"/>
-            </svg>
-          </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold text-rojo-600 bg-rojo-50 px-2 py-1 rounded-full">Académico</span>
-            <h3 class="card-title mt-3 mb-2">Acto de Fin de Año Lectivo 2025</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Celebración del cierre de año con premiación a los mejores estudiantes y presentaciones culturales.</p>
-            <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              15 de Julio, 2025
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-100">
+                        <div class="bg-gradient-to-br from-rojo-600 to-rojo-800 h-40 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 12h6" />
+                            </svg>
+                        </div>
+                        <div class="p-5">
+                            <span
+                                class="text-xs font-semibold text-rojo-600 bg-rojo-50 px-2 py-1 rounded-full">Académico</span>
+                            <h3 class="card-title mt-3 mb-2">Acto de Fin de Año Lectivo 2025</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Celebración del cierre de año con
+                                premiación a los mejores estudiantes y presentaciones culturales.</p>
+                            <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                15 de Julio, 2025
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-200">
+                        <div
+                            class="bg-gradient-to-br from-emerald-500 to-teal-700 h-40 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                            </svg>
+                        </div>
+                        <div class="p-5">
+                            <span
+                                class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">Deportivo</span>
+                            <h3 class="card-title mt-3 mb-2">Olimpiadas Intercolegiales 2025</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Competencias atléticas entre instituciones
+                                educativas del cantón Ibarra en múltiples disciplinas deportivas.</p>
+                            <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                22 de Agosto, 2025
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-300">
+                        <div
+                            class="bg-gradient-to-br from-amber-500 to-orange-600 h-40 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <div class="p-5">
+                            <span
+                                class="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded-full">Cultural</span>
+                            <h3 class="card-title mt-3 mb-2">Feria de Ciencias e Innovación</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Exposición de proyectos científicos y
+                                tecnológicos desarrollados por estudiantes de todos los niveles.</p>
+                            <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                10 de Septiembre, 2025
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-200">
-          <div class="bg-gradient-to-br from-emerald-500 to-teal-700 h-40 flex items-center justify-center">
-            <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-            </svg>
-          </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">Deportivo</span>
-            <h3 class="card-title mt-3 mb-2">Olimpiadas Intercolegiales 2025</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Competencias atléticas entre instituciones educativas del cantón Ibarra en múltiples disciplinas deportivas.</p>
-            <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              22 de Agosto, 2025
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-300">
-          <div class="bg-gradient-to-br from-amber-500 to-orange-600 h-40 flex items-center justify-center">
-            <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
-          </div>
-          <div class="p-5">
-            <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded-full">Cultural</span>
-            <h3 class="card-title mt-3 mb-2">Feria de Ciencias e Innovación</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Exposición de proyectos científicos y tecnológicos desarrollados por estudiantes de todos los niveles.</p>
-            <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              10 de Septiembre, 2025
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
+        <!-- ============================================================
        GALERÍA
   ============================================================ -->
-  <section id="galeria" class="py-20 bg-white" aria-labelledby="galeria-titulo">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="galeria" class="py-20 bg-white" aria-labelledby="galeria-titulo">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12 fade-up">
-        <span class="section-eyebrow" aria-hidden="true">Fotos</span>
-        <h2 id="galeria-titulo" class="section-title mt-1">Galería Institucional</h2>
-        <p class="text-gray-500 mt-2 max-w-xl mx-auto">Momentos especiales de nuestra comunidad educativa. Haz clic en una imagen para verla.</p>
-      </div>
+                <div class="text-center mb-12 fade-up">
+                    <span class="section-eyebrow" aria-hidden="true">Fotos</span>
+                    <h2 id="galeria-titulo" class="section-title mt-1">Galería Institucional</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl mx-auto">Momentos especiales de nuestra comunidad educativa.
+                        Haz clic en una imagen para verla.</p>
+                </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" role="list">
+                <div id="galeria-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" role="list">
 
-        <div class="gallery-item fade-up delay-100" role="listitem" data-caption="Acto de graduación 2024"
-             tabindex="0" role="button" aria-label="Ver imagen: Acto de graduación 2024">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-rojo-600 to-rojo-800 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">🎓</span>
-            <span class="text-xs font-medium text-red-200">Graduación 2024</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
+                    <div class="gallery-item fade-up delay-100" role="listitem" data-caption="Acto de graduación 2024"
+                        tabindex="0" role="button" aria-label="Ver imagen: Acto de graduación 2024">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-rojo-600 to-rojo-800 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">🎓</span>
+                            <span class="text-xs font-medium text-red-200">Graduación 2024</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-up delay-200" data-caption="Olimpiadas deportivas 2024" tabindex="0"
+                        role="button" aria-label="Ver imagen: Olimpiadas deportivas 2024">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-emerald-500 to-teal-700 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">🏆</span>
+                            <span class="text-xs font-medium text-green-100">Olimpiadas 2024</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-up delay-300" data-caption="Feria de Ciencias 2024" tabindex="0"
+                        role="button" aria-label="Ver imagen: Feria de Ciencias 2024">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-blue-500 to-indigo-700 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">🔬</span>
+                            <span class="text-xs font-medium text-blue-100">Feria de Ciencias</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-up delay-400" data-caption="Acto cívico — Día de la Independencia"
+                        tabindex="0" role="button" aria-label="Ver imagen: Acto cívico — Día de la Independencia">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-amber-500 to-orange-600 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">🇪🇨</span>
+                            <span class="text-xs font-medium text-yellow-100">Acto Cívico</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-up delay-100" data-caption="Club de Lectura estudiantil" tabindex="0"
+                        role="button" aria-label="Ver imagen: Club de Lectura estudiantil">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-purple-500 to-violet-700 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">📚</span>
+                            <span class="text-xs font-medium text-purple-100">Club de Lectura</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-up delay-200" data-caption="Danza folclórica — Festival Cultural"
+                        tabindex="0" role="button" aria-label="Ver imagen: Danza folclórica — Festival Cultural">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-pink-500 to-rose-700 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">💃</span>
+                            <span class="text-xs font-medium text-pink-100">Danza Folclórica</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-up delay-300" data-caption="Laboratorio de Computación" tabindex="0"
+                        role="button" aria-label="Ver imagen: Laboratorio de Computación">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-cyan-500 to-sky-700 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">💻</span>
+                            <span class="text-xs font-medium text-cyan-100">Lab. Computación</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-up delay-400" data-caption="Cancha deportiva institucional"
+                        tabindex="0" role="button" aria-label="Ver imagen: Cancha deportiva institucional">
+                        <div class="gallery-placeholder h-48 bg-gradient-to-br from-green-500 to-lime-700 flex flex-col items-center justify-center text-white rounded-xl"
+                            aria-hidden="true">
+                            <span class="text-4xl mb-2">⚽</span>
+                            <span class="text-xs font-medium text-lime-100">Cancha Deportiva</span>
+                        </div>
+                        <div class="gallery-overlay" aria-hidden="true">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox — dialog accesible con aria-label y focus management -->
+        <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de galería"
+            aria-describedby="lightbox-caption">
+            <button id="lightbox-close" aria-label="Cerrar galería (Escape)">&times;</button>
+            <button id="lightbox-prev" aria-label="Imagen anterior (flecha izquierda)">&#8249;</button>
+            <img id="lightbox-img" src="" alt="" />
+            <button id="lightbox-next" aria-label="Imagen siguiente (flecha derecha)">&#8250;</button>
+            <p id="lightbox-caption" aria-live="polite"></p>
         </div>
 
-        <div class="gallery-item fade-up delay-200" data-caption="Olimpiadas deportivas 2024"
-             tabindex="0" role="button" aria-label="Ver imagen: Olimpiadas deportivas 2024">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-emerald-500 to-teal-700 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">🏆</span>
-            <span class="text-xs font-medium text-green-100">Olimpiadas 2024</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="gallery-item fade-up delay-300" data-caption="Feria de Ciencias 2024"
-             tabindex="0" role="button" aria-label="Ver imagen: Feria de Ciencias 2024">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-blue-500 to-indigo-700 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">🔬</span>
-            <span class="text-xs font-medium text-blue-100">Feria de Ciencias</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="gallery-item fade-up delay-400" data-caption="Acto cívico — Día de la Independencia"
-             tabindex="0" role="button" aria-label="Ver imagen: Acto cívico — Día de la Independencia">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-amber-500 to-orange-600 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">🇪🇨</span>
-            <span class="text-xs font-medium text-yellow-100">Acto Cívico</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="gallery-item fade-up delay-100" data-caption="Club de Lectura estudiantil"
-             tabindex="0" role="button" aria-label="Ver imagen: Club de Lectura estudiantil">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-purple-500 to-violet-700 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">📚</span>
-            <span class="text-xs font-medium text-purple-100">Club de Lectura</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="gallery-item fade-up delay-200" data-caption="Danza folclórica — Festival Cultural"
-             tabindex="0" role="button" aria-label="Ver imagen: Danza folclórica — Festival Cultural">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-pink-500 to-rose-700 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">💃</span>
-            <span class="text-xs font-medium text-pink-100">Danza Folclórica</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="gallery-item fade-up delay-300" data-caption="Laboratorio de Computación"
-             tabindex="0" role="button" aria-label="Ver imagen: Laboratorio de Computación">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-cyan-500 to-sky-700 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">💻</span>
-            <span class="text-xs font-medium text-cyan-100">Lab. Computación</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="gallery-item fade-up delay-400" data-caption="Cancha deportiva institucional"
-             tabindex="0" role="button" aria-label="Ver imagen: Cancha deportiva institucional">
-          <div class="gallery-placeholder h-48 bg-gradient-to-br from-green-500 to-lime-700 flex flex-col items-center justify-center text-white rounded-xl" aria-hidden="true">
-            <span class="text-4xl mb-2">⚽</span>
-            <span class="text-xs font-medium text-lime-100">Cancha Deportiva</span>
-          </div>
-          <div class="gallery-overlay" aria-hidden="true">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Lightbox — dialog accesible con aria-label y focus management -->
-  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de galería" aria-describedby="lightbox-caption">
-    <button id="lightbox-close" aria-label="Cerrar galería (Escape)">&times;</button>
-    <button id="lightbox-prev" aria-label="Imagen anterior (flecha izquierda)">&#8249;</button>
-    <img id="lightbox-img" src="" alt="" />
-    <button id="lightbox-next" aria-label="Imagen siguiente (flecha derecha)">&#8250;</button>
-    <p id="lightbox-caption" aria-live="polite"></p>
-  </div>
-
-  <!-- ============================================================
+        <!-- ============================================================
        OFERTA EDUCATIVA
   ============================================================ -->
-  <section id="oferta" class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="oferta" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12 fade-up">
-        <span class="section-eyebrow">Niveles</span>
-        <h2 class="section-title mt-1">Oferta Educativa</h2>
-        <p class="text-gray-500 mt-2 max-w-xl mx-auto">Contamos con todos los niveles del sistema educativo ecuatoriano.</p>
-      </div>
+                <div class="text-center mb-12 fade-up">
+                    <span class="section-eyebrow">Niveles</span>
+                    <h2 class="section-title mt-1">Oferta Educativa</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl mx-auto">Contamos con todos los niveles del sistema educativo
+                        ecuatoriano.</p>
+                </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div class="group bg-gradient-to-b from-yellow-50 to-orange-50 border border-yellow-200 rounded-2xl p-6 text-center card-hover fade-left delay-100">
-          <div class="w-14 h-14 bg-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">🌱</span>
-          </div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Educación Inicial</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Estimulación temprana mediante el juego y el aprendizaje lúdico.</p>
-          <p class="text-yellow-600 font-semibold text-xs mt-3">3 - 5 años</p>
-        </div>
+                    <div
+                        class="group bg-gradient-to-b from-yellow-50 to-orange-50 border border-yellow-200 rounded-2xl p-6 text-center card-hover fade-left delay-100">
+                        <div
+                            class="w-14 h-14 bg-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🌱</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Educación Inicial</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Estimulación temprana mediante el juego y el
+                            aprendizaje lúdico.</p>
+                        <p class="text-yellow-600 font-semibold text-xs mt-3">3 - 5 años</p>
+                    </div>
 
-        <div class="group bg-gradient-to-b from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 text-center card-hover fade-left delay-200">
-          <div class="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">📚</span>
-          </div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Preparatoria</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Primer año de EGB con desarrollo de lectura y escritura básica.</p>
-          <p class="text-green-600 font-semibold text-xs mt-3">5 - 6 años</p>
-        </div>
+                    <div
+                        class="group bg-gradient-to-b from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 text-center card-hover fade-left delay-200">
+                        <div
+                            class="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">📚</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Preparatoria</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Primer año de EGB con desarrollo de lectura y
+                            escritura básica.</p>
+                        <p class="text-green-600 font-semibold text-xs mt-3">5 - 6 años</p>
+                    </div>
 
-        <div class="group bg-gradient-to-b from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 text-center card-hover fade-right delay-200">
-          <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">🔬</span>
-          </div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Educación Básica</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Del 2do al 10mo de EGB con ciencias, matemáticas y humanidades.</p>
-          <p class="text-blue-600 font-semibold text-xs mt-3">6 - 14 años</p>
-        </div>
+                    <div
+                        class="group bg-gradient-to-b from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 text-center card-hover fade-right delay-200">
+                        <div
+                            class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🔬</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Educación Básica</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Del 2do al 10mo de EGB con ciencias,
+                            matemáticas y humanidades.</p>
+                        <p class="text-blue-600 font-semibold text-xs mt-3">6 - 14 años</p>
+                    </div>
 
-        <div class="group bg-gradient-to-b from-rojo-50 to-red-50 border border-red-200 rounded-2xl p-6 text-center card-hover fade-right delay-300">
-          <div class="w-14 h-14 bg-rojo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">🎓</span>
-          </div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Bachillerato</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">BGU con preparación universitaria y pensamiento crítico-científico.</p>
-          <p class="text-rojo-600 font-semibold text-xs mt-3">14 - 18 años</p>
-        </div>
+                    <div
+                        class="group bg-gradient-to-b from-rojo-50 to-red-50 border border-red-200 rounded-2xl p-6 text-center card-hover fade-right delay-300">
+                        <div
+                            class="w-14 h-14 bg-rojo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🎓</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Bachillerato</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">BGU con preparación universitaria y pensamiento
+                            crítico-científico.</p>
+                        <p class="text-rojo-600 font-semibold text-xs mt-3">14 - 18 años</p>
+                    </div>
 
-      </div>
-    </div>
-  </section>
+                </div>
+            </div>
+        </section>
 
-  <!-- ============================================================
+        <!-- ============================================================
        MISIÓN Y VISIÓN
   ============================================================ -->
-  <section id="mision" class="py-20 bg-rojo-700 text-white mision-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="mision" class="py-20 bg-rojo-700 text-white mision-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12 fade-up">
-        <span class="section-eyebrow section-eyebrow--light">Identidad Institucional</span>
-        <h2 class="section-title mt-1 text-white">Misión &amp; Visión</h2>
-      </div>
+                <div class="text-center mb-12 fade-up">
+                    <span class="section-eyebrow section-eyebrow--light">Identidad Institucional</span>
+                    <h2 class="section-title mt-1 text-white">Misión &amp; Visión</h2>
+                </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 gap-8">
 
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 fade-left">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 fade-left">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div
+                                class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Nuestra Misión</h3>
+                        </div>
+                        <p class="text-red-100 leading-relaxed">
+                            El Colegio “Mario Oña Perdomo”, es una Institución fiscal cuya misión es la formación de la
+                            juventud de manera integral en el aspecto humano, científico para que el educando de
+                            Montufar actúe con eficiencia, capacidad y satisfaga las necesidades del entorno. Mediante
+                            sus capacidades intelectuales, procedimentales y valorativas, aplicando el paradigma
+                            ecológico contextual.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 fade-right">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div
+                                class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Nuestra Visión</h3>
+                        </div>
+                        <p class="text-red-100 leading-relaxed">
+                            Ser referente de la educación, generadora de cambios: social, cultural, político económico a
+                            nivel local, provincial y nacional.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Valores -->
+                <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 fade-up">
+                    <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl mb-2">🤝</div>
+                        <p class="font-semibold text-sm">Respeto</p>
+                    </div>
+                    <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl mb-2">⚖️</div>
+                        <p class="font-semibold text-sm">Honestidad</p>
+                    </div>
+                    <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl mb-2">💡</div>
+                        <p class="font-semibold text-sm">Innovación</p>
+                    </div>
+                    <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl mb-2">🌍</div>
+                        <p class="font-semibold text-sm">Responsabilidad</p>
+                    </div>
+                </div>
+
             </div>
-            <h3 class="text-xl font-bold">Nuestra Misión</h3>
-          </div>
-          <p class="text-red-100 leading-relaxed">
-            Brindar una educación de calidad e inclusiva que forme estudiantes íntegros, críticos y creativos, con valores éticos y ciudadanos comprometidos con el desarrollo sostenible de su comunidad y del Ecuador, mediante metodologías innovadoras y un equipo docente comprometido.
-          </p>
-        </div>
+        </section>
 
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 fade-right">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold">Nuestra Visión</h3>
-          </div>
-          <p class="text-red-100 leading-relaxed">
-            Para el año 2030, ser una institución educativa líder en la provincia de Imbabura, reconocida por su excelencia académica, innovación pedagógica e inclusión social, formando bachilleres con competencias para la educación superior y el progreso del Ecuador.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Valores -->
-      <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 fade-up">
-        <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
-          <div class="text-3xl mb-2">🤝</div>
-          <p class="font-semibold text-sm">Respeto</p>
-        </div>
-        <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
-          <div class="text-3xl mb-2">⚖️</div>
-          <p class="font-semibold text-sm">Honestidad</p>
-        </div>
-        <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
-          <div class="text-3xl mb-2">💡</div>
-          <p class="font-semibold text-sm">Innovación</p>
-        </div>
-        <div class="text-center bg-white/10 rounded-xl p-4 border border-white/20">
-          <div class="text-3xl mb-2">🌍</div>
-          <p class="font-semibold text-sm">Responsabilidad</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
+        <!-- ============================================================
        AUTORIDADES
   ============================================================ -->
-  <section id="autoridades" class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="autoridades" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12 fade-up">
-        <span class="section-eyebrow">Equipo Directivo</span>
-        <h2 class="section-title mt-1">Autoridades</h2>
-        <p class="text-gray-500 mt-2">El equipo que lidera nuestra institución con vocación y compromiso.</p>
-      </div>
+                <div class="text-center mb-12 fade-up">
+                    <span class="section-eyebrow">Equipo Directivo</span>
+                    <h2 class="section-title mt-1">Autoridades</h2>
+                    <p class="text-gray-500 mt-2">El equipo que lidera nuestra institución con vocación y compromiso.
+                    </p>
+                </div>
 
-      <div class="flex flex-wrap justify-center gap-8">
+                <div class="flex flex-wrap justify-center gap-8">
 
-        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 card-hover max-w-xs w-full fade-left">
-          <div class="w-24 h-24 bg-gradient-to-br from-rojo-600 to-rojo-800 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-white text-3xl font-bold">R</span>
-          </div>
-          <h3 class="font-bold text-gray-900 text-lg">Msc. Rectora Institucional</h3>
-          <p class="text-rojo-600 font-semibold text-sm mt-1">Rectora</p>
-          <p class="text-gray-500 text-sm mt-3 leading-relaxed">Comprometida con la excelencia educativa y el desarrollo integral de toda la comunidad estudiantil.</p>
-          <div class="mt-4">
-            <span class="bg-rojo-50 text-rojo-700 text-xs px-3 py-1 rounded-full font-medium">Gestión Educativa</span>
-          </div>
-        </div>
+                    <div
+                        class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 card-hover max-w-xs w-full fade-left">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-rojo-600 to-rojo-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-3xl font-bold">R</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Msc. Rectora Institucional</h3>
+                        <p class="text-rojo-600 font-semibold text-sm mt-1">Rectora</p>
+                        <p class="text-gray-500 text-sm mt-3 leading-relaxed">Comprometida con la excelencia educativa y
+                            el desarrollo integral de toda la comunidad estudiantil.</p>
+                        <div class="mt-4">
+                            <span class="bg-rojo-50 text-rojo-700 text-xs px-3 py-1 rounded-full font-medium">Gestión
+                                Educativa</span>
+                        </div>
+                    </div>
 
-        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 card-hover max-w-xs w-full fade-right">
-          <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-white text-3xl font-bold">V</span>
-          </div>
-          <h3 class="font-bold text-gray-900 text-lg">Msc. Vicerrector Académico</h3>
-          <p class="text-emerald-600 font-semibold text-sm mt-1">Vicerrector</p>
-          <p class="text-gray-500 text-sm mt-3 leading-relaxed">Coordinando los procesos pedagógicos y el acompañamiento docente de nuestra institución.</p>
-          <div class="mt-4">
-            <span class="bg-emerald-50 text-emerald-700 text-xs px-3 py-1 rounded-full font-medium">Pedagogía</span>
-          </div>
-        </div>
+                    <div
+                        class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 card-hover max-w-xs w-full fade-right">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-3xl font-bold">V</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg">Msc. Vicerrector Académico</h3>
+                        <p class="text-emerald-600 font-semibold text-sm mt-1">Vicerrector</p>
+                        <p class="text-gray-500 text-sm mt-3 leading-relaxed">Coordinando los procesos pedagógicos y el
+                            acompañamiento docente de nuestra institución.</p>
+                        <div class="mt-4">
+                            <span
+                                class="bg-emerald-50 text-emerald-700 text-xs px-3 py-1 rounded-full font-medium">Pedagogía</span>
+                        </div>
+                    </div>
 
-      </div>
-    </div>
-  </section>
+                </div>
+            </div>
+        </section>
 
-  <!-- ============================================================
+        <!-- ============================================================
        FORMULARIO DE CONTACTO
   ============================================================ -->
-  <section id="contacto" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="contacto" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-12 fade-up">
-        <span class="section-eyebrow">Contáctanos</span>
-        <h2 class="section-title mt-1">Escríbenos</h2>
-        <p class="text-gray-500 mt-2 max-w-xl mx-auto">¿Tienes preguntas sobre inscripciones, horarios o actividades? Estamos para ayudarte.</p>
-      </div>
+                <div class="text-center mb-12 fade-up">
+                    <span class="section-eyebrow">Contáctanos</span>
+                    <h2 class="section-title mt-1">Escríbenos</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl mx-auto">¿Tienes preguntas sobre inscripciones, horarios o
+                        actividades? Estamos para ayudarte.</p>
+                </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
 
-        <!-- Info de contacto -->
-        <div class="fade-left">
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-semibold text-gray-900 text-sm">Dirección</p>
-                <p class="text-gray-500 text-sm mt-1">Ibarra, provincia de Imbabura, Ecuador</p>
-              </div>
+                    <!-- Info de contacto -->
+                    <div class="fade-left">
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 text-sm">Dirección</p>
+                                    <p class="text-gray-500 text-sm mt-1">Ibarra, provincia de Imbabura, Ecuador</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 text-sm">Correo electrónico</p>
+                                    <p class="text-gray-500 text-sm mt-1">info@uemoperdomo.es</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 text-sm">Teléfono</p>
+                                    <p class="text-gray-500 text-sm mt-1">+593 06 000 0000</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900 text-sm">Horario de atención</p>
+                                    <p class="text-gray-500 text-sm mt-1">Lunes a Viernes: 7:00 – 14:00</p>
+                                    <p class="text-gray-500 text-sm">Secretaría: 8:00 – 13:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mapa placeholder -->
+                        <div
+                            class="mt-8 rounded-2xl overflow-hidden border border-gray-200 h-52 bg-gray-100 flex items-center justify-center">
+                            <div class="text-center text-gray-400">
+                                <svg class="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                                </svg>
+                                <p class="text-sm">Mapa — Ibarra, Imbabura</p>
+                                <a href="https://maps.google.com/?q=Ibarra+Ecuador" target="_blank"
+                                    class="text-rojo-600 text-xs font-medium hover:underline mt-1 inline-block">Ver en
+                                    Google Maps →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario -->
+                    <div class="fade-right">
+                        <form id="contactForm" class="bg-gray-50 rounded-2xl p-8 border border-gray-100 space-y-5"
+                            novalidate>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="campo-nombre"
+                                        class="block text-sm font-semibold text-gray-700 mb-1.5">Nombre *</label>
+                                    <input type="text" id="campo-nombre" name="nombre" class="input-field"
+                                        placeholder="Tu nombre" required autocomplete="given-name" aria-required="true"
+                                        aria-describedby="error-nombre" />
+                                    <p id="error-nombre" class="form-error hidden text-xs text-red-600 mt-1"
+                                        role="alert">Por favor ingresa tu nombre.</p>
+                                </div>
+                                <div>
+                                    <label for="campo-apellido"
+                                        class="block text-sm font-semibold text-gray-700 mb-1.5">Apellido *</label>
+                                    <input type="text" id="campo-apellido" name="apellido" class="input-field"
+                                        placeholder="Tu apellido" required autocomplete="family-name"
+                                        aria-required="true" aria-describedby="error-apellido" />
+                                    <p id="error-apellido" class="form-error hidden text-xs text-red-600 mt-1"
+                                        role="alert">Por favor ingresa tu apellido.</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="campo-email" class="block text-sm font-semibold text-gray-700 mb-1.5">Correo
+                                    electrónico *</label>
+                                <input type="email" id="campo-email" name="email" class="input-field"
+                                    placeholder="tu@correo.com" required autocomplete="email" aria-required="true"
+                                    aria-describedby="error-email" />
+                                <p id="error-email" class="form-error hidden text-xs text-red-600 mt-1" role="alert">Por
+                                    favor ingresa un correo válido.</p>
+                            </div>
+
+                            <div>
+                                <label for="campo-asunto"
+                                    class="block text-sm font-semibold text-gray-700 mb-1.5">Asunto</label>
+                                <select id="campo-asunto" name="asunto" class="input-field">
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="inscripcion">Proceso de inscripción</option>
+                                    <option value="horarios">Horarios y calendario</option>
+                                    <option value="academico">Información académica</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="campo-mensaje"
+                                    class="block text-sm font-semibold text-gray-700 mb-1.5">Mensaje *</label>
+                                <textarea id="campo-mensaje" name="mensaje" rows="5" class="input-field resize-none"
+                                    placeholder="Escribe tu mensaje aquí..." required aria-required="true"
+                                    aria-describedby="error-mensaje"></textarea>
+                                <p id="error-mensaje" class="form-error hidden text-xs text-red-600 mt-1" role="alert">
+                                    Por favor escribe tu mensaje.</p>
+                            </div>
+
+                            <button type="submit" class="btn-primary">
+                                Enviar Mensaje
+                            </button>
+                            <p class="text-xs text-gray-400 text-center">(*) Campos obligatorios</p>
+                        </form>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-semibold text-gray-900 text-sm">Correo electrónico</p>
-                <p class="text-gray-500 text-sm mt-1">info@uemoperdomo.es</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-semibold text-gray-900 text-sm">Teléfono</p>
-                <p class="text-gray-500 text-sm mt-1">+593 06 000 0000</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 bg-rojo-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-rojo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="font-semibold text-gray-900 text-sm">Horario de atención</p>
-                <p class="text-gray-500 text-sm mt-1">Lunes a Viernes: 7:00 – 14:00</p>
-                <p class="text-gray-500 text-sm">Secretaría: 8:00 – 13:00</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mapa placeholder -->
-          <div class="mt-8 rounded-2xl overflow-hidden border border-gray-200 h-52 bg-gray-100 flex items-center justify-center">
-            <div class="text-center text-gray-400">
-              <svg class="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-              </svg>
-              <p class="text-sm">Mapa — Ibarra, Imbabura</p>
-              <a href="https://maps.google.com/?q=Ibarra+Ecuador" target="_blank" class="text-rojo-600 text-xs font-medium hover:underline mt-1 inline-block">Ver en Google Maps →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Formulario -->
-        <div class="fade-right">
-          <form id="contactForm" class="bg-gray-50 rounded-2xl p-8 border border-gray-100 space-y-5" novalidate>
-
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label for="campo-nombre" class="block text-sm font-semibold text-gray-700 mb-1.5">Nombre *</label>
-                <input type="text" id="campo-nombre" name="nombre" class="input-field"
-                       placeholder="Tu nombre" required autocomplete="given-name"
-                       aria-required="true" aria-describedby="error-nombre" />
-                <p id="error-nombre" class="form-error hidden text-xs text-red-600 mt-1" role="alert">Por favor ingresa tu nombre.</p>
-              </div>
-              <div>
-                <label for="campo-apellido" class="block text-sm font-semibold text-gray-700 mb-1.5">Apellido *</label>
-                <input type="text" id="campo-apellido" name="apellido" class="input-field"
-                       placeholder="Tu apellido" required autocomplete="family-name"
-                       aria-required="true" aria-describedby="error-apellido" />
-                <p id="error-apellido" class="form-error hidden text-xs text-red-600 mt-1" role="alert">Por favor ingresa tu apellido.</p>
-              </div>
-            </div>
-
-            <div>
-              <label for="campo-email" class="block text-sm font-semibold text-gray-700 mb-1.5">Correo electrónico *</label>
-              <input type="email" id="campo-email" name="email" class="input-field"
-                     placeholder="tu@correo.com" required autocomplete="email"
-                     aria-required="true" aria-describedby="error-email" />
-              <p id="error-email" class="form-error hidden text-xs text-red-600 mt-1" role="alert">Por favor ingresa un correo válido.</p>
-            </div>
-
-            <div>
-              <label for="campo-asunto" class="block text-sm font-semibold text-gray-700 mb-1.5">Asunto</label>
-              <select id="campo-asunto" name="asunto" class="input-field">
-                <option value="">Selecciona un asunto</option>
-                <option value="inscripcion">Proceso de inscripción</option>
-                <option value="horarios">Horarios y calendario</option>
-                <option value="academico">Información académica</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="campo-mensaje" class="block text-sm font-semibold text-gray-700 mb-1.5">Mensaje *</label>
-              <textarea id="campo-mensaje" name="mensaje" rows="5" class="input-field resize-none"
-                        placeholder="Escribe tu mensaje aquí..." required
-                        aria-required="true" aria-describedby="error-mensaje"></textarea>
-              <p id="error-mensaje" class="form-error hidden text-xs text-red-600 mt-1" role="alert">Por favor escribe tu mensaje.</p>
-            </div>
-
-            <button type="submit" class="btn-primary">
-              Enviar Mensaje
-            </button>
-            <p class="text-xs text-gray-400 text-center">(*) Campos obligatorios</p>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
+        <!-- ============================================================
        FOOTER
   ============================================================ -->
-  <footer class="bg-gray-900 text-gray-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <footer class="bg-gray-900 text-gray-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-        <div class="lg:col-span-1">
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-9 h-9 bg-rojo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">UE</div>
-            <p class="text-white font-bold text-sm">Mario Oña Perdomo</p>
-          </div>
-          <p class="text-gray-400 text-sm leading-relaxed">Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979.</p>
-          <!-- Redes sociales -->
-          <div class="flex items-center gap-3 mt-5">
-            <a href="#" aria-label="Facebook de U.E. Mario Oña Perdomo" class="w-8 h-8 rounded-lg bg-white/8 hover:bg-rojo-600 flex items-center justify-center text-gray-500 hover:text-white transition-all duration-200">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="Instagram de U.E. Mario Oña Perdomo" class="w-8 h-8 rounded-lg bg-white/8 hover:bg-rojo-600 flex items-center justify-center text-gray-500 hover:text-white transition-all duration-200">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="YouTube de U.E. Mario Oña Perdomo" class="w-8 h-8 rounded-lg bg-white/8 hover:bg-rojo-600 flex items-center justify-center text-gray-500 hover:text-white transition-all duration-200">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+                    <div class="lg:col-span-1">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div
+                                class="w-9 h-9 bg-rojo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                                UE</div>
+                            <p class="text-white font-bold text-sm">Mario Oña Perdomo</p>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">Institución educativa pública comprometida con
+                            la formación integral de niños y jóvenes de Ibarra desde 1979.</p>
+                        <!-- Redes sociales -->
+                        <div class="flex items-center gap-3 mt-5">
+                            <a href="#" aria-label="Facebook de U.E. Mario Oña Perdomo"
+                                class="w-8 h-8 rounded-lg bg-white/8 hover:bg-rojo-600 flex items-center justify-center text-gray-500 hover:text-white transition-all duration-200">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Instagram de U.E. Mario Oña Perdomo"
+                                class="w-8 h-8 rounded-lg bg-white/8 hover:bg-rojo-600 flex items-center justify-center text-gray-500 hover:text-white transition-all duration-200">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="YouTube de U.E. Mario Oña Perdomo"
+                                class="w-8 h-8 rounded-lg bg-white/8 hover:bg-rojo-600 flex items-center justify-center text-gray-500 hover:text-white transition-all duration-200">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 
-        <div>
-          <h4 class="text-white font-semibold text-sm mb-4">Navegación</h4>
-          <ul class="space-y-2">
-            <li><a href="#inicio"      class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Inicio</a></li>
-            <li><a href="#eventos"     class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Eventos</a></li>
-            <li><a href="#galeria"     class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Galería</a></li>
-            <li><a href="#oferta"      class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Oferta Educativa</a></li>
-            <li><a href="#mision"      class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Misión & Visión</a></li>
-            <li><a href="#autoridades" class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Autoridades</a></li>
-          </ul>
-        </div>
+                    <div>
+                        <h4 class="text-white font-semibold text-sm mb-4">Navegación</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#inicio"
+                                    class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Inicio</a></li>
+                            <li><a href="#eventos"
+                                    class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Eventos</a></li>
+                            <li><a href="#galeria"
+                                    class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Galería</a></li>
+                            <li><a href="#oferta"
+                                    class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Oferta
+                                    Educativa</a></li>
+                            <li><a href="#mision"
+                                    class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Misión &
+                                    Visión</a></li>
+                            <li><a href="#autoridades"
+                                    class="text-gray-400 hover:text-rojo-400 text-sm transition-colors">Autoridades</a>
+                            </li>
+                        </ul>
+                    </div>
 
-        <div>
-          <h4 class="text-white font-semibold text-sm mb-4">Contacto</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-2 text-sm">
-              <svg class="w-4 h-4 mt-0.5 text-rojo-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span class="text-gray-400">Ibarra, Imbabura, Ecuador</span>
-            </li>
-            <li class="flex items-center gap-2 text-sm">
-              <svg class="w-4 h-4 text-rojo-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              <span class="text-gray-400">info@uemoperdomo.es</span>
-            </li>
-            <li class="flex items-center gap-2 text-sm">
-              <svg class="w-4 h-4 text-rojo-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-              </svg>
-              <span class="text-gray-400">+593 06 000 0000</span>
-            </li>
-          </ul>
-        </div>
+                    <div>
+                        <h4 class="text-white font-semibold text-sm mb-4">Contacto</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 text-sm">
+                                <svg class="w-4 h-4 mt-0.5 text-rojo-400 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <span class="text-gray-400">Ibarra, Imbabura, Ecuador</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-sm">
+                                <svg class="w-4 h-4 text-rojo-400 flex-shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <span class="text-gray-400">info@uemoperdomo.es</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-sm">
+                                <svg class="w-4 h-4 text-rojo-400 flex-shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                                <span class="text-gray-400">+593 06 000 0000</span>
+                            </li>
+                        </ul>
+                    </div>
 
-        <div>
-          <h4 class="text-white font-semibold text-sm mb-4">Horario</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li class="flex justify-between">
-              <span>Lunes – Viernes</span>
-              <span class="text-gray-300 ml-4">7:00 – 14:00</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Secretaría</span>
-              <span class="text-gray-300 ml-4">8:00 – 13:00</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Fin de semana</span>
-              <span class="text-gray-300 ml-4">Cerrado</span>
-            </li>
-          </ul>
-          <a href="https://uemoperdomo.es" target="_blank" rel="noopener" class="inline-block mt-5 text-rojo-400 hover:text-rojo-300 text-sm font-medium transition-colors">
-            Sitio oficial →
-          </a>
-        </div>
+                    <div>
+                        <h4 class="text-white font-semibold text-sm mb-4">Horario</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex justify-between">
+                                <span>Lunes – Viernes</span>
+                                <span class="text-gray-300 ml-4">7:00 – 14:00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Secretaría</span>
+                                <span class="text-gray-300 ml-4">8:00 – 13:00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Fin de semana</span>
+                                <span class="text-gray-300 ml-4">Cerrado</span>
+                            </li>
+                        </ul>
+                        <a href="https://uemoperdomo.es" target="_blank" rel="noopener"
+                            class="inline-block mt-5 text-rojo-400 hover:text-rojo-300 text-sm font-medium transition-colors">
+                            Sitio oficial →
+                        </a>
+                    </div>
 
-      </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 py-5">
+                <div
+                    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+                    <p class="text-gray-500 text-xs">© <span id="year"></span> U.E. Mario Oña Perdomo — Ibarra, Ecuador.
+                        Todos los derechos reservados.</p>
+                    <p class="text-gray-600 text-xs">Proyecto de práctica — Desarrollo Web con Tailwind CSS</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Toast — role="alert" para que screen readers lo anuncien automáticamente -->
+    <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        ✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.
     </div>
 
-    <div class="border-t border-gray-800 py-5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p class="text-gray-500 text-xs">© <span id="year"></span> U.E. Mario Oña Perdomo — Ibarra, Ecuador. Todos los derechos reservados.</p>
-        <p class="text-gray-600 text-xs">Proyecto de práctica — Desarrollo Web con Tailwind CSS</p>
-      </div>
-    </div>
-  </footer>
+    <!-- Botón volver arriba -->
+    <button id="back-to-top" aria-label="Volver al inicio de la página">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 
-  </main>
+    <!-- Inyecta ítems de galería y eventos desde localStorage ANTES de que main.js inicie el lightbox -->
+  <script>
+    (function () {
+      function esc(s) {
+        return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : '';
+      }
 
-  <!-- Toast — role="alert" para que screen readers lo anuncien automáticamente -->
-  <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    ✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.
-  </div>
+      /* --- Galería dinámica --- */
+      try {
+        var gItems = JSON.parse(localStorage.getItem('gallery_items') || '[]');
+        var gGrid  = document.getElementById('galeria-grid');
+        if (gGrid && gItems.length) {
+          gItems.forEach(function (item) {
+            var div = document.createElement('div');
+            div.className = 'gallery-item fade-up';
+            div.setAttribute('tabindex', '0');
+            div.setAttribute('role', 'button');
+            div.setAttribute('aria-label', 'Ver imagen: ' + esc(item.caption));
+            div.setAttribute('data-caption', esc(item.caption));
+            div.innerHTML =
+              '<img src="' + esc(item.url) + '" alt="' + esc(item.caption) + '" class="w-full h-48 object-cover rounded-xl" loading="lazy" />' +
+              '<div class="gallery-overlay" aria-hidden="true">' +
+              '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+              '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>' +
+              '</svg></div>';
+            gGrid.appendChild(div);
+          });
+        }
+      } catch (e) {}
 
-  <!-- Botón volver arriba -->
-  <button id="back-to-top" aria-label="Volver al inicio de la página">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
-    </svg>
-  </button>
+      /* --- Eventos dinámicos --- */
+      try {
+        var eItems = JSON.parse(localStorage.getItem('event_items') || '[]');
+        var eGrid  = document.getElementById('eventos-grid');
+        if (eGrid && eItems.length) {
+          eItems.forEach(function (item) {
+            var imgBlock = item.imagen
+              ? '<img src="' + esc(item.imagen) + '" alt="' + esc(item.titulo) + '" class="w-full h-40 object-cover" />'
+              : '<div class="bg-gradient-to-br from-rojo-600 to-rojo-800 h-40 flex items-center justify-center">' +
+                '<svg class="w-14 h-14 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
+                '</svg></div>';
+
+            var fechaStr = '';
+            if (item.fecha) {
+              try {
+                var d = new Date(item.fecha + 'T12:00:00');
+                fechaStr = d.toLocaleDateString('es-EC', { day: 'numeric', month: 'long', year: 'numeric' });
+              } catch (e) { fechaStr = item.fecha; }
+            }
+
+            var card = document.createElement('div');
+            card.className = 'bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up';
+            card.innerHTML =
+              imgBlock +
+              '<div class="p-5">' +
+              '<span class="text-xs font-semibold text-rojo-600 bg-rojo-50 px-2 py-1 rounded-full">Evento</span>' +
+              '<h3 class="card-title mt-3 mb-2">' + esc(item.titulo) + '</h3>' +
+              '<p class="text-gray-500 text-sm leading-relaxed">' + esc(item.descripcion) + '</p>' +
+              (fechaStr ? '<div class="flex items-center gap-2 mt-4 text-xs text-gray-400">' +
+                '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
+                '</svg>' + fechaStr + '</div>' : '') +
+              '</div>';
+            eGrid.appendChild(card);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
