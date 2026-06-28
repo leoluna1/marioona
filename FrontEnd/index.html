@@ -63,7 +63,7 @@
        NAVBAR
   ============================================================ -->
     <nav class="bg-white sticky top-0 z-50 border-b border-gray-100" aria-label="Navegación principal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section-inner">
             <div class="flex items-center justify-between h-16">
 
                 <!-- Logo -->
@@ -89,8 +89,7 @@
                 </div>
 
                 <!-- Botón login -->
-                <a href="#"
-                    class="hidden md:inline-flex items-center gap-2 bg-rojo-600 hover:bg-rojo-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+                <a href="#" class="nav-login-btn">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
@@ -99,7 +98,7 @@
                 </a>
 
                 <!-- Hamburguesa mobile -->
-                <button id="menuBtn" class="md:hidden p-2 rounded-md text-gray-600 hover:text-rojo-600 hover:bg-rojo-50"
+                <button id="menuBtn" class="hamburger-btn"
                     aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
                     <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -127,21 +126,18 @@
        HERO
   ============================================================ -->
     <main id="main-content">
-        <section id="inicio" class="hero-bg min-h-[88vh] flex items-center relative overflow-hidden"
+        <section id="inicio" class="hero-bg"
             aria-labelledby="hero-titulo">
             <!-- Círculos decorativos (ocultos a lectores de pantalla) -->
-            <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-white opacity-5 translate-x-1/3 -translate-y-1/4"
-                aria-hidden="true"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white opacity-5 -translate-x-1/4 translate-y-1/4"
-                aria-hidden="true"></div>
+            <div class="hero-circle-tr" aria-hidden="true"></div>
+            <div class="hero-circle-bl" aria-hidden="true"></div>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
+            <div class="section-inner hero-inner">
                 <div class="grid lg:grid-cols-2 gap-14 items-center">
 
                     <!-- Texto -->
                     <div class="text-white">
-                        <span
-                            class="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4 backdrop-blur-sm">
+                        <span class="hero-badge">
                             📅 Año Lectivo 2025 – 2026
                         </span>
                         <h1 id="hero-titulo" class="text-display font-extrabold leading-tight mb-4">
@@ -271,7 +267,7 @@
        EVENTOS
   ============================================================ -->
         <section id="eventos" class="py-20 bg-gray-50" aria-labelledby="eventos-titulo">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-inner">
 
                 <div class="text-center mb-12 fade-up">
                     <span class="section-eyebrow" aria-hidden="true">Noticias</span>
@@ -283,7 +279,7 @@
                 <div id="eventos-grid" class="grid md:grid-cols-3 gap-6">
 
                     <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-100">
+                        class="content-card fade-up delay-100">
                         <img src="images/evento-panoramica.jpg" alt="Acto de Fin de Año Lectivo 2025"
                             class="w-full h-40 object-cover" loading="lazy" />
                         <div class="p-5">
@@ -303,7 +299,7 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-200">
+                        class="content-card fade-up delay-200">
                         <img src="images/evento-edificio.jpg" alt="Olimpiadas Intercolegiales 2025"
                             class="w-full h-40 object-cover" loading="lazy" />
                         <div class="p-5">
@@ -323,7 +319,7 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-300">
+                        class="content-card fade-up delay-300">
                         <img src="images/evento-especial.jpg" alt="Feria de Ciencias e Innovación"
                             class="w-full h-40 object-cover" loading="lazy" />
                         <div class="p-5">
@@ -350,7 +346,7 @@
        GALERÍA
   ============================================================ -->
         <section id="galeria" class="py-20 bg-white" aria-labelledby="galeria-titulo">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-inner">
 
                 <div class="text-center mb-12 fade-up">
                     <span class="section-eyebrow" aria-hidden="true">Fotos</span>
@@ -363,8 +359,7 @@
 
                     <div class="gallery-item fade-up delay-100" role="listitem" data-caption="Acto de graduación 2024"
                         tabindex="0" role="button" aria-label="Ver imagen: Acto de graduación 2024">
-                        <img src="images/galeria-1.jpg" alt="Acto de graduación 2024" class="w-full h-48 object-cover"
-                            loading="lazy" />
+                        <img src="images/galeria-1.jpg" alt="Acto de graduación 2024"                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -376,7 +371,7 @@
                     <div class="gallery-item fade-up delay-200" data-caption="Olimpiadas deportivas 2024" tabindex="0"
                         role="button" aria-label="Ver imagen: Olimpiadas deportivas 2024">
                         <img src="images/galeria-2.jpg" alt="Olimpiadas deportivas 2024"
-                            class="w-full h-48 object-cover" loading="lazy" />
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -387,8 +382,7 @@
 
                     <div class="gallery-item fade-up delay-300" data-caption="Feria de Ciencias 2024" tabindex="0"
                         role="button" aria-label="Ver imagen: Feria de Ciencias 2024">
-                        <img src="images/galeria-3.jpg" alt="Feria de Ciencias 2024" class="w-full h-48 object-cover"
-                            loading="lazy" />
+                        <img src="images/galeria-3.jpg" alt="Feria de Ciencias 2024"                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -400,7 +394,7 @@
                     <div class="gallery-item fade-up delay-400" data-caption="Acto cívico — Día de la Independencia"
                         tabindex="0" role="button" aria-label="Ver imagen: Acto cívico — Día de la Independencia">
                         <img src="images/galeria-4.jpg" alt="Acto cívico — Día de la Independencia"
-                            class="w-full h-48 object-cover" loading="lazy" />
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -412,7 +406,7 @@
                     <div class="gallery-item fade-up delay-100" data-caption="Club de Lectura estudiantil" tabindex="0"
                         role="button" aria-label="Ver imagen: Club de Lectura estudiantil">
                         <img src="images/galeria-5.jpg" alt="Club de Lectura estudiantil"
-                            class="w-full h-48 object-cover" loading="lazy" />
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -424,7 +418,7 @@
                     <div class="gallery-item fade-up delay-200" data-caption="Danza folclórica — Festival Cultural"
                         tabindex="0" role="button" aria-label="Ver imagen: Danza folclórica — Festival Cultural">
                         <img src="images/galeria-6.jpg" alt="Danza folclórica — Festival Cultural"
-                            class="w-full h-48 object-cover" loading="lazy" />
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -436,7 +430,7 @@
                     <div class="gallery-item fade-up delay-300" data-caption="Laboratorio de Computación" tabindex="0"
                         role="button" aria-label="Ver imagen: Laboratorio de Computación">
                         <img src="images/galeria-7.jpg" alt="Laboratorio de Computación"
-                            class="w-full h-48 object-cover" loading="lazy" />
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -448,7 +442,7 @@
                     <div class="gallery-item fade-up delay-400" data-caption="Cancha deportiva institucional"
                         tabindex="0" role="button" aria-label="Ver imagen: Cancha deportiva institucional">
                         <img src="images/galeria-8.jpg" alt="Cancha deportiva institucional"
-                            class="w-full h-48 object-cover" loading="lazy" />
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -475,7 +469,7 @@
        OFERTA EDUCATIVA
   ============================================================ -->
         <section id="oferta" class="py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-inner">
 
                 <div class="text-center mb-12 fade-up">
                     <span class="section-eyebrow">Niveles</span>
@@ -542,7 +536,7 @@
        MISIÓN Y VISIÓN
   ============================================================ -->
         <section id="mision" class="py-20 bg-rojo-700 text-white mision-section">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-inner">
 
                 <div class="text-center mb-12 fade-up">
                     <span class="section-eyebrow section-eyebrow--light">Identidad Institucional</span>
@@ -551,10 +545,10 @@
 
                 <div class="grid md:grid-cols-2 gap-8">
 
-                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 fade-left">
+                    <div class="mision-card fade-left">
                         <div class="flex items-center gap-4 mb-5">
                             <div
-                                class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                class="mision-icon">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -571,10 +565,10 @@
                         </p>
                     </div>
 
-                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 fade-right">
+                    <div class="mision-card fade-right">
                         <div class="flex items-center gap-4 mb-5">
                             <div
-                                class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                class="mision-icon">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -619,7 +613,7 @@
        AUTORIDADES
   ============================================================ -->
         <section id="autoridades" class="py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-inner">
 
                 <div class="text-center mb-12 fade-up">
                     <span class="section-eyebrow">Equipo Directivo</span>
@@ -631,7 +625,7 @@
                 <div class="flex flex-wrap justify-center gap-8">
 
                     <div
-                        class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 card-hover max-w-xs w-full fade-left">
+                        class="authority-card fade-left">
                         <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-rojo-100">
                             <img src="images/rector.jpg" alt="MSc. Patricio Gandy Enríquez Enríquez"
                                 class="w-full h-full object-cover object-top" />
@@ -647,7 +641,7 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 card-hover max-w-xs w-full fade-right">
+                        class="authority-card fade-right">
                         <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-rojo-100">
                             <img src="images/vicerrector.jpg" alt="MSc. Carlos Fernando Obando Chaves"
                                 class="w-full h-full object-cover object-top" />
@@ -670,7 +664,7 @@
        DOCENTES
   ============================================================ -->
         <section id="docentes" class="py-20 bg-gray-50" aria-labelledby="docentes-titulo">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-inner">
 
                 <div class="text-center mb-12 fade-up">
                     <span class="section-eyebrow" aria-hidden="true">Personal</span>
@@ -682,12 +676,11 @@
                 <div class="grid md:grid-cols-3 gap-6">
 
                     <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-100">
+                        class="content-card fade-up delay-100">
                         <img src="images/docentes-matriz.jpg" alt="Docentes Sede Matriz"
                             class="w-full h-52 object-cover" loading="lazy" />
                         <div class="p-5">
-                            <span class="badge-rojo">Sede
-                                Matriz</span>
+                            <span class="badge-rojo">Sede Matriz</span>
                             <h3 class="card-title mt-3 mb-2">Docentes Sede Matriz</h3>
                             <p class="text-gray-500 text-sm leading-relaxed">Personal docente de la sede principal de la
                                 institución, comprometidos con la excelencia académica.</p>
@@ -695,12 +688,11 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-200">
+                        class="content-card fade-up delay-200">
                         <img src="images/docentes-sede2.jpg" alt="Docentes Sede 2" class="w-full h-52 object-cover"
                             loading="lazy" />
                         <div class="p-5">
-                            <span class="badge-rojo">Sede
-                                2</span>
+                            <span class="badge-rojo">Sede 2</span>
                             <h3 class="card-title mt-3 mb-2">Docentes Sede 2</h3>
                             <p class="text-gray-500 text-sm leading-relaxed">Equipo docente de nuestra segunda sede,
                                 dedicados a brindar una educación de calidad.</p>
@@ -708,12 +700,11 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up delay-300">
+                        class="content-card fade-up delay-300">
                         <img src="images/docentes-sede3.jpg" alt="Docentes Sede 3" class="w-full h-52 object-cover"
                             loading="lazy" />
                         <div class="p-5">
-                            <span class="badge-rojo">Sede
-                                3</span>
+                            <span class="badge-rojo">Sede 3</span>
                             <h3 class="card-title mt-3 mb-2">Docentes Sede 3</h3>
                             <p class="text-gray-500 text-sm leading-relaxed">Personal docente de nuestra tercera sede,
                                 formando a los estudiantes con vocación y compromiso.</p>
@@ -728,7 +719,7 @@
        FORMULARIO DE CONTACTO
   ============================================================ -->
         <section id="contacto" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-inner">
 
                 <div class="text-center mb-12 fade-up">
                     <span class="section-eyebrow">Contáctanos</span>
@@ -754,8 +745,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-gray-900 text-sm">Dirección</p>
-                                    <p class="text-gray-500 text-sm mt-1">Río Cofanes y Río Aguarico, Ibarra, Imbabura
+                                    <p class="contact-label">Dirección</p>
+                                    <p class="contact-value">Río Cofanes y Río Aguarico, Ibarra, Imbabura
                                     </p>
                                 </div>
                             </div>
@@ -770,8 +761,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-gray-900 text-sm">Correo electrónico</p>
-                                    <p class="text-gray-500 text-sm mt-1">info@uemoperdomo.es</p>
+                                    <p class="contact-label">Correo electrónico</p>
+                                    <p class="contact-value">info@uemoperdomo.es</p>
                                 </div>
                             </div>
 
@@ -785,8 +776,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-gray-900 text-sm">Teléfono</p>
-                                    <p class="text-gray-500 text-sm mt-1">+593 99 249 1624</p>
+                                    <p class="contact-label">Teléfono</p>
+                                    <p class="contact-value">+593 99 249 1624</p>
                                 </div>
                             </div>
 
@@ -800,8 +791,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-gray-900 text-sm">Horario de atención</p>
-                                    <p class="text-gray-500 text-sm mt-1">Lunes a Viernes: 07:00 – 12:30</p>
+                                    <p class="contact-label">Horario de atención</p>
+                                    <p class="contact-value">Lunes a Viernes: 07:00 – 12:30</p>
                                 </div>
                             </div>
                         </div>
@@ -893,7 +884,7 @@
        FOOTER
   ============================================================ -->
         <footer class="bg-gray-900 text-gray-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="section-inner py-14">
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
                     <div class="lg:col-span-1">
@@ -930,7 +921,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-semibold text-sm mb-4">Navegación</h4>
+                        <h4 class="footer-heading">Navegación</h4>
                         <ul class="space-y-2">
                             <li><a href="#inicio"
                                     class="footer-link">Inicio</a></li>
@@ -954,7 +945,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-semibold text-sm mb-4">Contacto</h4>
+                        <h4 class="footer-heading">Contacto</h4>
                         <ul class="space-y-3">
                             <li class="flex items-start gap-2 text-sm">
                                 <svg class="w-4 h-4 mt-0.5 text-rojo-400 flex-shrink-0" fill="none"
@@ -986,7 +977,7 @@
                     </div>
 
                     <div>
-                        <h4 class="text-white font-semibold text-sm mb-4">Horario</h4>
+                        <h4 class="footer-heading">Horario</h4>
                         <ul class="space-y-2 text-sm text-gray-400">
                             <li class="flex justify-between">
                                 <span>Lunes – Viernes</span>
@@ -1002,7 +993,7 @@
                             </li>
                         </ul>
                         <a href="https://uemoperdomo.es" target="_blank" rel="noopener"
-                            class="inline-block mt-5 text-rojo-400 hover:text-rojo-300 text-sm font-medium transition-colors">
+                            class="footer-link-accent">
                             Sitio oficial →
                         </a>
                     </div>
@@ -1012,7 +1003,7 @@
 
             <div class="border-t border-gray-800 py-5">
                 <div
-                    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+                    class="section-inner flex flex-col sm:flex-row justify-between items-center gap-2">
                     <p class="text-gray-500 text-xs">© <span id="year"></span> U.E. Mario Oña Perdomo — Ibarra, Ecuador.
                         Todos los derechos reservados.</p>
                     <p class="text-gray-600 text-xs">Proyecto de práctica — Desarrollo Web con Tailwind CSS</p>
@@ -1054,7 +1045,7 @@
                             div.setAttribute('aria-label', 'Ver imagen: ' + esc(item.caption));
                             div.setAttribute('data-caption', esc(item.caption));
                             div.innerHTML =
-                                '<img src="' + esc(item.url) + '" alt="' + esc(item.caption) + '" class="w-full h-48 object-cover rounded-xl" loading="lazy" />' +
+                                '<img src="' + esc(item.url) + '" alt="' + esc(item.caption) + '" class="rounded-xl" loading="lazy" />' +
                                 '<div class="gallery-overlay" aria-hidden="true">' +
                                 '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
                                 '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>' +
@@ -1086,7 +1077,7 @@
                             }
 
                             var card = document.createElement('div');
-                            card.className = 'bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover fade-up';
+                            card.className = 'content-card fade-up';
                             card.innerHTML =
                                 imgBlock +
                                 '<div class="p-5">' +
