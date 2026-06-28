@@ -4,25 +4,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>U.E. Mario Oña Perdomo — Ibarra, Ecuador</title>
+    <title>U.E. Mario Oña Perdomo — San Gabriel, Carchi, Ecuador</title>
     <meta name="description"
-        content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en Ibarra, Imbabura, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
+        content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en San Gabriel, Carchi, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: http: https:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
     <meta name="keywords"
-        content="Mario Oña Perdomo, colegio Ibarra, unidad educativa Ibarra, bachillerato Ibarra, educación pública Ecuador, Imbabura" />
+        content="Mario Oña Perdomo, colegio San Gabriel, unidad educativa San Gabriel, bachillerato San Gabriel, educación pública Ecuador, Carchi" />
     <meta name="author" content="U.E. Mario Oña Perdomo" />
     <meta name="robots" content="index, follow" />
     <!-- Open Graph — Facebook, WhatsApp, LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://uemoperdomo.es" />
-    <meta property="og:title" content="U.E. Mario Oña Perdomo — Ibarra, Ecuador" />
+    <meta property="og:title" content="U.E. Mario Oña Perdomo — San Gabriel, Carchi, Ecuador" />
     <meta property="og:description"
-        content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979." />
+        content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de San Gabriel desde 1979." />
     <meta property="og:image" content="https://uemoperdomo.es/og-image.jpg" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="U.E. Mario Oña Perdomo — Ibarra, Ecuador" />
+    <meta name="twitter:title" content="U.E. Mario Oña Perdomo — San Gabriel, Carchi, Ecuador" />
     <meta name="twitter:description"
-        content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979." />
+        content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de San Gabriel desde 1979." />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -62,7 +64,7 @@
     <!-- ============================================================
        NAVBAR
   ============================================================ -->
-    <nav class="bg-white sticky top-0 z-50 border-b border-gray-100" aria-label="Navegación principal">
+    <nav class="sticky top-0 z-50" aria-label="Navegación principal">
         <div class="section-inner">
             <div class="flex items-center justify-between h-16">
 
@@ -71,12 +73,12 @@
                     <img src="images/escudo.png" alt="" class="nav-logo-img" aria-hidden="true" />
                     <div>
                         <span class="nav-logo-name">U.E. Mario Oña Perdomo</span>
-                        <span class="nav-logo-sub">Ibarra, Ecuador</span>
+                        <span class="nav-logo-sub">San Gabriel, Carchi, Ecuador</span>
                     </div>
                 </a>
 
                 <!-- Links desktop -->
-                <div class="hidden md:flex items-center gap-6">
+                <div class="hidden lg:flex items-center gap-6">
                     <a href="#inicio" class="nav-link">Inicio</a>
                     <a href="#eventos" class="nav-link">Eventos</a>
                     <a href="#galeria" class="nav-link">Galería</a>
@@ -88,7 +90,7 @@
                 </div>
 
                 <!-- Botón login -->
-                <a href="#" class="nav-login-btn">
+                <a href="admin.html" class="nav-login-btn">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
@@ -117,7 +119,7 @@
             <a href="#autoridades" class="nav-mobile-link">Autoridades</a>
             <a href="#docentes" class="nav-mobile-link">Docentes</a>
             <a href="#contacto" class="nav-mobile-link">Contacto</a>
-            <a href="#" class="nav-mobile-login">Iniciar Sesión</a>
+            <a href="admin.html" class="nav-mobile-login">Iniciar Sesión</a>
         </div>
     </nav>
 
@@ -136,9 +138,7 @@
 
                     <!-- Texto -->
                     <div class="hero-content">
-                        <span class="hero-badge">
-                            📅 Año Lectivo 2025 – 2026
-                        </span>
+                        <span class="hero-badge">Año Lectivo 2025 - 2026</span>
                         <h1 id="hero-titulo" class="text-display hero-title">
                             Unidad Educativa<br />
                             <span class="text-red-200">Mario Oña Perdomo</span>
@@ -149,7 +149,7 @@
                         <p class="hero-tagline">FORMANDO LÍDERES DESDE 1979</p>
                         <p class="hero-desc">
                             Institución educativa pública comprometida con la formación integral de niños y jóvenes de
-                            Ibarra, Imbabura, con valores éticos y excelencia académica.
+                            San Gabriel, Carchi, con valores éticos y excelencia académica.
                         </p>
                         <div class="hero-actions">
                             <a href="#oferta" class="hero-btn-primary">
@@ -173,92 +173,33 @@
                         </div>
                     </div>
 
-                    <!-- Pilares institucionales -->
-                    <div class="hero-pillars">
+                </div>
 
-                        <div
-                            class="pillar-card">
-                            <div
-                                class="pillar-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 14l9-5-9-5-9 5 9 5z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="pillar-title">Excelencia Académica</p>
-                                <p class="pillar-desc">Formación rigurosa en todos los
-                                    niveles educativos.</p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="pillar-card">
-                            <div
-                                class="pillar-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="pillar-title">Educación en Valores</p>
-                                <p class="pillar-desc">Respeto, honestidad y
-                                    responsabilidad como pilares de convivencia.</p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="pillar-card">
-                            <div
-                                class="pillar-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="pillar-title">Innovación Pedagógica</p>
-                                <p class="pillar-desc">Metodologías activas que preparan
-                                    estudiantes para el futuro.</p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="pillar-card">
-                            <div
-                                class="pillar-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="pillar-title">Compromiso Comunitario</p>
-                                <p class="pillar-desc">Institución arraigada en Ibarra, al
-                                    servicio de su comunidad.</p>
-                            </div>
-                        </div>
-
+                <div class="hero-strip" aria-label="Datos destacados de la institución">
+                    <div>
+                        <strong>4</strong>
+                        <span>Niveles educativos</span>
                     </div>
-
+                    <div>
+                        <strong>1979</strong>
+                        <span>Trayectoria institucional</span>
+                    </div>
+                    <div>
+                        <strong>3</strong>
+                        <span>Sedes educativas</span>
+                    </div>
+                    <div>
+                        <strong>San Gabriel</strong>
+                        <span>Carchi, Ecuador</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Wave divider: hero → eventos -->
-        <div class="wave-divider" aria-hidden="true">
-            <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,0 L0,0 Z" fill="#D32F2F"
-                    opacity="0.08" />
-                <path d="M0,48 C360,16 720,64 1080,32 C1260,16 1380,40 1440,48 L1440,0 L0,0 Z" fill="#8B1A1A"
-                    opacity="0.05" />
+        <div class="wave-divider" aria-hidden="true" style="background:#C62828;">
+            <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0,72 L1440,72 L1440,20 C1200,60 960,0 720,30 C480,60 240,8 0,36 Z" fill="#FDFAF5" />
             </svg>
         </div>
 
@@ -276,62 +217,53 @@
 
                 <div id="eventos-grid" class="grid-3col">
 
-                    <div
-                        class="content-card fade-up delay-100">
-                        <img src="images/evento-panoramica.jpg" alt="Acto de Fin de Año Lectivo 2025"
+                    <div class="content-card fade-up delay-100">
+                        <img src="images/evento-panoramica.jpg" alt="Desfile Cívico — 120 años Cantón Montúfar"
                             loading="lazy" />
                         <div class="card-body">
-                            <span
-                                class="badge-rojo">Académico</span>
-                            <h3 class="card-title">Acto de Fin de Año Lectivo 2025</h3>
-                            <p class="card-desc">Celebración del cierre de año con
-                                premiación a los mejores estudiantes y presentaciones culturales.</p>
+                            <span class="badge-rojo">Cívico</span>
+                            <h3 class="card-title">Desfile Cívico — 120 años del Cantón Montúfar</h3>
+                            <p class="card-desc">Nuestra institución participó con orgullo en la conmemoración del 120 aniversario de la creación del Cantón Montúfar.</p>
                             <div class="card-date">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                15 de Julio, 2025
+                                Año Lectivo 2025–2026
                             </div>
                         </div>
                     </div>
 
-                    <div
-                        class="content-card fade-up delay-200">
-                        <img src="images/evento-edificio.jpg" alt="Olimpiadas Intercolegiales 2025"
+                    <div class="content-card fade-up delay-200">
+                        <img src="images/evento-edificio.jpg" alt="Proclamación de Abanderados 2025–2026"
                             loading="lazy" />
                         <div class="card-body">
-                            <span
-                                class="badge-emerald">Deportivo</span>
-                            <h3 class="card-title">Olimpiadas Intercolegiales 2025</h3>
-                            <p class="card-desc">Competencias atléticas entre instituciones
-                                educativas del cantón Ibarra en múltiples disciplinas deportivas.</p>
+                            <span class="badge-emerald">Orgullo Cívico</span>
+                            <h3 class="card-title">Proclamación de Abanderados y Juramento a la Bandera</h3>
+                            <p class="card-desc">Solemne ceremonia de proclamación de abanderados y juramento a la bandera para el año lectivo 2025–2026.</p>
                             <div class="card-date">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                22 de Agosto, 2025
+                                Año Lectivo 2025–2026
                             </div>
                         </div>
                     </div>
 
-                    <div
-                        class="content-card fade-up delay-300">
-                        <img src="images/evento-especial.jpg" alt="Feria de Ciencias e Innovación"
+                    <div class="content-card fade-up delay-300">
+                        <img src="images/evento-especial.jpg" alt="Culminación del Coliseo Institucional"
                             loading="lazy" />
                         <div class="card-body">
-                            <span
-                                class="badge-amber">Cultural</span>
-                            <h3 class="card-title">Feria de Ciencias e Innovación</h3>
-                            <p class="card-desc">Exposición de proyectos científicos y
-                                tecnológicos desarrollados por estudiantes de todos los niveles.</p>
+                            <span class="badge-amber">Infraestructura</span>
+                            <h3 class="card-title">Culminación del Coliseo Institucional</h3>
+                            <p class="card-desc">Obra concluida con una inversión de $230.000 USD, fruto del trabajo conjunto de la Prefectura, GAD Montúfar y padres de familia.</p>
                             <div class="card-date">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                10 de Septiembre, 2025
+                                Año Lectivo 2025–2026
                             </div>
                         </div>
                     </div>
@@ -355,7 +287,7 @@
 
                 <div id="galeria-grid" class="gallery-grid" role="list">
 
-                    <div class="gallery-item fade-up delay-100" role="listitem" data-caption="Acto de graduación 2024"
+                    <div class="gallery-item fade-up delay-100" data-caption="Acto de graduación 2024"
                         tabindex="0" role="button" aria-label="Ver imagen: Acto de graduación 2024">
                         <img src="images/galeria-1.jpg" alt="Acto de graduación 2024"                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
@@ -449,6 +381,12 @@
                         </div>
                     </div>
 
+                </div>
+
+                <div class="gallery-more-wrap">
+                    <button id="gallery-more-btn" class="gallery-more-btn" type="button" hidden>
+                        Mostrar más fotos
+                    </button>
                 </div>
             </div>
         </section>
@@ -629,13 +567,11 @@
                             <img src="images/vicerrector.jpg" alt="MSc. Carlos Fernando Obando Chaves"
                                 />
                         </div>
-                        <h3 class="authority-name">MSc. Carlos Fernando Obando</h3>
+                        <h3 class="authority-name">MSc. Carlos Fernando Obando Chaves</h3>
                         <p class="authority-role">Vicerrector</p>
                         <p class="authority-bio">Coordinando los procesos pedagógicos y el
                             acompañamiento docente de nuestra institución.</p>
-                        <div class="mt-4">
-                            <span
-                                class="role-badge">Pedagogía</span>
+                        <span class="role-badge">Pedagogía</span>
                     </div>
 
                 </div>
@@ -727,7 +663,7 @@
                                 </div>
                                 <div>
                                     <p class="contact-label">Dirección</p>
-                                    <p class="contact-value">Río Cofanes y Río Aguarico, Ibarra, Imbabura
+                                    <p class="contact-value">Río Cofanes y Río Aguarico, San Gabriel, Carchi, Ecuador
                                     </p>
                                 </div>
                             </div>
@@ -770,7 +706,7 @@
                                 </div>
                                 <div>
                                     <p class="contact-label">Horario de atención</p>
-                                    <p class="contact-value">Lunes a Viernes: 07:00 – 12:30</p>
+                                    <p class="contact-value">Lunes a Viernes: 07H00 – 12H30</p>
                                 </div>
                             </div>
                         </div>
@@ -781,7 +717,7 @@
                                 src="https://maps.google.com/maps?q=0.5918369859358804,-77.82595415949582&z=17&output=embed"
                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
-                                title="Ubicación U.E. Mario Oña Perdomo — Río Cofanes y Río Aguarico, Ibarra"></iframe>
+                                title="Ubicación U.E. Mario Oña Perdomo — Río Cofanes y Río Aguarico, San Gabriel, Carchi"></iframe>
                         </div>
                         <a href="https://maps.app.goo.gl/WaLZVtpGyFx7cPSbA" target="_blank" rel="noopener"
                             class="contact-map-link">
@@ -870,7 +806,7 @@
                             <img src="images/escudo.png" alt="" class="footer-logo-img" aria-hidden="true" />
                             <p class="footer-brand-name">Mario Oña Perdomo</p>
                         </div>
-                        <p class="footer-brand-desc">Institución educativa pública comprometida con la formación integral de niños y jóvenes de Ibarra desde 1979.</p>
+                        <p class="footer-brand-desc">Institución educativa fiscal comprometida con la formación integral de la juventud de Montúfar, Carchi, desde 1979.</p>
                         <!-- Redes sociales -->
                         <div class="footer-social">
                             <a href="#" aria-label="Facebook de U.E. Mario Oña Perdomo"
@@ -931,7 +867,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                <span>Río Cofanes y Río Aguarico, Ibarra</span>
+                                <span>Río Cofanes y Río Aguarico, San Gabriel, Carchi</span>
                             </li>
                             <li class="footer-contact-item">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -955,11 +891,11 @@
                         <ul class="footer-schedule-list">
                             <li class="footer-schedule-item">
                                 <span>Lunes – Viernes</span>
-                                <span class="footer-schedule-time">7:00 – 14:00</span>
+                                <span class="footer-schedule-time">07H00 – 12H30</span>
                             </li>
                             <li class="footer-schedule-item">
                                 <span>Secretaría</span>
-                                <span class="footer-schedule-time">8:00 – 13:00</span>
+                                <span class="footer-schedule-time">07H00 – 12H30</span>
                             </li>
                             <li class="footer-schedule-item">
                                 <span>Fin de semana</span>
@@ -977,7 +913,7 @@
 
             <div class="footer-bottom">
                 <div class="footer-bottom-inner">
-                    <p class="footer-copyright">© <span id="year"></span> U.E. Mario Oña Perdomo — Ibarra, Ecuador. Todos los derechos reservados.</p>
+                    <p class="footer-copyright">© <span id="year"></span> U.E. Mario Oña Perdomo — San Gabriel, Carchi, Ecuador. Todos los derechos reservados.</p>
                     <p class="footer-tagline">Proyecto de práctica — Desarrollo Web con Tailwind CSS</p>
                 </div>
             </div>
@@ -1003,13 +939,27 @@
                 function esc(s) {
                     return s ? s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') : '';
                 }
+                function safeImageSrc(src) {
+                    var value = String(src || '').trim();
+                    if (!value) return '';
+                    if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) return value;
+                    try {
+                        var url = new URL(value, location.href);
+                        return (url.protocol === 'https:' || url.protocol === 'http:') ? value : '';
+                    } catch (e) {
+                        return '';
+                    }
+                }
 
                 /* --- Galería dinámica --- */
                 try {
                     var gItems = JSON.parse(localStorage.getItem('gallery_items') || '[]');
                     var gGrid = document.getElementById('galeria-grid');
                     if (gGrid && gItems.length) {
+                        var galleryFragment = document.createDocumentFragment();
                         gItems.forEach(function (item) {
+                            var galleryImage = safeImageSrc(item.url);
+                            if (!galleryImage) return;
                             var div = document.createElement('div');
                             div.className = 'gallery-item fade-up';
                             div.setAttribute('tabindex', '0');
@@ -1017,13 +967,14 @@
                             div.setAttribute('aria-label', 'Ver imagen: ' + esc(item.caption));
                             div.setAttribute('data-caption', esc(item.caption));
                             div.innerHTML =
-                                '<img src="' + esc(item.url) + '" alt="' + esc(item.caption) + '" class="rounded-xl" loading="lazy" />' +
+                                '<img src="' + esc(galleryImage) + '" alt="' + esc(item.caption) + '" class="rounded-xl" loading="lazy" />' +
                                 '<div class="gallery-overlay" aria-hidden="true">' +
                                 '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
                                 '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>' +
                                 '</svg></div>';
-                            gGrid.appendChild(div);
+                            galleryFragment.appendChild(div);
                         });
+                        gGrid.insertBefore(galleryFragment, gGrid.firstChild);
                     }
                 } catch (e) { }
 
@@ -1032,9 +983,17 @@
                     var eItems = JSON.parse(localStorage.getItem('event_items') || '[]');
                     var eGrid = document.getElementById('eventos-grid');
                     if (eGrid && eItems.length) {
+                        eItems = eItems
+                            .filter(function (item) { return item.publicado !== false; })
+                            .sort(function (a, b) {
+                                return String(b.fecha || b.createdAt || '').localeCompare(String(a.fecha || a.createdAt || ''));
+                            });
+
+                        var eventFragment = document.createDocumentFragment();
                         eItems.forEach(function (item) {
-                            var imgBlock = item.imagen
-                                ? '<img src="' + esc(item.imagen) + '" alt="' + esc(item.titulo) + '" class="w-full h-40 object-cover" />'
+                            var eventImage = safeImageSrc(item.imagen);
+                            var imgBlock = eventImage
+                                ? '<img src="' + esc(eventImage) + '" alt="' + esc(item.titulo) + '" class="w-full h-40 object-cover" />'
                                 : '<div class="bg-gradient-to-br from-rojo-600 to-rojo-800 h-40 flex items-center justify-center">' +
                                 '<svg class="w-14 h-14 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
                                 '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
@@ -1047,22 +1006,26 @@
                                     fechaStr = d.toLocaleDateString('es-EC', { day: 'numeric', month: 'long', year: 'numeric' });
                                 } catch (e) { fechaStr = item.fecha; }
                             }
+                            var meta = fechaStr;
+                            if (item.hora) meta += (meta ? ' · ' : '') + item.hora;
+                            if (item.lugar) meta += (meta ? ' · ' : '') + esc(item.lugar);
 
                             var card = document.createElement('div');
                             card.className = 'content-card fade-up';
                             card.innerHTML =
                                 imgBlock +
                                 '<div class="p-5">' +
-                                '<span class="badge-rojo">Evento</span>' +
+                                '<span class="badge-rojo">' + esc(item.categoria || 'Evento') + '</span>' +
                                 '<h3 class="card-title">' + esc(item.titulo) + '</h3>' +
                                 '<p class="text-gray-500 text-sm leading-relaxed">' + esc(item.descripcion) + '</p>' +
-                                (fechaStr ? '<div class="card-date">' +
+                                (meta ? '<div class="card-date">' +
                                     '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
                                     '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
-                                    '</svg>' + fechaStr + '</div>' : '') +
+                                    '</svg>' + meta + '</div>' : '') +
                                 '</div>';
-                            eGrid.appendChild(card);
+                            eventFragment.appendChild(card);
                         });
+                        eGrid.insertBefore(eventFragment, eGrid.firstChild);
                     }
                 } catch (e) { }
             })();

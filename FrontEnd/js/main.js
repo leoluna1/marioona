@@ -117,7 +117,45 @@ if (statsSection && !prefersReducedMotion) {
   });
 }
 
-/* ===== 5. LIGHTBOX DE GALERÍA ===== */
+/* ===== 5. GALERÍA: MOSTRAR MÁS ===== */
+const GALLERY_INITIAL_VISIBLE = 6;
+const GALLERY_STEP = 6;
+let galleryVisibleCount = GALLERY_INITIAL_VISIBLE;
+
+function updateGalleryVisibility() {
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const btn = document.getElementById('gallery-more-btn');
+
+  items.forEach((item, index) => {
+    const hidden = index >= galleryVisibleCount;
+    item.classList.toggle('gallery-hidden', hidden);
+    item.setAttribute('aria-hidden', String(hidden));
+    if (hidden) {
+      item.setAttribute('tabindex', '-1');
+    } else {
+      item.setAttribute('tabindex', '0');
+    }
+  });
+
+  if (!btn) return;
+  const remaining = Math.max(items.length - galleryVisibleCount, 0);
+  btn.hidden = remaining === 0;
+  btn.textContent = remaining > GALLERY_STEP
+    ? 'Mostrar más fotos'
+    : `Mostrar ${remaining} foto${remaining === 1 ? '' : 's'} más`;
+}
+
+const galleryMoreBtn = document.getElementById('gallery-more-btn');
+if (galleryMoreBtn) {
+  galleryMoreBtn.addEventListener('click', () => {
+    galleryVisibleCount += GALLERY_STEP;
+    updateGalleryVisibility();
+  });
+}
+
+updateGalleryVisibility();
+
+/* ===== 6. LIGHTBOX DE GALERÍA ===== */
 const lightbox        = document.getElementById('lightbox');
 const lightboxImg     = document.getElementById('lightbox-img');
 const lightboxCaption = document.getElementById('lightbox-caption');
