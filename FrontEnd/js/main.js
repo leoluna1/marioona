@@ -2,6 +2,11 @@
    U.E. Mario Oña Perdomo — JavaScript principal
    ============================================ */
 
+// Evita que el hash en la URL salte a una sección al recargar la página
+history.scrollRestoration = 'manual';
+if (location.hash) history.replaceState(null, '', location.pathname);
+window.scrollTo(0, 0);
+
 /* ===== 1. MENÚ HAMBURGUESA ===== */
 const menuBtn    = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
