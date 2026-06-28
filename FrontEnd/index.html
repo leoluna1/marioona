@@ -45,7 +45,7 @@
     <!-- Preconnect para mejorar carga de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -176,8 +176,22 @@
                             Ibarra, Imbabura, con valores éticos y excelencia académica.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="#oferta" class="hero-btn-primary">Ver Oferta Educativa</a>
-                            <a href="#contacto" class="hero-btn-secondary">Contáctanos</a>
+                            <a href="#oferta" class="hero-btn-primary">
+                              Ver Oferta Educativa
+                              <span class="btn-icon" aria-hidden="true">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                                </svg>
+                              </span>
+                            </a>
+                            <a href="#contacto" class="hero-btn-secondary">
+                              Contáctanos
+                              <span class="btn-icon" aria-hidden="true">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                              </span>
+                            </a>
                         </div>
                     </div>
 
@@ -259,6 +273,14 @@
                 </div>
             </div>
         </section>
+
+        <!-- Wave divider: hero → eventos -->
+        <div class="wave-divider bg-gray-50" aria-hidden="true">
+          <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,0 L0,0 Z" fill="#D32F2F" opacity="0.08"/>
+            <path d="M0,48 C360,16 720,64 1080,32 C1260,16 1380,40 1440,48 L1440,0 L0,0 Z" fill="#8B1A1A" opacity="0.05"/>
+          </svg>
+        </div>
 
         <!-- ============================================================
        EVENTOS
