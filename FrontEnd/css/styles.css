@@ -158,6 +158,11 @@ nav {
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+  color: #4B5563;
+  transition: color 0.15s ease;
+}
+.nav-link:hover {
+  color: var(--rojo);
 }
 .nav-link::after {
   content: '';
@@ -733,4 +738,183 @@ footer {
 /* prefers-reduced-motion — deshabilitar blur en animaciones */
 @media (prefers-reduced-motion: reduce) {
   .fade-up, .fade-left, .fade-right { filter: none; }
+}
+
+/* ============================================================
+   NAVBAR — Menú mobile
+   ============================================================ */
+.nav-mobile-link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-mobile-link:hover {
+  background: var(--rojo-suave);
+  color: var(--rojo);
+}
+
+.nav-mobile-login {
+  display: block;
+  margin-top: 8px;
+  background: var(--rojo);
+  color: white;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+.nav-mobile-login:hover {
+  background: var(--rojo-oscuro);
+}
+
+/* ============================================================
+   HERO — Pilares institucionales
+   ============================================================ */
+.pillar-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   BADGES — Etiquetas de categoría
+   ============================================================ */
+.badge-rojo {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--rojo);
+  background: var(--rojo-suave);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+.badge-emerald {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #059669;
+  background: #ECFDF5;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+.badge-amber {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #D97706;
+  background: #FFFBEB;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+/* ============================================================
+   CARD DATE — Fila de fecha en cards
+   ============================================================ */
+.card-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: #9CA3AF;
+}
+
+/* ============================================================
+   VALORES — Cards de valores institucionales
+   ============================================================ */
+.valor-card {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================
+   AUTORIDADES — Badge de cargo
+   ============================================================ */
+.role-badge {
+  background: var(--rojo-suave);
+  color: var(--rojo-oscuro);
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+/* ============================================================
+   CONTACTO — Icono de dato de contacto
+   ============================================================ */
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--rojo-suave);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   FORMULARIO — Label de campo
+   ============================================================ */
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   FOOTER — Links de navegación y botones sociales
+   ============================================================ */
+.footer-link {
+  color: #9CA3AF;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer-link:hover {
+  color: var(--rojo-claro);
+}
+
+.social-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B7280;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.social-btn:hover {
+  background: var(--rojo);
+  color: white;
 }
