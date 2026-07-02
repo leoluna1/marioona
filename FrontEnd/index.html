@@ -8,7 +8,8 @@
     <meta name="description"
         content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en San Gabriel, Carchi, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: http: https:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="keywords"
         content="Mario Oña Perdomo, colegio San Gabriel, unidad educativa San Gabriel, bachillerato San Gabriel, educación pública Ecuador, Carchi" />
     <meta name="author" content="U.E. Mario Oña Perdomo" />
@@ -49,7 +50,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css?v=20260628-5" />
+    <link rel="stylesheet" href="css/styles.css?v=20260628-sec1" />
     <link rel="icon" type="image/png" href="images/escudo.png" />
 </head>
 
@@ -91,7 +92,7 @@
                 </div>
 
                 <!-- Acceso a plataforma institucional -->
-                <a href="https://uemop.emex365.cloud" target="_blank" rel="noopener" class="nav-login-btn">
+                <a href="https://uemop.emex365.cloud" target="_blank" rel="noopener noreferrer" class="nav-login-btn">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -121,7 +122,7 @@
             <a href="#autoridades" class="nav-mobile-link">Autoridades</a>
             <a href="#docentes" class="nav-mobile-link">Docentes</a>
             <a href="#contacto" class="nav-mobile-link">Contacto</a>
-            <a href="https://uemop.emex365.cloud" target="_blank" rel="noopener" class="nav-mobile-login">Iniciar sesión</a>
+            <a href="https://uemop.emex365.cloud" target="_blank" rel="noopener noreferrer" class="nav-mobile-login">Plataforma</a>
         </div>
     </nav>
 
@@ -227,6 +228,7 @@
 
                     <div class="content-card fade-up delay-100">
                         <img src="images/evento-panoramica.jpg" alt="Desfile Cívico — 120 años Cantón Montúfar"
+                            class="media-img media-img--evento-panoramica"
                             loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Cívico</span>
@@ -244,6 +246,7 @@
 
                     <div class="content-card fade-up delay-200">
                         <img src="images/evento-edificio.jpg" alt="Proclamación de Abanderados 2025–2026"
+                            class="media-img media-img--evento-edificio"
                             loading="lazy" />
                         <div class="card-body">
                             <span class="badge-emerald">Orgullo Cívico</span>
@@ -261,6 +264,7 @@
 
                     <div class="content-card fade-up delay-300">
                         <img src="images/evento-especial.jpg" alt="Culminación del Coliseo Institucional"
+                            class="media-img media-img--evento-especial"
                             loading="lazy" />
                         <div class="card-body">
                             <span class="badge-amber">Infraestructura</span>
@@ -293,11 +297,12 @@
                         Haz clic en una imagen para verla.</p>
                 </div>
 
-                <div id="galeria-grid" class="gallery-grid" role="list">
+                <div id="galeria-grid" class="gallery-grid">
 
                     <div class="gallery-item fade-up delay-100" data-caption="Acto de graduación 2024"
                         tabindex="0" role="button" aria-label="Ver imagen: Acto de graduación 2024">
-                        <img src="images/galeria-1.jpg" alt="Acto de graduación 2024"                             loading="lazy" />
+                        <img src="images/galeria-1.jpg" alt="Acto de graduación 2024"
+                            class="gallery-img gallery-img--1" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -309,6 +314,7 @@
                     <div class="gallery-item fade-up delay-200" data-caption="Olimpiadas deportivas 2024" tabindex="0"
                         role="button" aria-label="Ver imagen: Olimpiadas deportivas 2024">
                         <img src="images/galeria-2.jpg" alt="Olimpiadas deportivas 2024"
+                            class="gallery-img gallery-img--2"
                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -320,7 +326,8 @@
 
                     <div class="gallery-item fade-up delay-300" data-caption="Feria de Ciencias 2024" tabindex="0"
                         role="button" aria-label="Ver imagen: Feria de Ciencias 2024">
-                        <img src="images/galeria-3.jpg" alt="Feria de Ciencias 2024"                             loading="lazy" />
+                        <img src="images/galeria-3.jpg" alt="Feria de Ciencias 2024"
+                            class="gallery-img gallery-img--3" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -332,6 +339,7 @@
                     <div class="gallery-item fade-up delay-400" data-caption="Acto cívico — Día de la Independencia"
                         tabindex="0" role="button" aria-label="Ver imagen: Acto cívico — Día de la Independencia">
                         <img src="images/galeria-4.jpg" alt="Acto cívico — Día de la Independencia"
+                            class="gallery-img gallery-img--4"
                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -344,6 +352,7 @@
                     <div class="gallery-item fade-up delay-100" data-caption="Club de Lectura estudiantil" tabindex="0"
                         role="button" aria-label="Ver imagen: Club de Lectura estudiantil">
                         <img src="images/galeria-5.jpg" alt="Club de Lectura estudiantil"
+                            class="gallery-img gallery-img--5"
                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -356,6 +365,7 @@
                     <div class="gallery-item fade-up delay-200" data-caption="Danza folclórica — Festival Cultural"
                         tabindex="0" role="button" aria-label="Ver imagen: Danza folclórica — Festival Cultural">
                         <img src="images/galeria-6.jpg" alt="Danza folclórica — Festival Cultural"
+                            class="gallery-img gallery-img--6"
                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -368,6 +378,7 @@
                     <div class="gallery-item fade-up delay-300" data-caption="Laboratorio de Computación" tabindex="0"
                         role="button" aria-label="Ver imagen: Laboratorio de Computación">
                         <img src="images/galeria-7.jpg" alt="Laboratorio de Computación"
+                            class="gallery-img gallery-img--7"
                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -380,6 +391,7 @@
                     <div class="gallery-item fade-up delay-400" data-caption="Cancha deportiva institucional"
                         tabindex="0" role="button" aria-label="Ver imagen: Cancha deportiva institucional">
                         <img src="images/galeria-8.jpg" alt="Cancha deportiva institucional"
+                            class="gallery-img gallery-img--8"
                             loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -416,7 +428,7 @@
             <div class="section-inner">
 
                 <div class="section-header fade-up">
-                    <span class="section-eyebrow">Niveles</span>
+                    <span class="section-eyebrow" aria-hidden="true">Niveles</span>
                     <h2 class="section-title">Oferta Educativa</h2>
                     <p class="section-subtitle">Contamos con todos los niveles del sistema educativo
                         ecuatoriano.</p>
@@ -428,7 +440,7 @@
                         <div class="oferta-icon bg-yellow-400">
                             <span class="text-2xl">🌱</span>
                         </div>
-                        <h3 class="oferta-title">Educación Inicial</h3>
+                        <h3 class="oferta-title">Educación Inicial I y II</h3>
                         <p class="card-desc">Estimulación temprana mediante el juego y el aprendizaje lúdico.</p>
 
                     </div>
@@ -446,7 +458,7 @@
                         <div class="oferta-icon bg-blue-500">
                             <span class="text-2xl">🔬</span>
                         </div>
-                        <h3 class="oferta-title">Educación Básica</h3>
+                        <h3 class="oferta-title">Educación Básica Elemental y Media</h3>
                         <p class="card-desc">Del 2do al 10mo de EGB con ciencias, matemáticas y humanidades.</p>
 
                     </div>
@@ -455,7 +467,7 @@
                         <div class="oferta-icon bg-rojo-600">
                             <span class="text-2xl">🎓</span>
                         </div>
-                        <h3 class="oferta-title">Bachillerato</h3>
+                        <h3 class="oferta-title">Educación Básica Superior y Bachillerato</h3>
                         <p class="card-desc">BGU con preparación universitaria y pensamiento crítico-científico.</p>
 
                     </div>
@@ -471,7 +483,7 @@
             <div class="section-inner">
 
                 <div class="section-header fade-up">
-                    <span class="section-eyebrow section-eyebrow--light">Identidad Institucional</span>
+                    <span class="section-eyebrow section-eyebrow--light" aria-hidden="true">Identidad Institucional</span>
                     <h2 class="section-title">Misión &amp; Visión</h2>
                 </div>
 
@@ -517,27 +529,7 @@
                     </div>
 
                 </div>
-
-                <!-- Valores -->
-                <div class="valores-grid fade-up">
-                    <div class="valor-card">
-                        <div class="valor-emoji">🤝</div>
-                        <p class="valor-label">Respeto</p>
-                    </div>
-                    <div class="valor-card">
-                        <div class="valor-emoji">⚖️</div>
-                        <p class="valor-label">Honestidad</p>
-                    </div>
-                    <div class="valor-card">
-                        <div class="valor-emoji">💡</div>
-                        <p class="valor-label">Innovación</p>
-                    </div>
-                    <div class="valor-card">
-                        <div class="valor-emoji">🌍</div>
-                        <p class="valor-label">Responsabilidad</p>
-                    </div>
-                </div>
-
+                
             </div>
         </section>
 
@@ -548,7 +540,7 @@
             <div class="section-inner">
 
                 <div class="section-header fade-up">
-                    <span class="section-eyebrow">Equipo Directivo</span>
+                    <span class="section-eyebrow" aria-hidden="true">Equipo Directivo</span>
                     <h2 class="section-title">Autoridades</h2>
                     <p class="section-subtitle">El equipo que lidera nuestra institución con vocación y compromiso.</p>
                 </div>
@@ -604,7 +596,7 @@
                     <div
                         class="content-card fade-up delay-100">
                         <img src="images/docentes-matriz.jpg" alt="Docentes Sede Matriz"
-                            class="h-52" loading="lazy" />
+                            class="docente-img docente-img--matriz" loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Sede Matriz</span>
                             <h3 class="card-title">Docentes Sede Matriz</h3>
@@ -615,7 +607,7 @@
 
                     <div
                         class="content-card fade-up delay-200">
-                        <img src="images/docentes-sede2.jpg" alt="Docentes Sede 2" class="h-52"
+                        <img src="images/docentes-sede2.jpg" alt="Docentes Sede 2" class="docente-img docente-img--sede2"
                             loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Sede 2</span>
@@ -627,7 +619,7 @@
 
                     <div
                         class="content-card fade-up delay-300">
-                        <img src="images/docentes-sede3.jpg" alt="Docentes Sede 3" class="h-52"
+                        <img src="images/docentes-sede3.jpg" alt="Docentes Sede 3" class="docente-img docente-img--sede3"
                             loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Sede 3</span>
@@ -648,7 +640,7 @@
             <div class="section-inner">
 
                 <div class="section-header fade-up">
-                    <span class="section-eyebrow">Contáctanos</span>
+                    <span class="section-eyebrow" aria-hidden="true">Contáctanos</span>
                     <h2 class="section-title">Escríbenos</h2>
                     <p class="section-subtitle">¿Tienes preguntas sobre inscripciones, horarios o
                         actividades? Estamos para ayudarte.</p>
@@ -727,7 +719,7 @@
                                 referrerpolicy="no-referrer-when-downgrade"
                                 title="Ubicación U.E. Mario Oña Perdomo — Río Cofanes y Río Aguarico, San Gabriel, Carchi"></iframe>
                         </div>
-                        <a href="https://maps.app.goo.gl/WaLZVtpGyFx7cPSbA" target="_blank" rel="noopener"
+                        <a href="https://maps.app.goo.gl/WaLZVtpGyFx7cPSbA" target="_blank" rel="noopener noreferrer"
                             class="contact-map-link">
                             Abrir en Google Maps →
                         </a>
@@ -744,7 +736,7 @@
                                         class="form-label">Nombre *</label>
                                     <input type="text" id="campo-nombre" name="nombre" class="input-field"
                                         placeholder="Tu nombre" required autocomplete="given-name" aria-required="true"
-                                        aria-describedby="error-nombre" />
+                                        maxlength="80" aria-describedby="error-nombre" />
                                     <p id="error-nombre" class="form-error hidden"
                                         role="alert">Por favor ingresa tu nombre.</p>
                                 </div>
@@ -753,7 +745,7 @@
                                         class="form-label">Apellido *</label>
                                     <input type="text" id="campo-apellido" name="apellido" class="input-field"
                                         placeholder="Tu apellido" required autocomplete="family-name"
-                                        aria-required="true" aria-describedby="error-apellido" />
+                                        aria-required="true" maxlength="80" aria-describedby="error-apellido" />
                                     <p id="error-apellido" class="form-error hidden"
                                         role="alert">Por favor ingresa tu apellido.</p>
                                 </div>
@@ -764,7 +756,7 @@
                                     electrónico *</label>
                                 <input type="email" id="campo-email" name="email" class="input-field"
                                     placeholder="tu@correo.com" required autocomplete="email" aria-required="true"
-                                    aria-describedby="error-email" />
+                                    maxlength="160" aria-describedby="error-email" />
                                 <p id="error-email" class="form-error hidden" role="alert">Por
                                     favor ingresa un correo válido.</p>
                             </div>
@@ -786,7 +778,7 @@
                                     class="form-label">Mensaje *</label>
                                 <textarea id="campo-mensaje" name="mensaje" rows="5" class="input-field resize-none"
                                     placeholder="Escribe tu mensaje aquí..." required aria-required="true"
-                                    aria-describedby="error-mensaje"></textarea>
+                                    maxlength="1000" aria-describedby="error-mensaje"></textarea>
                                 <p id="error-mensaje" class="form-error hidden" role="alert">
                                     Por favor escribe tu mensaje.</p>
                             </div>
@@ -910,7 +902,7 @@
                                 <span class="footer-schedule-time">Cerrado</span>
                             </li>
                         </ul>
-                        <a href="https://uemoperdomo.es" target="_blank" rel="noopener"
+                        <a href="https://uemoperdomo.es" target="_blank" rel="noopener noreferrer"
                             class="footer-link-accent">
                             Sitio oficial →
                         </a>
@@ -942,18 +934,30 @@
     </button>
 
     <!-- Inyecta ítems de galería y eventos desde localStorage ANTES de que main.js inicie el lightbox -->
-    <script>
-            (function () {
-                function esc(s) {
-                    return s ? s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') : '';
-                }
-                function safeImageSrc(src) {
-                    var value = String(src || '').trim();
-                    if (!value) return '';
-                    if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) return value;
-                    try {
-                        var url = new URL(value, location.href);
-                        return (url.protocol === 'https:' || url.protocol === 'http:') ? value : '';
+	    <script>
+	            (function () {
+	                var MAX_DATA_IMAGE_CHARS = 4 * 1024 * 1024;
+	                function esc(s) {
+	                    return s ? s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') : '';
+	                }
+	                function cleanText(value, maxLength) {
+	                    return String(value || '')
+	                        .replace(/[\u0000-\u001F\u007F]/g, ' ')
+	                        .replace(/\s+/g, ' ')
+	                        .trim()
+	                        .slice(0, maxLength || 240);
+	                }
+	                function safeImageSrc(src) {
+	                    var value = String(src || '').trim();
+	                    if (!value) return '';
+	                    if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) {
+	                        var payload = value.split(',', 2)[1] || '';
+	                        return value.length <= MAX_DATA_IMAGE_CHARS && /^[a-z0-9+/=\s]+$/i.test(payload) ? value : '';
+	                    }
+	                    try {
+	                        var url = new URL(value, location.href);
+                        if (url.origin === location.origin && (url.protocol === 'https:' || url.protocol === 'http:')) return url.href;
+                        return url.protocol === 'https:' ? url.href : '';
                     } catch (e) {
                         return '';
                     }
@@ -964,24 +968,34 @@
                     var gItems = JSON.parse(localStorage.getItem('gallery_items') || '[]');
                     var gGrid = document.getElementById('galeria-grid');
                     if (gGrid && gItems.length) {
-                        var galleryFragment = document.createDocumentFragment();
-                        gItems.forEach(function (item) {
-                            var galleryImage = safeImageSrc(item.url);
-                            if (!galleryImage) return;
-                            var div = document.createElement('div');
-                            div.className = 'gallery-item fade-up';
-                            div.setAttribute('tabindex', '0');
-                            div.setAttribute('role', 'button');
-                            div.setAttribute('aria-label', 'Ver imagen: ' + esc(item.caption));
-                            div.setAttribute('data-caption', esc(item.caption));
-                            div.innerHTML =
-                                '<img src="' + esc(galleryImage) + '" alt="' + esc(item.caption) + '" class="rounded-xl" loading="lazy" />' +
-                                '<div class="gallery-overlay" aria-hidden="true">' +
-                                '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
-                                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>' +
-                                '</svg></div>';
-                            galleryFragment.appendChild(div);
-                        });
+	                        var galleryFragment = document.createDocumentFragment();
+	                        gItems.forEach(function (item) {
+	                            if (!item || typeof item !== 'object') return;
+	                            var galleryImage = safeImageSrc(item.url);
+	                            if (!galleryImage) return;
+	                            var caption = cleanText(item.caption, 160);
+	                            var div = document.createElement('div');
+	                            div.className = 'gallery-item fade-up';
+	                            div.setAttribute('tabindex', '0');
+	                            div.setAttribute('role', 'button');
+	                            div.setAttribute('aria-label', 'Ver imagen: ' + caption);
+	                            div.setAttribute('data-caption', caption);
+	                            var image = document.createElement('img');
+	                            image.src = galleryImage;
+	                            image.alt = caption;
+	                            image.className = 'rounded-xl';
+	                            image.loading = 'lazy';
+	                            var overlay = document.createElement('div');
+	                            overlay.className = 'gallery-overlay';
+	                            overlay.setAttribute('aria-hidden', 'true');
+	                            overlay.innerHTML =
+	                                '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+	                                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>' +
+	                                '</svg>';
+	                            div.appendChild(image);
+	                            div.appendChild(overlay);
+	                            galleryFragment.appendChild(div);
+	                        });
                         gGrid.insertBefore(galleryFragment, gGrid.firstChild);
                     }
                 } catch (e) { }
@@ -990,47 +1004,51 @@
                 try {
                     var eItems = JSON.parse(localStorage.getItem('event_items') || '[]');
                     var eGrid = document.getElementById('eventos-grid');
-                    if (eGrid && eItems.length) {
-                        eItems = eItems
-                            .filter(function (item) { return item.publicado !== false; })
+	                    if (eGrid && eItems.length) {
+	                        eItems = eItems
+	                            .filter(function (item) { return item && typeof item === 'object'; })
+	                            .filter(function (item) { return item.publicado !== false; })
                             .sort(function (a, b) {
                                 return String(b.fecha || b.createdAt || '').localeCompare(String(a.fecha || a.createdAt || ''));
                             });
 
                         var eventFragment = document.createDocumentFragment();
-                        eItems.forEach(function (item) {
-                            var eventImage = safeImageSrc(item.imagen);
-                            var imgBlock = eventImage
-                                ? '<img src="' + esc(eventImage) + '" alt="' + esc(item.titulo) + '" class="w-full h-40 object-cover" />'
-                                : '<div class="bg-gradient-to-br from-rojo-600 to-rojo-800 h-40 flex items-center justify-center">' +
-                                '<svg class="w-14 h-14 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+	                        eItems.forEach(function (item) {
+	                            var eventImage = safeImageSrc(item.imagen);
+	                            var category = cleanText(item.categoria || 'Evento', 40);
+	                            var title = cleanText(item.titulo, 140);
+	                            var description = cleanText(item.descripcion, 1000);
+	                            var imgBlock = eventImage
+	                                ? '<img src="' + esc(eventImage) + '" alt="' + esc(title) + '" class="w-full h-40 object-cover" />'
+	                                : '<div class="bg-gradient-to-br from-rojo-600 to-rojo-800 h-40 flex items-center justify-center">' +
+	                                '<svg class="w-14 h-14 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
                                 '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
                                 '</svg></div>';
 
-                            var fechaStr = '';
-                            if (item.fecha) {
-                                try {
-                                    var d = new Date(item.fecha + 'T12:00:00');
-                                    fechaStr = d.toLocaleDateString('es-EC', { day: 'numeric', month: 'long', year: 'numeric' });
-                                } catch (e) { fechaStr = item.fecha; }
-                            }
-                            var meta = fechaStr;
-                            if (item.hora) meta += (meta ? ' · ' : '') + item.hora;
-                            if (item.lugar) meta += (meta ? ' · ' : '') + esc(item.lugar);
+	                            var fechaStr = '';
+	                            if (item.fecha) {
+	                                try {
+	                                    var d = new Date(item.fecha + 'T12:00:00');
+	                                    fechaStr = d.toLocaleDateString('es-EC', { day: 'numeric', month: 'long', year: 'numeric' });
+	                                } catch (e) { fechaStr = cleanText(item.fecha, 20); }
+	                            }
+	                            var meta = fechaStr;
+	                            if (item.hora) meta += (meta ? ' · ' : '') + cleanText(item.hora, 20);
+	                            if (item.lugar) meta += (meta ? ' · ' : '') + cleanText(item.lugar, 120);
 
                             var card = document.createElement('div');
                             card.className = 'content-card fade-up';
                             card.innerHTML =
-                                imgBlock +
-                                '<div class="p-5">' +
-                                '<span class="badge-rojo">' + esc(item.categoria || 'Evento') + '</span>' +
-                                '<h3 class="card-title">' + esc(item.titulo) + '</h3>' +
-                                '<p class="text-gray-500 text-sm leading-relaxed">' + esc(item.descripcion) + '</p>' +
-                                (meta ? '<div class="card-date">' +
-                                    '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
-                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
-                                    '</svg>' + meta + '</div>' : '') +
-                                '</div>';
+	                                imgBlock +
+	                                '<div class="p-5">' +
+	                                '<span class="badge-rojo">' + esc(category) + '</span>' +
+	                                '<h3 class="card-title">' + esc(title) + '</h3>' +
+	                                '<p class="text-gray-500 text-sm leading-relaxed">' + esc(description) + '</p>' +
+	                                (meta ? '<div class="card-date">' +
+	                                    '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+	                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
+	                                    '</svg>' + esc(meta) + '</div>' : '') +
+	                                '</div>';
                             eventFragment.appendChild(card);
                         });
                         eGrid.insertBefore(eventFragment, eGrid.firstChild);
@@ -1039,7 +1057,7 @@
             })();
     </script>
 
-    <script src="js/main.js?v=20260628-5"></script>
+    <script src="js/main.js?v=20260628-sec1"></script>
 </body>
 
 </html>

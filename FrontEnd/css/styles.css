@@ -822,6 +822,9 @@ footer {
   backdrop-filter: blur(8px);
   padding: 8px 20px;
   border-radius: 24px;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0;
   border: 1px solid rgba(255,255,255,0.1);
@@ -2245,6 +2248,7 @@ nav {
 }
 
 .section-subtitle {
+  grid-column: 1 / -1;
   margin-left: 0;
   margin-right: 0;
   color: #6F5555;
@@ -3032,6 +3036,72 @@ nav {
 @media (min-width: 1024px) {
   .hero-grid {
     display: block;
+  }
+}
+
+/* ============================================================
+   DOCENTES — Encuadre de fotos grupales
+   ============================================================ */
+#eventos .media-img,
+#galeria .gallery-img,
+#galeria .gallery-item img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+#eventos .media-img {
+  height: clamp(190px, 16vw, 220px);
+}
+
+#eventos .media-img--evento-panoramica {
+  object-position: center 12%;
+}
+
+#eventos .media-img--evento-edificio {
+  object-position: center 20%;
+}
+
+#eventos .media-img--evento-especial {
+  object-position: center 10%;
+}
+
+#galeria .gallery-item img.gallery-img--1,
+#galeria .gallery-item img.gallery-img--2,
+#galeria .gallery-item img.gallery-img--3,
+#galeria .gallery-item img.gallery-img--4,
+#galeria .gallery-item img.gallery-img--5,
+#galeria .gallery-item img.gallery-img--6 {
+  object-position: center 8%;
+}
+
+#galeria .gallery-item img.gallery-img--7,
+#galeria .gallery-item img.gallery-img--8 {
+  object-position: center 18%;
+}
+
+#docentes .docente-img {
+  width: 100%;
+  height: clamp(180px, 15vw, 220px) !important;
+  object-fit: cover;
+  object-position: center top;
+}
+
+#docentes .docente-img--matriz {
+  object-position: center 8%;
+}
+
+#docentes .docente-img--sede2 {
+  object-position: center 4%;
+}
+
+#docentes .docente-img--sede3 {
+  object-position: center 7%;
+}
+
+@media (max-width: 767px) {
+  #docentes .docente-img {
+    height: 230px !important;
+    object-position: center top;
   }
 }
 
