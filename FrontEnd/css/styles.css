@@ -1686,7 +1686,7 @@ footer {
    REDISEÑO — Scroll progress bar
    ============================================================ */
 #scroll-progress {
-  background: linear-gradient(to right, var(--rojo-oscuro), var(--dorado-claro), var(--rojo-claro));
+  background: white;
   height: 2.5px;
 }
 
