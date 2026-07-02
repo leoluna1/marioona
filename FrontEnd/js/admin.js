@@ -410,7 +410,16 @@ function setGalleryPreview(src) {
 
 function resetGalleryForm() {
   const form = document.getElementById('form-gallery');
+  const title = document.getElementById('gallery-form-title');
+  const editIndex = document.getElementById('gallery-edit-index');
+  const saveBtn = document.getElementById('btn-save-gallery');
+  const cancelBtn = document.getElementById('btn-cancel-gallery-edit');
+
   if (form) form.reset();
+  if (title) title.textContent = 'Agregar imagen a la galería';
+  if (editIndex) editIndex.value = '';
+  if (saveBtn) saveBtn.textContent = 'Agregar imagen';
+  if (cancelBtn) cancelBtn.classList.add('hidden');
   galleryImageData = '';
   setGalleryPreview('');
 }
@@ -692,7 +701,7 @@ function renderGallery() {
   }
 
   container.innerHTML = items.map((item, index) => `
-    <div class="relative group rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-white">
+    <div class="relative rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-white">
       <div class="h-36 bg-gray-100 overflow-hidden">
         <img src="${esc(item.url)}" alt="${esc(item.caption)}"
              class="w-full h-full object-cover" />
@@ -701,11 +710,18 @@ function renderGallery() {
         <p class="text-sm text-gray-700 leading-snug line-clamp-2">${esc(item.caption)}</p>
         ${item.createdBy ? `<p class="text-[11px] text-gray-400 mt-2">Subida por ${esc(authorText(item.createdBy))}</p>` : ''}
       </div>
-      <button data-gallery-delete="${index}"
-              class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100"
-              aria-label="Eliminar imagen: ${esc(item.caption)}">
-        Eliminar
-      </button>
+      <div class="absolute top-2 right-2 flex gap-1">
+        <button data-gallery-action="edit" data-gallery-index="${index}"
+                class="bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-xs px-2 py-1 rounded-lg shadow-sm"
+                aria-label="Editar imagen: ${esc(item.caption)}">
+          Editar
+        </button>
+        <button data-gallery-action="delete" data-gallery-index="${index}"
+                class="bg-red-600 hover:bg-red-700 text-white text-xs px-2 py-1 rounded-lg"
+                aria-label="Eliminar imagen: ${esc(item.caption)}">
+          Eliminar
+        </button>
+      </div>
     </div>
   `).join('');
 }
@@ -721,10 +737,12 @@ function deleteGalleryItem(index) {
 }
 
 document.getElementById('gallery-list').addEventListener('click', e => {
-  const button = e.target.closest('[data-gallery-delete]');
+  const button = e.target.closest('[data-gallery-action]');
   if (!button) return;
-  const index = Number(button.dataset.galleryDelete);
-  if (Number.isInteger(index)) deleteGalleryItem(index);
+  const index = Number(button.dataset.galleryIndex);
+  if (!Number.isInteger(index)) return;
+  if (button.dataset.galleryAction === 'edit') editGalleryItem(index);
+  if (button.dataset.galleryAction === 'delete') deleteGalleryItem(index);
 });
 
 document.getElementById('form-gallery').addEventListener('submit', e => {
@@ -732,29 +750,72 @@ document.getElementById('form-gallery').addEventListener('submit', e => {
   const url = document.getElementById('gallery-url').value.trim();
   const caption = cleanText(document.getElementById('gallery-caption').value, MAX_TEXT.caption);
   const image = galleryImageData || url;
-  if (!image || !caption) {
+  const editIndexVal = document.getElementById('gallery-edit-index').value;
+  const editIndex = editIndexVal !== '' ? parseInt(editIndexVal, 10) : -1;
+  const isEditing = editIndex >= 0;
+
+  if (!caption) {
+    showToast('Escribe una descripcion para la imagen.');
+    return;
+  }
+  if (!isEditing && !image) {
     showToast('Agrega una imagen y una descripcion.');
     return;
   }
-  if (!isSafeImageSource(image)) {
+  if (image && !isSafeImageSource(image)) {
     showToast('La imagen debe ser un archivo subido o un enlace HTTPS valido.');
     return;
   }
 
   const items = getGallery();
-  items.unshift({
-    url: image,
-    caption,
-    createdAt: new Date().toISOString(),
-    createdBy: getCurrentUser(),
-  });
-  saveGallery(items);
-  renderGallery();
-  resetGalleryForm();
-  document.getElementById('gallery-file').focus();
-  addAudit('Imagen agregada', caption);
-  showToast('Imagen agregada a la galeria.');
+  if (isEditing && editIndex < items.length) {
+    items[editIndex] = normalizeGalleryItem({
+      ...items[editIndex],
+      caption,
+      url: image || items[editIndex].url,
+    });
+    saveGallery(items);
+    renderGallery();
+    resetGalleryForm();
+    addAudit('Caption de imagen actualizado', caption);
+    showToast('Imagen actualizada.');
+  } else {
+    items.unshift({
+      url: image,
+      caption,
+      createdAt: new Date().toISOString(),
+      createdBy: getCurrentUser(),
+    });
+    saveGallery(items);
+    renderGallery();
+    resetGalleryForm();
+    document.getElementById('gallery-file').focus();
+    addAudit('Imagen agregada', caption);
+    showToast('Imagen agregada a la galeria.');
+  }
 });
+
+function editGalleryItem(index) {
+  const items = getGallery();
+  const item = items[index];
+  if (!item) return;
+
+  document.getElementById('gallery-form-title').textContent = 'Editar imagen';
+  document.getElementById('gallery-edit-index').value = index;
+  document.getElementById('gallery-caption').value = item.caption;
+  document.getElementById('btn-save-gallery').textContent = 'Actualizar imagen';
+  document.getElementById('btn-cancel-gallery-edit').classList.remove('hidden');
+
+  if (item.url.startsWith('data:')) {
+    galleryImageData = item.url;
+    document.getElementById('gallery-url').value = '';
+  } else {
+    galleryImageData = '';
+    document.getElementById('gallery-url').value = item.url;
+  }
+  setGalleryPreview(item.url);
+  document.getElementById('form-gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 document.getElementById('gallery-file').addEventListener('change', async e => {
   const file = e.target.files[0];
@@ -881,6 +942,7 @@ document.getElementById('btn-clear-image').addEventListener('click', () => {
 });
 
 document.getElementById('btn-cancel-edit').addEventListener('click', resetEventForm);
+document.getElementById('btn-cancel-gallery-edit').addEventListener('click', resetGalleryForm);
 
 document.getElementById('form-events').addEventListener('submit', e => {
   e.preventDefault();
@@ -1088,11 +1150,24 @@ document.getElementById('form-settings').addEventListener('submit', async e => {
   if (!current) return;
   const name = cleanText(document.getElementById('settings-name').value, MAX_TEXT.name);
   const email = normalizeEmail(document.getElementById('settings-email').value);
+  const currentPassword = document.getElementById('settings-current-password').value;
   const password = document.getElementById('settings-password').value;
   const passwordConfirm = document.getElementById('settings-password-confirm').value;
 
   if (!name || !isValidEmail(email)) {
     showToast('Completa nombre y correo.');
+    return;
+  }
+
+  if (!currentPassword) {
+    showToast('Ingresa tu clave actual para confirmar los cambios.');
+    document.getElementById('settings-current-password').focus();
+    return;
+  }
+  const validCurrent = await verifyPassword(currentPassword, current);
+  if (!validCurrent) {
+    showToast('Clave actual incorrecta.');
+    document.getElementById('settings-current-password').focus();
     return;
   }
 
@@ -1124,6 +1199,7 @@ document.getElementById('form-settings').addEventListener('submit', async e => {
   });
 
   sessionStorage.setItem(SESSION_USER_KEY, email);
+  document.getElementById('settings-current-password').value = '';
   document.getElementById('settings-password').value = '';
   document.getElementById('settings-password-confirm').value = '';
   fillSettingsForm();
@@ -1131,6 +1207,19 @@ document.getElementById('form-settings').addEventListener('submit', async e => {
   addAudit('Configuracion actualizada', password ? 'Correo/nombre y clave' : 'Correo/nombre');
   showToast('Configuracion guardada.');
 });
+
+/* ===== CONTADOR DE CARACTERES — descripción de evento ===== */
+const descTextarea = document.getElementById('event-descripcion');
+const descCount = document.getElementById('desc-count');
+if (descTextarea && descCount) {
+  const updateCount = () => {
+    const len = descTextarea.value.length;
+    descCount.textContent = `${len}/260`;
+    descCount.classList.toggle('text-red-600', len >= 240);
+    descCount.classList.toggle('text-gray-400', len < 240);
+  };
+  descTextarea.addEventListener('input', updateCount);
+}
 
 /* ===== INIT ===== */
 async function initAdmin() {
