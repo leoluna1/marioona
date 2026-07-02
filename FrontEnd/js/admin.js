@@ -16,6 +16,19 @@ const LOCKOUT_MS = 5 * 60 * 1000;
 const MAX_LOGIN_ATTEMPTS = 5;
 const PASSWORD_ITERATIONS = 150000;
 const BACKUP_VERSION = 1;
+const MAX_IMAGE_FILE_SIZE = 3 * 1024 * 1024;
+const MAX_DATA_IMAGE_CHARS = 4 * 1024 * 1024;
+const MAX_JSON_FILE_SIZE = 1 * 1024 * 1024;
+const ALLOWED_IMAGE_MIME_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
+const MAX_TEXT = {
+  name: 80,
+  email: 160,
+  title: 140,
+  category: 40,
+  location: 120,
+  description: 1000,
+  caption: 160,
+};
 
 let eventImageData = '';
 let galleryImageData = '';
@@ -50,6 +63,18 @@ function readObject(key, fallback = {}) {
 
 function normalizeEmail(email) {
   return String(email || '').trim().toLowerCase();
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(normalizeEmail(email));
+}
+
+function cleanText(value, maxLength = 240) {
+  return String(value || '')
+    .replace(/[\u0000-\u001F\u007F]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, maxLength);
 }
 
 function getStoredAdminUser() {
@@ -136,7 +161,7 @@ async function saveAdminUser(user) {
       };
 
   localStorage.setItem(ADMIN_USER_KEY, JSON.stringify({
-    name: String(user.name || 'Administrador').trim(),
+    name: cleanText(user.name || 'Administrador', MAX_TEXT.name),
     email: normalizeEmail(user.email),
     passwordHash: passwordRecord.passwordHash,
     salt: passwordRecord.salt,
@@ -176,6 +201,17 @@ function authorText(author) {
   return author.name || author.email || '';
 }
 
+function normalizeAuthor(author) {
+  if (!author) return '';
+  if (typeof author === 'string') return cleanText(author, MAX_TEXT.email);
+  if (typeof author !== 'object' || Array.isArray(author)) return '';
+
+  return {
+    name: cleanText(author.name, MAX_TEXT.name),
+    email: isValidEmail(author.email) ? normalizeEmail(author.email) : '',
+  };
+}
+
 function formatDateTime(dateStr) {
   if (!dateStr) return '';
   try {
@@ -193,19 +229,19 @@ function formatDateTime(dateStr) {
 }
 
 function getAuditLog() {
-  return readJson(AUDIT_KEY);
+  return readJson(AUDIT_KEY).map(normalizeAuditEntry);
 }
 
 function saveAuditLog(items) {
-  localStorage.setItem(AUDIT_KEY, JSON.stringify(items.slice(0, 150)));
+  localStorage.setItem(AUDIT_KEY, JSON.stringify(items.map(normalizeAuditEntry).slice(0, 150)));
 }
 
 function addAudit(action, detail = '') {
   const entry = {
     id: uid(),
     timestamp: new Date().toISOString(),
-    action,
-    detail: String(detail || '').slice(0, 240),
+    action: cleanText(action, 120),
+    detail: cleanText(detail, 240),
     user: getCurrentUser(),
   };
   saveAuditLog([entry, ...getAuditLog()]);
@@ -225,11 +261,17 @@ function downloadJson(filename, data) {
 function isSafeImageSource(src) {
   const value = String(src || '').trim();
   if (!value) return true;
-  if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) return true;
+  if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) {
+    const payload = value.split(',', 2)[1] || '';
+    return value.length <= MAX_DATA_IMAGE_CHARS && /^[a-z0-9+/=\s]+$/i.test(payload);
+  }
 
   try {
-    const url = new URL(value);
-    return url.protocol === 'https:' || url.protocol === 'http:';
+    const url = new URL(value, window.location.href);
+    if (url.origin === window.location.origin && (url.protocol === 'https:' || url.protocol === 'http:')) {
+      return true;
+    }
+    return url.protocol === 'https:';
   } catch (error) {
     return false;
   }
@@ -237,6 +279,16 @@ function isSafeImageSource(src) {
 
 function uid() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function normalizeAuditEntry(entry) {
+  return {
+    id: cleanText(entry && entry.id, 80) || uid(),
+    timestamp: cleanText(entry && entry.timestamp, 40),
+    action: cleanText(entry && entry.action, 120),
+    detail: cleanText(entry && entry.detail, 240),
+    user: normalizeAuthor(entry && entry.user),
+  };
 }
 
 function formatDate(dateStr) {
@@ -250,20 +302,31 @@ function formatDate(dateStr) {
 }
 
 function normalizeEvent(item) {
+  const source = item && typeof item === 'object' && !Array.isArray(item) ? item : {};
   return {
-    id: item.id || uid(),
-    titulo: item.titulo || '',
-    categoria: item.categoria || 'Evento',
-    fecha: item.fecha || '',
-    hora: item.hora || '',
-    lugar: item.lugar || '',
-    descripcion: item.descripcion || '',
-    imagen: isSafeImageSource(item.imagen) ? item.imagen || '' : '',
-    publicado: item.publicado !== false,
-    createdAt: item.createdAt || new Date().toISOString(),
-    updatedAt: item.updatedAt || '',
-    createdBy: item.createdBy || '',
-    updatedBy: item.updatedBy || '',
+    id: cleanText(source.id, 80) || uid(),
+    titulo: cleanText(source.titulo, MAX_TEXT.title),
+    categoria: cleanText(source.categoria || 'Evento', MAX_TEXT.category),
+    fecha: cleanText(source.fecha, 20),
+    hora: cleanText(source.hora, 20),
+    lugar: cleanText(source.lugar, MAX_TEXT.location),
+    descripcion: cleanText(source.descripcion, MAX_TEXT.description),
+    imagen: isSafeImageSource(source.imagen) ? String(source.imagen || '').trim() : '',
+    publicado: source.publicado !== false,
+    createdAt: cleanText(source.createdAt, 40) || new Date().toISOString(),
+    updatedAt: cleanText(source.updatedAt, 40),
+    createdBy: normalizeAuthor(source.createdBy),
+    updatedBy: normalizeAuthor(source.updatedBy),
+  };
+}
+
+function normalizeGalleryItem(item) {
+  const source = item && typeof item === 'object' && !Array.isArray(item) ? item : {};
+  return {
+    url: isSafeImageSource(source.url) ? String(source.url || '').trim() : '',
+    caption: cleanText(source.caption, MAX_TEXT.caption),
+    createdAt: cleanText(source.createdAt, 40) || new Date().toISOString(),
+    createdBy: normalizeAuthor(source.createdBy),
   };
 }
 
@@ -294,10 +357,7 @@ function restoreFullBackup(data) {
   const audit = Array.isArray(data.audit) ? data.audit : [];
 
   saveEvents(events.map(normalizeEvent));
-  saveGallery(gallery.map(item => ({
-    ...item,
-    url: isSafeImageSource(item.url) ? item.url : '',
-  })).filter(item => item.url));
+  saveGallery(gallery.map(normalizeGalleryItem));
   saveAuditLog(audit);
   addAudit('Respaldo importado', `${events.length} eventos, ${gallery.length} imagenes`);
 }
@@ -315,13 +375,17 @@ function setPreview(src) {
   const clearBtn = document.getElementById('btn-clear-image');
   if (!preview || !clearBtn) return;
 
+  preview.replaceChildren();
   if (!src) {
-    preview.innerHTML = 'Sin imagen seleccionada';
+    preview.textContent = 'Sin imagen seleccionada';
     clearBtn.classList.add('hidden');
     return;
   }
 
-  preview.innerHTML = `<img src="${esc(src)}" alt="Vista previa de imagen del evento" />`;
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'Vista previa de imagen del evento';
+  preview.appendChild(img);
   clearBtn.classList.remove('hidden');
 }
 
@@ -330,13 +394,17 @@ function setGalleryPreview(src) {
   const clearBtn = document.getElementById('btn-clear-gallery-image');
   if (!preview || !clearBtn) return;
 
+  preview.replaceChildren();
   if (!src) {
-    preview.innerHTML = 'Sin imagen seleccionada';
+    preview.textContent = 'Sin imagen seleccionada';
     clearBtn.classList.add('hidden');
     return;
   }
 
-  preview.innerHTML = `<img src="${esc(src)}" alt="Vista previa de imagen para galeria" />`;
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'Vista previa de imagen para galeria';
+  preview.appendChild(img);
   clearBtn.classList.remove('hidden');
 }
 
@@ -366,8 +434,12 @@ function resetEventForm() {
 
 function resizeImageFile(file) {
   return new Promise((resolve, reject) => {
-    if (!file || !file.type.startsWith('image/')) {
+    if (!file || !ALLOWED_IMAGE_MIME_TYPES.has(file.type)) {
       reject(new Error('Selecciona un archivo de imagen.'));
+      return;
+    }
+    if (file.size > MAX_IMAGE_FILE_SIZE) {
+      reject(new Error('La imagen no debe superar 3 MB.'));
       return;
     }
 
@@ -390,6 +462,12 @@ function resizeImageFile(file) {
     reader.onerror = () => reject(new Error('No se pudo cargar el archivo.'));
     reader.readAsDataURL(file);
   });
+}
+
+function isValidJsonImportFile(file) {
+  return Boolean(file)
+    && file.size <= MAX_JSON_FILE_SIZE
+    && /\.json$/i.test(file.name || '');
 }
 
 /* ===== AUTENTICACION ===== */
@@ -479,7 +557,7 @@ document.getElementById('input-pass').addEventListener('keydown', e => {
 document.getElementById('btn-login').addEventListener('click', async () => {
   const email = normalizeEmail(document.getElementById('input-email').value);
   const pass = document.getElementById('input-pass').value;
-  const name = document.getElementById('input-name').value.trim();
+  const name = cleanText(document.getElementById('input-name').value, MAX_TEXT.name);
   const admin = getStoredAdminUser();
   const errorEl = document.getElementById('login-error');
   const inputEl = document.getElementById('input-pass');
@@ -487,7 +565,7 @@ document.getElementById('btn-login').addEventListener('click', async () => {
   if (errorEl) errorEl.classList.add('hidden');
 
   if (!admin) {
-    if (!name || !email || pass.length < 8) {
+    if (!name || !isValidEmail(email) || pass.length < 8) {
       errorEl.textContent = 'Completa nombre, correo y una clave de al menos 8 caracteres.';
       errorEl.classList.remove('hidden');
       return;
@@ -594,14 +672,11 @@ document.querySelectorAll('[data-tab]').forEach(btn => {
 
 /* ===== GALERIA ===== */
 function getGallery() {
-  return readJson(GALLERY_KEY).map(item => ({
-    ...item,
-    url: isSafeImageSource(item.url) ? item.url || '' : '',
-  })).filter(item => item.url);
+  return readJson(GALLERY_KEY).map(normalizeGalleryItem).filter(item => item.url && item.caption);
 }
 
 function saveGallery(items) {
-  localStorage.setItem(GALLERY_KEY, JSON.stringify(items));
+  localStorage.setItem(GALLERY_KEY, JSON.stringify(items.map(normalizeGalleryItem).filter(item => item.url && item.caption)));
 }
 
 function renderGallery() {
@@ -620,14 +695,13 @@ function renderGallery() {
     <div class="relative group rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-white">
       <div class="h-36 bg-gray-100 overflow-hidden">
         <img src="${esc(item.url)}" alt="${esc(item.caption)}"
-             class="w-full h-full object-cover"
-             onerror="this.parentElement.innerHTML='<div class=&quot;w-full h-full flex items-center justify-center text-gray-300 text-xs&quot;>Imagen no disponible</div>'" />
+             class="w-full h-full object-cover" />
       </div>
       <div class="p-3">
         <p class="text-sm text-gray-700 leading-snug line-clamp-2">${esc(item.caption)}</p>
         ${item.createdBy ? `<p class="text-[11px] text-gray-400 mt-2">Subida por ${esc(authorText(item.createdBy))}</p>` : ''}
       </div>
-      <button onclick="deleteGalleryItem(${index})"
+      <button data-gallery-delete="${index}"
               class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100"
               aria-label="Eliminar imagen: ${esc(item.caption)}">
         Eliminar
@@ -636,7 +710,7 @@ function renderGallery() {
   `).join('');
 }
 
-window.deleteGalleryItem = function(index) {
+function deleteGalleryItem(index) {
   if (!confirm('Eliminar esta imagen de la galeria?')) return;
   const items = getGallery();
   items.splice(index, 1);
@@ -644,19 +718,26 @@ window.deleteGalleryItem = function(index) {
   renderGallery();
   addAudit('Imagen eliminada', 'Galeria institucional');
   showToast('Imagen eliminada.');
-};
+}
+
+document.getElementById('gallery-list').addEventListener('click', e => {
+  const button = e.target.closest('[data-gallery-delete]');
+  if (!button) return;
+  const index = Number(button.dataset.galleryDelete);
+  if (Number.isInteger(index)) deleteGalleryItem(index);
+});
 
 document.getElementById('form-gallery').addEventListener('submit', e => {
   e.preventDefault();
   const url = document.getElementById('gallery-url').value.trim();
-  const caption = document.getElementById('gallery-caption').value.trim();
+  const caption = cleanText(document.getElementById('gallery-caption').value, MAX_TEXT.caption);
   const image = galleryImageData || url;
   if (!image || !caption) {
     showToast('Agrega una imagen y una descripcion.');
     return;
   }
   if (!isSafeImageSource(image)) {
-    showToast('La imagen debe ser un archivo subido o un enlace http/https valido.');
+    showToast('La imagen debe ser un archivo subido o un enlace HTTPS valido.');
     return;
   }
 
@@ -697,7 +778,7 @@ document.getElementById('gallery-url').addEventListener('input', e => {
   }
   if (!isSafeImageSource(url)) {
     setGalleryPreview('');
-    showToast('Usa un enlace de imagen http/https valido.');
+    showToast('Usa un enlace de imagen HTTPS valido.');
     return;
   }
   galleryImageData = '';
@@ -752,9 +833,9 @@ function renderEvents() {
           ${item.createdBy ? `<p class="text-[11px] text-gray-400 mt-3">Creado por ${esc(authorText(item.createdBy))}</p>` : ''}
           ${item.updatedBy ? `<p class="text-[11px] text-gray-400 mt-1">Último cambio: ${esc(authorText(item.updatedBy))}</p>` : ''}
           <div class="grid grid-cols-3 gap-2 mt-4">
-            <button onclick="editEventItem('${esc(item.id)}')" class="btn-ghost py-2 text-xs" type="button">Editar</button>
-            <button onclick="toggleEventPublish('${esc(item.id)}')" class="btn-ghost py-2 text-xs" type="button">${item.publicado ? 'Ocultar' : 'Publicar'}</button>
-            <button onclick="deleteEventItem('${esc(item.id)}')" class="bg-red-50 hover:bg-red-100 text-red-700 rounded-xl py-2 text-xs font-bold" type="button">Eliminar</button>
+            <button data-event-action="edit" data-event-id="${esc(item.id)}" class="btn-ghost py-2 text-xs" type="button">Editar</button>
+            <button data-event-action="toggle" data-event-id="${esc(item.id)}" class="btn-ghost py-2 text-xs" type="button">${item.publicado ? 'Ocultar' : 'Publicar'}</button>
+            <button data-event-action="delete" data-event-id="${esc(item.id)}" class="bg-red-50 hover:bg-red-100 text-red-700 rounded-xl py-2 text-xs font-bold" type="button">Eliminar</button>
           </div>
         </div>
       </article>
@@ -784,7 +865,7 @@ document.getElementById('event-imagen').addEventListener('input', e => {
   }
   if (!isSafeImageSource(url)) {
     setPreview('');
-    showToast('Usa un enlace de imagen http/https valido.');
+    showToast('Usa un enlace de imagen HTTPS valido.');
     return;
   }
   eventImageData = '';
@@ -807,17 +888,17 @@ document.getElementById('form-events').addEventListener('submit', e => {
   const editId = document.getElementById('event-edit-index').value;
   const imageUrl = document.getElementById('event-imagen').value.trim();
   if (imageUrl && !isSafeImageSource(imageUrl)) {
-    showToast('La imagen del evento debe ser un archivo subido o un enlace http/https valido.');
+    showToast('La imagen del evento debe ser un archivo subido o un enlace HTTPS valido.');
     return;
   }
   const eventData = normalizeEvent({
     id: editId || uid(),
-    titulo: document.getElementById('event-titulo').value.trim(),
-    categoria: document.getElementById('event-categoria').value,
+    titulo: cleanText(document.getElementById('event-titulo').value, MAX_TEXT.title),
+    categoria: cleanText(document.getElementById('event-categoria').value, MAX_TEXT.category),
     fecha: document.getElementById('event-fecha').value,
     hora: document.getElementById('event-hora').value,
-    lugar: document.getElementById('event-lugar').value.trim(),
-    descripcion: document.getElementById('event-descripcion').value.trim(),
+    lugar: cleanText(document.getElementById('event-lugar').value, MAX_TEXT.location),
+    descripcion: cleanText(document.getElementById('event-descripcion').value, MAX_TEXT.description),
     imagen: eventImageData || imageUrl,
     publicado: document.getElementById('event-publicado').checked,
     updatedAt: new Date().toISOString(),
@@ -849,7 +930,7 @@ document.getElementById('form-events').addEventListener('submit', e => {
   resetEventForm();
 });
 
-window.editEventItem = function(id) {
+function editEventItem(id) {
   const item = getEvents().find(event => event.id === id);
   if (!item) return;
 
@@ -870,9 +951,9 @@ window.editEventItem = function(id) {
   eventImageData = item.imagen && item.imagen.startsWith('data:') ? item.imagen : '';
   setPreview(item.imagen);
   document.getElementById('form-events').scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
+}
 
-window.toggleEventPublish = function(id) {
+function toggleEventPublish(id) {
   const items = getEvents().map(item => item.id === id
     ? { ...item, publicado: !item.publicado, updatedAt: new Date().toISOString(), updatedBy: getCurrentUser() }
     : item);
@@ -880,9 +961,9 @@ window.toggleEventPublish = function(id) {
   renderEvents();
   addAudit('Estado de evento cambiado', id);
   showToast('Estado del evento actualizado.');
-};
+}
 
-window.deleteEventItem = function(id) {
+function deleteEventItem(id) {
   const item = getEvents().find(event => event.id === id);
   if (!item) return;
   if (!confirm(`Eliminar el evento "${item.titulo}"?`)) return;
@@ -892,7 +973,19 @@ window.deleteEventItem = function(id) {
   resetEventForm();
   addAudit('Evento eliminado', item.titulo);
   showToast('Evento eliminado.');
-};
+}
+
+document.getElementById('events-list').addEventListener('click', e => {
+  const button = e.target.closest('[data-event-action]');
+  if (!button) return;
+
+  const id = button.dataset.eventId;
+  if (!id) return;
+
+  if (button.dataset.eventAction === 'edit') editEventItem(id);
+  if (button.dataset.eventAction === 'toggle') toggleEventPublish(id);
+  if (button.dataset.eventAction === 'delete') deleteEventItem(id);
+});
 
 document.getElementById('btn-export-events').addEventListener('click', () => {
   addAudit('Eventos respaldados', 'Exportacion de eventos');
@@ -902,6 +995,11 @@ document.getElementById('btn-export-events').addEventListener('click', () => {
 document.getElementById('event-import-file').addEventListener('change', e => {
   const file = e.target.files[0];
   if (!file) return;
+  if (!isValidJsonImportFile(file)) {
+    showToast('Importa un archivo .json de máximo 1 MB.');
+    e.target.value = '';
+    return;
+  }
 
   const reader = new FileReader();
   reader.onload = () => {
@@ -921,7 +1019,7 @@ document.getElementById('event-import-file').addEventListener('change', e => {
       e.target.value = '';
     }
   };
-  reader.readAsText(file);
+  reader.readAsText(file, 'utf-8');
 });
 
 document.getElementById('btn-export-all').addEventListener('click', () => {
@@ -932,6 +1030,11 @@ document.getElementById('btn-export-all').addEventListener('click', () => {
 document.getElementById('backup-import-file').addEventListener('change', e => {
   const file = e.target.files[0];
   if (!file) return;
+  if (!isValidJsonImportFile(file)) {
+    showToast('Importa un archivo .json de máximo 1 MB.');
+    e.target.value = '';
+    return;
+  }
 
   const reader = new FileReader();
   reader.onload = () => {
@@ -954,7 +1057,7 @@ document.getElementById('backup-import-file').addEventListener('change', e => {
       e.target.value = '';
     }
   };
-  reader.readAsText(file);
+  reader.readAsText(file, 'utf-8');
 });
 
 document.getElementById('btn-clear-audit').addEventListener('click', () => {
@@ -983,12 +1086,12 @@ document.getElementById('form-settings').addEventListener('submit', async e => {
 
   const current = getStoredAdminUser();
   if (!current) return;
-  const name = document.getElementById('settings-name').value.trim();
+  const name = cleanText(document.getElementById('settings-name').value, MAX_TEXT.name);
   const email = normalizeEmail(document.getElementById('settings-email').value);
   const password = document.getElementById('settings-password').value;
   const passwordConfirm = document.getElementById('settings-password-confirm').value;
 
-  if (!name || !email) {
+  if (!name || !isValidEmail(email)) {
     showToast('Completa nombre y correo.');
     return;
   }

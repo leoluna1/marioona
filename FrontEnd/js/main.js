@@ -258,7 +258,8 @@ const toast = document.getElementById('toast');
 
 function validateField(input) {
   const errorEl = document.getElementById('error-' + input.name);
-  const valid   = input.checkValidity();
+  if (input.required) input.value = input.value.trim();
+  const valid = input.checkValidity() && (!input.required || input.value.trim().length > 0);
 
   input.setAttribute('aria-invalid', String(!valid));
   if (errorEl) {

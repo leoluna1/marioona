@@ -1,0 +1,12 @@
+.DS_Store
+**/.DS_Store
+.env
+.env.*
+*.log
+*.bak
+*.backup
+*.old
+*.sql
+node_modules/
+dist/
+build/
