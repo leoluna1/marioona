@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "School",
+  "name": "Unidad Educativa Mario Oña Perdomo",
+  "alternateName": "U.E. Mario Oña Perdomo",
+  "description": "Institución educativa pública comprometida con la formación integral de niños y jóvenes de San Gabriel, Carchi, desde 1979.",
+  "url": "https://uemoperdomo.es",
+  "logo": "https://uemoperdomo.es/images/escudo-logo.png",
+  "image": "https://uemoperdomo.es/images/og-image.jpg",
+  "foundingDate": "1979",
+  "email": "info@uemoperdomo.es",
+  "telephone": "+593992491624",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Río Cofanes y Río Aguarico",
+    "addressLocality": "San Gabriel",
+    "addressRegion": "Carchi",
+    "addressCountry": "EC"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 0.5918369859358804,
+    "longitude": -77.82595415949582
+  },
+  "openingHours": "Mo-Fr 07:00-12:30"
+}

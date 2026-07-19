@@ -17,7 +17,6 @@ const MAX_LOGIN_ATTEMPTS = 5;
 const PASSWORD_ITERATIONS = 150000;
 const BACKUP_VERSION = 1;
 const MAX_IMAGE_FILE_SIZE = 3 * 1024 * 1024;
-const MAX_DATA_IMAGE_CHARS = 4 * 1024 * 1024;
 const MAX_JSON_FILE_SIZE = 1 * 1024 * 1024;
 const ALLOWED_IMAGE_MIME_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
 const MAX_TEXT = {
@@ -33,16 +32,9 @@ const MAX_TEXT = {
 let eventImageData = '';
 let galleryImageData = '';
 
-/* ===== UTILIDADES ===== */
-function esc(value) {
-  if (value === null || value === undefined) return '';
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
+/* ===== UTILIDADES =====
+   esc, cleanText e isSafeImageSource viven en js/shared.js (cargado antes
+   que este archivo) para no duplicar la validación de imágenes. */
 function readJson(key, fallback = []) {
   try {
     const parsed = JSON.parse(localStorage.getItem(key) || 'null');
@@ -67,14 +59,6 @@ function normalizeEmail(email) {
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(normalizeEmail(email));
-}
-
-function cleanText(value, maxLength = 240) {
-  return String(value || '')
-    .replace(/[\u0000-\u001F\u007F]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, maxLength);
 }
 
 function getStoredAdminUser() {
@@ -256,25 +240,6 @@ function downloadJson(filename, data) {
   link.download = filename;
   link.click();
   URL.revokeObjectURL(url);
-}
-
-function isSafeImageSource(src) {
-  const value = String(src || '').trim();
-  if (!value) return true;
-  if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) {
-    const payload = value.split(',', 2)[1] || '';
-    return value.length <= MAX_DATA_IMAGE_CHARS && /^[a-z0-9+/=\s]+$/i.test(payload);
-  }
-
-  try {
-    const url = new URL(value, window.location.href);
-    if (url.origin === window.location.origin && (url.protocol === 'https:' || url.protocol === 'http:')) {
-      return true;
-    }
-    return url.protocol === 'https:';
-  } catch (error) {
-    return false;
-  }
 }
 
 function uid() {

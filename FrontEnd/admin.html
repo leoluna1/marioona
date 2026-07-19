@@ -7,27 +7,10 @@
   <title>Panel Administrativo — U.E. Mario Oña Perdomo</title>
   <meta name="robots" content="noindex, nofollow" />
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';" />
+        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            rojo: {
-              50:  '#FDECEA',
-              100: '#FAD0CC',
-              400: '#E05252',
-              600: '#B22222',
-              700: '#8B1A1A',
-              800: '#6E1414',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <script src="js/tailwind-config-admin.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
@@ -232,7 +215,7 @@
 
       <!-- Logo -->
       <div class="flex items-center gap-3 mb-8">
-        <img src="images/escudo.png" alt="" class="w-12 h-12 object-contain flex-shrink-0" aria-hidden="true" />
+        <img src="images/escudo-logo.png" alt="" class="w-12 h-12 object-contain flex-shrink-0" aria-hidden="true" />
         <div>
           <p class="font-bold text-gray-800 text-sm leading-tight">U.E. Mario Oña Perdomo</p>
           <p class="text-gray-500 text-xs">Panel de Administración</p>
@@ -282,7 +265,7 @@
     <header class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
       <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
         <div class="flex items-center gap-2.5">
-          <img src="images/escudo.png" alt="" class="w-8 h-8 object-contain flex-shrink-0" aria-hidden="true" />
+          <img src="images/escudo-logo.png" alt="" class="w-8 h-8 object-contain flex-shrink-0" aria-hidden="true" />
           <div>
             <span class="font-bold text-sm text-gray-800 leading-tight block">Panel Administrativo</span>
             <span id="current-admin-label" class="text-gray-400 text-xs hidden sm:block">U.E. Mario Oña Perdomo</span>
@@ -636,6 +619,7 @@
   <!-- Toast de confirmación -->
   <div id="admin-toast" role="alert" aria-live="polite"></div>
 
+  <script src="js/shared.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>

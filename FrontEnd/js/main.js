@@ -80,43 +80,6 @@ if (!prefersReducedMotion) {
   });
 }
 
-/* ===== 4. CONTADOR ANIMADO DE ESTADÍSTICAS ===== */
-function animateCounter(el, target, suffix = '') {
-  const duration  = 1800;
-  const step      = 16;
-  const increment = target / (duration / step);
-  let current     = 0;
-
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
-    }
-    el.textContent = Math.floor(current) + suffix;
-  }, step);
-}
-
-const statsSection  = document.getElementById('stats-section');
-let   statsAnimated = false;
-
-if (statsSection && !prefersReducedMotion) {
-  const statsObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting && !statsAnimated) {
-      statsAnimated = true;
-      document.querySelectorAll('[data-count]').forEach(el => {
-        animateCounter(el, parseInt(el.dataset.count), el.dataset.suffix || '');
-      });
-    }
-  }, { threshold: 0.5 });
-  statsObserver.observe(statsSection);
-} else {
-  // Sin animación: mostrar números finales directamente
-  document.querySelectorAll('[data-count]').forEach(el => {
-    el.textContent = el.dataset.count + (el.dataset.suffix || '');
-  });
-}
-
 /* ===== 5. GALERÍA: MOSTRAR MÁS ===== */
 const GALLERY_INITIAL_VISIBLE = 6;
 const GALLERY_STEP = 6;

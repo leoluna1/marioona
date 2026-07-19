@@ -8,7 +8,7 @@
     <meta name="description"
         content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en San Gabriel, Carchi, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';" />
+        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="keywords"
         content="Mario Oña Perdomo, colegio San Gabriel, unidad educativa San Gabriel, bachillerato San Gabriel, educación pública Ecuador, Carchi" />
@@ -16,42 +16,31 @@
     <meta name="robots" content="index, follow" />
     <!-- Open Graph — Facebook, WhatsApp, LinkedIn -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://uemoperdomo.es" />
+    <meta property="og:url" content="https://uemoperdomo.es/" />
     <meta property="og:title" content="U.E. Mario Oña Perdomo" />
     <meta property="og:description"
         content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de San Gabriel desde 1979." />
-    <meta property="og:image" content="https://uemoperdomo.es/og-image.jpg" />
+    <meta property="og:image" content="https://uemoperdomo.es/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="U.E. Mario Oña Perdomo" />
     <meta name="twitter:description"
         content="Institución educativa pública comprometida con la formación integral de niños y jóvenes de San Gabriel desde 1979." />
+    <meta name="twitter:image" content="https://uemoperdomo.es/images/og-image.jpg" />
+    <link rel="canonical" href="https://uemoperdomo.es/" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        rojo: {
-                            50: '#FDECEA',
-                            100: '#FAD0CC',
-                            500: '#D32F2F',
-                            600: '#B22222',
-                            700: '#8B1A1A',
-                            800: '#6E1414',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="js/tailwind-config.js"></script>
     <!-- Preconnect para mejorar carga de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css?v=20260628-sec1" />
-    <link rel="icon" type="image/png" href="images/escudo.png" />
+    <link rel="icon" type="image/png" href="images/escudo-favicon.png" />
+    <script type="application/ld+json" src="js/schema.json"></script>
 </head>
 
 <body class="text-gray-800 bg-white">
@@ -71,7 +60,7 @@
 
                 <!-- Logo -->
                 <a href="#inicio" class="nav-logo" aria-label="U.E. Mario Oña Perdomo — Inicio">
-                    <img src="images/escudo.png" alt="" class="nav-logo-img" aria-hidden="true" />
+                    <img src="images/escudo-logo.png" alt="" class="nav-logo-img" aria-hidden="true" />
                     <div>
                         <span class="nav-logo-name">U.E. Mario Oña Perdomo</span>
                         <span class="nav-logo-sub">San Gabriel, Carchi, Ecuador</span>
@@ -79,12 +68,13 @@
                 </a>
 
                 <!-- Links desktop -->
-                <div class="hidden lg:flex items-center gap-6">
+                <div class="hidden xl:flex items-center gap-6">
                     <a href="#inicio" class="nav-link">Inicio</a>
                     <a href="#acerca" class="nav-link">Acerca</a>
                     <a href="#eventos" class="nav-link">Eventos</a>
                     <a href="#galeria" class="nav-link">Galería</a>
                     <a href="#oferta" class="nav-link">Oferta Educativa</a>
+                    <a href="#inscripcion" class="nav-link">Inscripción</a>
                     <a href="#mision" class="nav-link">Misión &amp; Visión</a>
                     <a href="#autoridades" class="nav-link">Autoridades</a>
                     <a href="#docentes" class="nav-link">Docentes</a>
@@ -101,8 +91,8 @@
                 </a>
 
                 <!-- Hamburguesa mobile -->
-                <button id="menuBtn" class="hamburger-btn"
-                    aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
+                <button id="menuBtn" class="hamburger-btn" aria-label="Abrir menú de navegación" aria-expanded="false"
+                    aria-controls="mobileMenu">
                     <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -118,11 +108,13 @@
             <a href="#eventos" class="nav-mobile-link">Eventos</a>
             <a href="#galeria" class="nav-mobile-link">Galería</a>
             <a href="#oferta" class="nav-mobile-link">Oferta Educativa</a>
+            <a href="#inscripcion" class="nav-mobile-link">Inscripción</a>
             <a href="#mision" class="nav-mobile-link">Misión &amp; Visión</a>
             <a href="#autoridades" class="nav-mobile-link">Autoridades</a>
             <a href="#docentes" class="nav-mobile-link">Docentes</a>
             <a href="#contacto" class="nav-mobile-link">Contacto</a>
-            <a href="https://uemop.emex365.cloud" target="_blank" rel="noopener noreferrer" class="nav-mobile-login">Plataforma</a>
+            <a href="https://uemop.emex365.cloud" target="_blank" rel="noopener noreferrer"
+                class="nav-mobile-login">Plataforma</a>
         </div>
     </nav>
 
@@ -130,8 +122,7 @@
        HERO
   ============================================================ -->
     <main id="main-content">
-        <section id="inicio" class="hero-bg"
-            aria-labelledby="hero-titulo">
+        <section id="inicio" class="hero-bg" aria-labelledby="hero-titulo">
             <!-- Círculos decorativos (ocultos a lectores de pantalla) -->
             <div class="hero-circle-tr" aria-hidden="true"></div>
             <div class="hero-circle-bl" aria-hidden="true"></div>
@@ -196,7 +187,8 @@
                 <div class="about-layout">
                     <div class="about-copy fade-up">
                         <span class="section-eyebrow" aria-hidden="true">Acerca de nosotros</span>
-                        <h2 id="acerca-titulo" class="about-title">Una institución pública al servicio de San Gabriel</h2>
+                        <h2 id="acerca-titulo" class="about-title">Una institución pública al servicio de San Gabriel
+                        </h2>
                         <p>
                             La Unidad Educativa Mario Oña Perdomo forma parte de la comunidad educativa de San
                             Gabriel, Carchi. Desde 1979 acompaña la formación integral de niñas, niños y jóvenes,
@@ -221,19 +213,23 @@
                 <div class="section-header fade-up">
                     <span class="section-eyebrow" aria-hidden="true">Noticias</span>
                     <h2 id="eventos-titulo" class="section-title">Eventos Importantes</h2>
-                    <p class="section-subtitle">Mantente al día con las actividades más recientes de nuestra institución.</p>
+                    <p class="section-subtitle">Mantente al día con las actividades más recientes de nuestra
+                        institución.</p>
                 </div>
 
                 <div id="eventos-grid" class="grid-3col">
 
                     <div class="content-card fade-up delay-100">
-                        <img src="images/evento-panoramica.jpg" alt="Desfile Cívico — 120 años Cantón Montúfar"
-                            class="media-img media-img--evento-panoramica"
-                            loading="lazy" />
+                        <img src="images/evento-panoramica.jpg"
+                            srcset="images/evento-panoramica-sm.jpg 700w, images/evento-panoramica.jpg 1024w"
+                            sizes="(max-width: 767px) 100vw, 380px"
+                            alt="Desfile Cívico — 120 años Cantón Montúfar"
+                            class="media-img media-img--evento-panoramica" loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Cívico</span>
                             <h3 class="card-title">Desfile Cívico — 120 años del Cantón Montúfar</h3>
-                            <p class="card-desc">Nuestra institución participó con orgullo en la conmemoración del 120 aniversario de la creación del Cantón Montúfar.</p>
+                            <p class="card-desc">Nuestra institución participó con orgullo en la conmemoración del 120
+                                aniversario de la creación del Cantón Montúfar.</p>
                             <div class="card-date">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -245,13 +241,16 @@
                     </div>
 
                     <div class="content-card fade-up delay-200">
-                        <img src="images/evento-edificio.jpg" alt="Proclamación de Abanderados 2025–2026"
-                            class="media-img media-img--evento-edificio"
-                            loading="lazy" />
+                        <img src="images/evento-edificio.jpg"
+                            srcset="images/evento-edificio-sm.jpg 700w, images/evento-edificio.jpg 1480w"
+                            sizes="(max-width: 767px) 100vw, 380px"
+                            alt="Proclamación de Abanderados 2025–2026"
+                            class="media-img media-img--evento-edificio" loading="lazy" />
                         <div class="card-body">
                             <span class="badge-emerald">Orgullo Cívico</span>
                             <h3 class="card-title">Proclamación de Abanderados y Juramento a la Bandera</h3>
-                            <p class="card-desc">Solemne ceremonia de proclamación de abanderados y juramento a la bandera para el año lectivo 2025–2026.</p>
+                            <p class="card-desc">Solemne ceremonia de proclamación de abanderados y juramento a la
+                                bandera para el año lectivo 2025–2026.</p>
                             <div class="card-date">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -263,13 +262,16 @@
                     </div>
 
                     <div class="content-card fade-up delay-300">
-                        <img src="images/evento-especial.jpg" alt="Culminación del Coliseo Institucional"
-                            class="media-img media-img--evento-especial"
-                            loading="lazy" />
+                        <img src="images/evento-especial.jpg"
+                            srcset="images/evento-especial-sm.jpg 700w, images/evento-especial.jpg 1400w"
+                            sizes="(max-width: 767px) 100vw, 380px"
+                            alt="Culminación del Coliseo Institucional"
+                            class="media-img media-img--evento-especial" loading="lazy" />
                         <div class="card-body">
                             <span class="badge-amber">Infraestructura</span>
                             <h3 class="card-title">Culminación del Coliseo Institucional</h3>
-                            <p class="card-desc">Obra concluida con una inversión de $230.000 USD, fruto del trabajo conjunto de la Prefectura, GAD Montúfar y padres de familia.</p>
+                            <p class="card-desc">Obra concluida con una inversión de $230.000 USD, fruto del trabajo
+                                conjunto de la Prefectura, GAD Montúfar y padres de familia.</p>
                             <div class="card-date">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -299,10 +301,13 @@
 
                 <div id="galeria-grid" class="gallery-grid">
 
-                    <div class="gallery-item fade-up delay-100" data-caption="Acto de graduación 2024"
-                        tabindex="0" role="button" aria-label="Ver imagen: Acto de graduación 2024">
-                        <img src="images/galeria-1.jpg" alt="Acto de graduación 2024"
-                            class="gallery-img gallery-img--1" loading="lazy" />
+                    <div class="gallery-item fade-up delay-100" data-caption="Acto de graduación 2024" tabindex="0"
+                        role="button" aria-label="Ver imagen: Acto de graduación 2024">
+                        <img src="images/galeria-1.jpg"
+                            srcset="images/galeria-1-sm.jpg 700w, images/galeria-1.jpg 1024w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Acto de graduación 2024" class="gallery-img gallery-img--1"
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -313,9 +318,11 @@
 
                     <div class="gallery-item fade-up delay-200" data-caption="Olimpiadas deportivas 2024" tabindex="0"
                         role="button" aria-label="Ver imagen: Olimpiadas deportivas 2024">
-                        <img src="images/galeria-2.jpg" alt="Olimpiadas deportivas 2024"
-                            class="gallery-img gallery-img--2"
-                            loading="lazy" />
+                        <img src="images/galeria-2.jpg"
+                            srcset="images/galeria-2-sm.jpg 700w, images/galeria-2.jpg 1400w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Olimpiadas deportivas 2024"
+                            class="gallery-img gallery-img--2" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -326,8 +333,11 @@
 
                     <div class="gallery-item fade-up delay-300" data-caption="Feria de Ciencias 2024" tabindex="0"
                         role="button" aria-label="Ver imagen: Feria de Ciencias 2024">
-                        <img src="images/galeria-3.jpg" alt="Feria de Ciencias 2024"
-                            class="gallery-img gallery-img--3" loading="lazy" />
+                        <img src="images/galeria-3.jpg"
+                            srcset="images/galeria-3-sm.jpg 481w, images/galeria-3.jpg 962w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Feria de Ciencias 2024" class="gallery-img gallery-img--3"
+                            loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -338,9 +348,11 @@
 
                     <div class="gallery-item fade-up delay-400" data-caption="Acto cívico — Día de la Independencia"
                         tabindex="0" role="button" aria-label="Ver imagen: Acto cívico — Día de la Independencia">
-                        <img src="images/galeria-4.jpg" alt="Acto cívico — Día de la Independencia"
-                            class="gallery-img gallery-img--4"
-                            loading="lazy" />
+                        <img src="images/galeria-4.jpg"
+                            srcset="images/galeria-4-sm.jpg 700w, images/galeria-4.jpg 1400w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Acto cívico — Día de la Independencia"
+                            class="gallery-img gallery-img--4" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -351,9 +363,11 @@
 
                     <div class="gallery-item fade-up delay-100" data-caption="Club de Lectura estudiantil" tabindex="0"
                         role="button" aria-label="Ver imagen: Club de Lectura estudiantil">
-                        <img src="images/galeria-5.jpg" alt="Club de Lectura estudiantil"
-                            class="gallery-img gallery-img--5"
-                            loading="lazy" />
+                        <img src="images/galeria-5.jpg"
+                            srcset="images/galeria-5-sm.jpg 700w, images/galeria-5.jpg 1400w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Club de Lectura estudiantil"
+                            class="gallery-img gallery-img--5" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -364,9 +378,11 @@
 
                     <div class="gallery-item fade-up delay-200" data-caption="Danza folclórica — Festival Cultural"
                         tabindex="0" role="button" aria-label="Ver imagen: Danza folclórica — Festival Cultural">
-                        <img src="images/galeria-6.jpg" alt="Danza folclórica — Festival Cultural"
-                            class="gallery-img gallery-img--6"
-                            loading="lazy" />
+                        <img src="images/galeria-6.jpg"
+                            srcset="images/galeria-6-sm.jpg 700w, images/galeria-6.jpg 1600w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Danza folclórica — Festival Cultural"
+                            class="gallery-img gallery-img--6" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -377,9 +393,11 @@
 
                     <div class="gallery-item fade-up delay-300" data-caption="Laboratorio de Computación" tabindex="0"
                         role="button" aria-label="Ver imagen: Laboratorio de Computación">
-                        <img src="images/galeria-7.jpg" alt="Laboratorio de Computación"
-                            class="gallery-img gallery-img--7"
-                            loading="lazy" />
+                        <img src="images/galeria-7.jpg"
+                            srcset="images/galeria-7-sm.jpg 700w, images/galeria-7.jpg 1400w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Laboratorio de Computación"
+                            class="gallery-img gallery-img--7" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -390,9 +408,11 @@
 
                     <div class="gallery-item fade-up delay-400" data-caption="Cancha deportiva institucional"
                         tabindex="0" role="button" aria-label="Ver imagen: Cancha deportiva institucional">
-                        <img src="images/galeria-8.jpg" alt="Cancha deportiva institucional"
-                            class="gallery-img gallery-img--8"
-                            loading="lazy" />
+                        <img src="images/galeria-8.jpg"
+                            srcset="images/galeria-8-sm.jpg 700w, images/galeria-8.jpg 1280w"
+                            sizes="(max-width: 480px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33vw, 300px"
+                            alt="Cancha deportiva institucional"
+                            class="gallery-img gallery-img--8" loading="lazy" />
                         <div class="gallery-overlay" aria-hidden="true">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -436,7 +456,8 @@
 
                 <div class="oferta-grid">
 
-                    <div class="oferta-card bg-gradient-to-b from-yellow-50 to-orange-50 border border-yellow-200 fade-left delay-100">
+                    <div
+                        class="oferta-card bg-gradient-to-b from-yellow-50 to-orange-50 border border-yellow-200 fade-left delay-100">
                         <div class="oferta-icon bg-yellow-400">
                             <span class="text-2xl">🌱</span>
                         </div>
@@ -445,7 +466,8 @@
 
                     </div>
 
-                    <div class="oferta-card bg-gradient-to-b from-green-50 to-emerald-50 border border-green-200 fade-left delay-200">
+                    <div
+                        class="oferta-card bg-gradient-to-b from-green-50 to-emerald-50 border border-green-200 fade-left delay-200">
                         <div class="oferta-icon bg-green-400">
                             <span class="text-2xl">📚</span>
                         </div>
@@ -454,7 +476,8 @@
 
                     </div>
 
-                    <div class="oferta-card bg-gradient-to-b from-blue-50 to-indigo-50 border border-blue-200 fade-right delay-200">
+                    <div
+                        class="oferta-card bg-gradient-to-b from-blue-50 to-indigo-50 border border-blue-200 fade-right delay-200">
                         <div class="oferta-icon bg-blue-500">
                             <span class="text-2xl">🔬</span>
                         </div>
@@ -463,7 +486,8 @@
 
                     </div>
 
-                    <div class="oferta-card bg-gradient-to-b from-rojo-50 to-red-50 border border-red-200 fade-right delay-300">
+                    <div
+                        class="oferta-card bg-gradient-to-b from-rojo-50 to-red-50 border border-red-200 fade-right delay-300">
                         <div class="oferta-icon bg-rojo-600">
                             <span class="text-2xl">🎓</span>
                         </div>
@@ -477,13 +501,120 @@
         </section>
 
         <!-- ============================================================
+       PROCESO DE INSCRIPCIÓN
+  ============================================================ -->
+        <section id="inscripcion" class="py-20 bg-white" aria-labelledby="inscripcion-titulo">
+            <div class="section-inner">
+
+                <div class="section-header fade-up">
+                    <span class="section-eyebrow" aria-hidden="true">Matrículas</span>
+                    <h2 id="inscripcion-titulo" class="section-title">Proceso de Inscripción</h2>
+                    <p class="section-subtitle">Pasos generales para matricular a tu hijo o hija. Las fechas
+                        exactas las define el Ministerio de Educación cada año lectivo — confírmalas con
+                        secretaría antes de acercarte.</p>
+                </div>
+
+                <div class="pasos-grid">
+
+                    <div class="paso-card fade-up delay-100">
+                        <span class="paso-numero" aria-hidden="true">1</span>
+                        <h3 class="paso-title">Contacta a secretaría</h3>
+                        <p class="card-desc">Escríbenos por WhatsApp, teléfono o correo para confirmar cupos
+                            disponibles y las fechas vigentes de matrícula.</p>
+                    </div>
+
+                    <div class="paso-card fade-up delay-200">
+                        <span class="paso-numero" aria-hidden="true">2</span>
+                        <h3 class="paso-title">Reúne los documentos</h3>
+                        <p class="card-desc">Generalmente: cédula o partida de nacimiento del estudiante, cédula
+                            del representante, certificado de años anteriores y fotos tamaño carnet. Secretaría
+                            te confirma la lista exacta según el nivel.</p>
+                    </div>
+
+                    <div class="paso-card fade-up delay-300">
+                        <span class="paso-numero" aria-hidden="true">3</span>
+                        <h3 class="paso-title">Presenta la documentación</h3>
+                        <p class="card-desc">Acércate en las fechas de matrícula ordinaria establecidas para el
+                            régimen Sierra, en el horario de atención de la institución.</p>
+                    </div>
+
+                    <div class="paso-card fade-up delay-400">
+                        <span class="paso-numero" aria-hidden="true">4</span>
+                        <h3 class="paso-title">Confirmación de cupo</h3>
+                        <p class="card-desc">Secretaría valida la información y te confirma la matrícula del
+                            estudiante para el año lectivo.</p>
+                    </div>
+
+                </div>
+
+                <div class="pasos-cta fade-up">
+                    <a href="https://wa.me/593992491624?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20proceso%20de%20inscripci%C3%B3n"
+                        target="_blank" rel="noopener noreferrer" class="hero-btn-primary">
+                        Consultar por WhatsApp
+                        <span class="btn-icon" aria-hidden="true">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="#contacto" class="hero-btn-secondary">Ver otros medios de contacto</a>
+                </div>
+
+                <!-- Descargables -->
+                <div class="recursos-block fade-up">
+                    <h3 class="recursos-title">Documentos y recursos</h3>
+                    <div class="recursos-grid">
+
+                        <div class="recurso-card">
+                            <div class="recurso-icon" aria-hidden="true">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <p class="recurso-nombre">Calendario académico</p>
+                            <span class="recurso-badge">Próximamente</span>
+                        </div>
+
+                        <div class="recurso-card">
+                            <div class="recurso-icon" aria-hidden="true">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <p class="recurso-nombre">Lista de útiles</p>
+                            <span class="recurso-badge">Próximamente</span>
+                        </div>
+
+                        <div class="recurso-card">
+                            <div class="recurso-icon" aria-hidden="true">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <p class="recurso-nombre">Reglamento institucional</p>
+                            <span class="recurso-badge">Próximamente</span>
+                        </div>
+
+                    </div>
+                    <p class="recursos-nota">¿Necesitas alguno de estos documentos ahora?
+                        <a href="#contacto">Escríbenos</a> y te lo enviamos directamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
        MISIÓN Y VISIÓN
   ============================================================ -->
         <section id="mision" class="mision-section">
             <div class="section-inner">
 
                 <div class="section-header fade-up">
-                    <span class="section-eyebrow section-eyebrow--light" aria-hidden="true">Identidad Institucional</span>
+                    <span class="section-eyebrow section-eyebrow--light" aria-hidden="true">Identidad
+                        Institucional</span>
                     <h2 class="section-title">Misión &amp; Visión</h2>
                 </div>
 
@@ -491,8 +622,7 @@
 
                     <div class="mision-card fade-left">
                         <div class="mision-header">
-                            <div
-                                class="mision-icon">
+                            <div class="mision-icon">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -511,8 +641,7 @@
 
                     <div class="mision-card fade-right">
                         <div class="mision-header">
-                            <div
-                                class="mision-icon">
+                            <div class="mision-icon">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -529,7 +658,7 @@
                     </div>
 
                 </div>
-                
+
             </div>
         </section>
 
@@ -547,25 +676,21 @@
 
                 <div class="autoridades-flex">
 
-                    <div
-                        class="authority-card fade-left">
+                    <div class="authority-card fade-left">
                         <div class="authority-avatar">
-                            <img src="images/rector.jpg" alt="MSc. Patricio Gandy Enríquez Enríquez"
-                                />
+                            <img src="images/rector.jpg" alt="MSc. Patricio Gandy Enríquez Enríquez" />
                         </div>
                         <h3 class="authority-name">MSc. Patricio Gandy Enríquez</h3>
                         <p class="authority-role">Rector</p>
                         <p class="authority-bio">Comprometido con la excelencia educativa y
                             el desarrollo integral de toda la comunidad estudiantil.</p>
                         <span class="role-badge">Gestión
-                                Educativa</span>
+                            Educativa</span>
                     </div>
 
-                    <div
-                        class="authority-card fade-right">
+                    <div class="authority-card fade-right">
                         <div class="authority-avatar">
-                            <img src="images/vicerrector.jpg" alt="MSc. Carlos Fernando Obando Chaves"
-                                />
+                            <img src="images/vicerrector.jpg" alt="MSc. Carlos Fernando Obando Chaves" />
                         </div>
                         <h3 class="authority-name">MSc. Carlos Fernando Obando Chaves</h3>
                         <p class="authority-role">Vicerrector</p>
@@ -593,9 +718,11 @@
 
                 <div class="grid-3col">
 
-                    <div
-                        class="content-card fade-up delay-100">
-                        <img src="images/docentes-matriz.jpg" alt="Docentes Sede Matriz"
+                    <div class="content-card fade-up delay-100">
+                        <img src="images/docentes-matriz.jpg"
+                            srcset="images/docentes-matriz-sm.jpg 700w, images/docentes-matriz.jpg 1480w"
+                            sizes="(max-width: 767px) 100vw, 380px"
+                            alt="Docentes Sede Matriz"
                             class="docente-img docente-img--matriz" loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Sede Matriz</span>
@@ -605,10 +732,12 @@
                         </div>
                     </div>
 
-                    <div
-                        class="content-card fade-up delay-200">
-                        <img src="images/docentes-sede2.jpg" alt="Docentes Sede 2" class="docente-img docente-img--sede2"
-                            loading="lazy" />
+                    <div class="content-card fade-up delay-200">
+                        <img src="images/docentes-sede2.jpg"
+                            srcset="images/docentes-sede2-sm.jpg 700w, images/docentes-sede2.jpg 1480w"
+                            sizes="(max-width: 767px) 100vw, 380px"
+                            alt="Docentes Sede 2"
+                            class="docente-img docente-img--sede2" loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Sede 2</span>
                             <h3 class="card-title">Docentes Sede 2</h3>
@@ -617,10 +746,12 @@
                         </div>
                     </div>
 
-                    <div
-                        class="content-card fade-up delay-300">
-                        <img src="images/docentes-sede3.jpg" alt="Docentes Sede 3" class="docente-img docente-img--sede3"
-                            loading="lazy" />
+                    <div class="content-card fade-up delay-300">
+                        <img src="images/docentes-sede3.jpg"
+                            srcset="images/docentes-sede3-sm.jpg 700w, images/docentes-sede3.jpg 1480w"
+                            sizes="(max-width: 767px) 100vw, 380px"
+                            alt="Docentes Sede 3"
+                            class="docente-img docente-img--sede3" loading="lazy" />
                         <div class="card-body">
                             <span class="badge-rojo">Sede 3</span>
                             <h3 class="card-title">Docentes Sede 3</h3>
@@ -652,8 +783,7 @@
                     <div class="fade-left">
                         <div class="contact-list">
                             <div class="contact-item">
-                                <div
-                                    class="contact-icon">
+                                <div class="contact-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -669,8 +799,7 @@
                             </div>
 
                             <div class="contact-item">
-                                <div
-                                    class="contact-icon">
+                                <div class="contact-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -683,8 +812,7 @@
                             </div>
 
                             <div class="contact-item">
-                                <div
-                                    class="contact-icon">
+                                <div class="contact-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -697,8 +825,7 @@
                             </div>
 
                             <div class="contact-item">
-                                <div
-                                    class="contact-icon">
+                                <div class="contact-icon">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -727,27 +854,24 @@
 
                     <!-- Formulario -->
                     <div class="fade-right">
-                        <form id="contactForm" class="contact-form"
-                            novalidate>
+                        <form id="contactForm" class="contact-form" novalidate>
 
                             <div class="form-row">
                                 <div>
-                                    <label for="campo-nombre"
-                                        class="form-label">Nombre *</label>
+                                    <label for="campo-nombre" class="form-label">Nombre *</label>
                                     <input type="text" id="campo-nombre" name="nombre" class="input-field"
                                         placeholder="Tu nombre" required autocomplete="given-name" aria-required="true"
                                         maxlength="80" aria-describedby="error-nombre" />
-                                    <p id="error-nombre" class="form-error hidden"
-                                        role="alert">Por favor ingresa tu nombre.</p>
+                                    <p id="error-nombre" class="form-error hidden" role="alert">Por favor ingresa tu
+                                        nombre.</p>
                                 </div>
                                 <div>
-                                    <label for="campo-apellido"
-                                        class="form-label">Apellido *</label>
+                                    <label for="campo-apellido" class="form-label">Apellido *</label>
                                     <input type="text" id="campo-apellido" name="apellido" class="input-field"
                                         placeholder="Tu apellido" required autocomplete="family-name"
                                         aria-required="true" maxlength="80" aria-describedby="error-apellido" />
-                                    <p id="error-apellido" class="form-error hidden"
-                                        role="alert">Por favor ingresa tu apellido.</p>
+                                    <p id="error-apellido" class="form-error hidden" role="alert">Por favor ingresa tu
+                                        apellido.</p>
                                 </div>
                             </div>
 
@@ -762,8 +886,7 @@
                             </div>
 
                             <div>
-                                <label for="campo-asunto"
-                                    class="form-label">Asunto</label>
+                                <label for="campo-asunto" class="form-label">Asunto</label>
                                 <select id="campo-asunto" name="asunto" class="input-field">
                                     <option value="">Selecciona un asunto</option>
                                     <option value="inscripcion">Proceso de inscripción</option>
@@ -774,8 +897,7 @@
                             </div>
 
                             <div>
-                                <label for="campo-mensaje"
-                                    class="form-label">Mensaje *</label>
+                                <label for="campo-mensaje" class="form-label">Mensaje *</label>
                                 <textarea id="campo-mensaje" name="mensaje" rows="5" class="input-field resize-none"
                                     placeholder="Escribe tu mensaje aquí..." required aria-required="true"
                                     maxlength="1000" aria-describedby="error-mensaje"></textarea>
@@ -803,28 +925,26 @@
 
                     <div>
                         <div class="footer-logo">
-                            <img src="images/escudo.png" alt="" class="footer-logo-img" aria-hidden="true" />
+                            <img src="images/escudo-logo.png" alt="" class="footer-logo-img" aria-hidden="true" />
                             <p class="footer-brand-name">Mario Oña Perdomo</p>
                         </div>
-                        <p class="footer-brand-desc">Institución educativa fiscal comprometida con la formación integral de la juventud de Montúfar, Carchi, desde 1979.</p>
+                        <p class="footer-brand-desc">Institución educativa fiscal comprometida con la formación integral
+                            de la juventud de Montúfar, Carchi, desde 1979.</p>
                         <!-- Redes sociales -->
                         <div class="footer-social">
-                            <a href="#" aria-label="Facebook de U.E. Mario Oña Perdomo"
-                                class="social-btn">
+                            <a href="#" aria-label="Facebook de U.E. Mario Oña Perdomo" class="social-btn">
                                 <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path
                                         d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
                                 </svg>
                             </a>
-                            <a href="#" aria-label="Instagram de U.E. Mario Oña Perdomo"
-                                class="social-btn">
+                            <a href="#" aria-label="Instagram de U.E. Mario Oña Perdomo" class="social-btn">
                                 <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path
                                         d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" />
                                 </svg>
                             </a>
-                            <a href="#" aria-label="YouTube de U.E. Mario Oña Perdomo"
-                                class="social-btn">
+                            <a href="#" aria-label="YouTube de U.E. Mario Oña Perdomo" class="social-btn">
                                 <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path
                                         d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -836,23 +956,17 @@
                     <div>
                         <h4 class="footer-heading">Navegación</h4>
                         <ul class="footer-nav-list">
-                            <li><a href="#inicio"
-                                    class="footer-link">Inicio</a></li>
-                            <li><a href="#eventos"
-                                    class="footer-link">Eventos</a></li>
-                            <li><a href="#galeria"
-                                    class="footer-link">Galería</a></li>
-                            <li><a href="#oferta"
-                                    class="footer-link">Oferta
+                            <li><a href="#inicio" class="footer-link">Inicio</a></li>
+                            <li><a href="#eventos" class="footer-link">Eventos</a></li>
+                            <li><a href="#galeria" class="footer-link">Galería</a></li>
+                            <li><a href="#oferta" class="footer-link">Oferta
                                     Educativa</a></li>
-                            <li><a href="#mision"
-                                    class="footer-link">Misión &amp;
+                            <li><a href="#inscripcion" class="footer-link">Inscripción</a></li>
+                            <li><a href="#mision" class="footer-link">Misión &amp;
                                     Visión</a></li>
-                            <li><a href="#autoridades"
-                                    class="footer-link">Autoridades</a>
+                            <li><a href="#autoridades" class="footer-link">Autoridades</a>
                             </li>
-                            <li><a href="#docentes"
-                                    class="footer-link">Docentes</a>
+                            <li><a href="#docentes" class="footer-link">Docentes</a>
                             </li>
                         </ul>
                     </div>
@@ -913,7 +1027,8 @@
 
             <div class="footer-bottom">
                 <div class="footer-bottom-inner">
-                    <p class="footer-copyright">© <span id="year"></span> U.E. Mario Oña Perdomo — San Gabriel, Carchi, Ecuador. Todos los derechos reservados.</p>
+                    <p class="footer-copyright">© <span id="year"></span> U.E. Mario Oña Perdomo — San Gabriel, Carchi,
+                        Ecuador. Todos los derechos reservados.</p>
                     <p class="footer-tagline">Proyecto de práctica — Desarrollo Web con Tailwind CSS</p>
                 </div>
             </div>
@@ -933,129 +1048,20 @@
         </svg>
     </button>
 
+    <!-- Botón flotante de WhatsApp -->
+    <a id="whatsapp-float" href="https://wa.me/593992491624?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20U.E.%20Mario%20O%C3%B1a%20Perdomo"
+        target="_blank" rel="noopener noreferrer" aria-label="Escribinos por WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.05c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.02.29-3.4-.71-2.87-1.2-4.71-4.09-4.85-4.28-.14-.19-1.16-1.55-1.16-2.96s.73-2.1.99-2.39c.26-.29.56-.36.75-.36.19 0 .38 0 .54.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.19.72-.83.91-1.12.19-.29.38-.24.64-.14.26.1 1.65.78 1.94.92.29.14.48.21.55.33.07.12.07.71-.17 1.39Z" />
+        </svg>
+    </a>
+
+    <!-- Utilidades compartidas (esc, cleanText, sanitizeImageSrc) -->
+    <script src="js/shared.js"></script>
+
     <!-- Inyecta ítems de galería y eventos desde localStorage ANTES de que main.js inicie el lightbox -->
-	    <script>
-	            (function () {
-	                var MAX_DATA_IMAGE_CHARS = 4 * 1024 * 1024;
-	                function esc(s) {
-	                    return s ? s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') : '';
-	                }
-	                function cleanText(value, maxLength) {
-	                    return String(value || '')
-	                        .replace(/[\u0000-\u001F\u007F]/g, ' ')
-	                        .replace(/\s+/g, ' ')
-	                        .trim()
-	                        .slice(0, maxLength || 240);
-	                }
-	                function safeImageSrc(src) {
-	                    var value = String(src || '').trim();
-	                    if (!value) return '';
-	                    if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) {
-	                        var payload = value.split(',', 2)[1] || '';
-	                        return value.length <= MAX_DATA_IMAGE_CHARS && /^[a-z0-9+/=\s]+$/i.test(payload) ? value : '';
-	                    }
-	                    try {
-	                        var url = new URL(value, location.href);
-                        if (url.origin === location.origin && (url.protocol === 'https:' || url.protocol === 'http:')) return url.href;
-                        return url.protocol === 'https:' ? url.href : '';
-                    } catch (e) {
-                        return '';
-                    }
-                }
-
-                /* --- Galería dinámica --- */
-                try {
-                    var gItems = JSON.parse(localStorage.getItem('gallery_items') || '[]');
-                    var gGrid = document.getElementById('galeria-grid');
-                    if (gGrid && gItems.length) {
-	                        var galleryFragment = document.createDocumentFragment();
-	                        gItems.forEach(function (item) {
-	                            if (!item || typeof item !== 'object') return;
-	                            var galleryImage = safeImageSrc(item.url);
-	                            if (!galleryImage) return;
-	                            var caption = cleanText(item.caption, 160);
-	                            var div = document.createElement('div');
-	                            div.className = 'gallery-item fade-up';
-	                            div.setAttribute('tabindex', '0');
-	                            div.setAttribute('role', 'button');
-	                            div.setAttribute('aria-label', 'Ver imagen: ' + caption);
-	                            div.setAttribute('data-caption', caption);
-	                            var image = document.createElement('img');
-	                            image.src = galleryImage;
-	                            image.alt = caption;
-	                            image.className = 'rounded-xl';
-	                            image.loading = 'lazy';
-	                            var overlay = document.createElement('div');
-	                            overlay.className = 'gallery-overlay';
-	                            overlay.setAttribute('aria-hidden', 'true');
-	                            overlay.innerHTML =
-	                                '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
-	                                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>' +
-	                                '</svg>';
-	                            div.appendChild(image);
-	                            div.appendChild(overlay);
-	                            galleryFragment.appendChild(div);
-	                        });
-                        gGrid.insertBefore(galleryFragment, gGrid.firstChild);
-                    }
-                } catch (e) { }
-
-                /* --- Eventos dinámicos --- */
-                try {
-                    var eItems = JSON.parse(localStorage.getItem('event_items') || '[]');
-                    var eGrid = document.getElementById('eventos-grid');
-	                    if (eGrid && eItems.length) {
-	                        eItems = eItems
-	                            .filter(function (item) { return item && typeof item === 'object'; })
-	                            .filter(function (item) { return item.publicado !== false; })
-                            .sort(function (a, b) {
-                                return String(b.fecha || b.createdAt || '').localeCompare(String(a.fecha || a.createdAt || ''));
-                            });
-
-                        var eventFragment = document.createDocumentFragment();
-	                        eItems.forEach(function (item) {
-	                            var eventImage = safeImageSrc(item.imagen);
-	                            var category = cleanText(item.categoria || 'Evento', 40);
-	                            var title = cleanText(item.titulo, 140);
-	                            var description = cleanText(item.descripcion, 1000);
-	                            var imgBlock = eventImage
-	                                ? '<img src="' + esc(eventImage) + '" alt="' + esc(title) + '" class="w-full h-40 object-cover" />'
-	                                : '<div class="bg-gradient-to-br from-rojo-600 to-rojo-800 h-40 flex items-center justify-center">' +
-	                                '<svg class="w-14 h-14 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
-                                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
-                                '</svg></div>';
-
-	                            var fechaStr = '';
-	                            if (item.fecha) {
-	                                try {
-	                                    var d = new Date(item.fecha + 'T12:00:00');
-	                                    fechaStr = d.toLocaleDateString('es-EC', { day: 'numeric', month: 'long', year: 'numeric' });
-	                                } catch (e) { fechaStr = cleanText(item.fecha, 20); }
-	                            }
-	                            var meta = fechaStr;
-	                            if (item.hora) meta += (meta ? ' · ' : '') + cleanText(item.hora, 20);
-	                            if (item.lugar) meta += (meta ? ' · ' : '') + cleanText(item.lugar, 120);
-
-                            var card = document.createElement('div');
-                            card.className = 'content-card fade-up';
-                            card.innerHTML =
-	                                imgBlock +
-	                                '<div class="p-5">' +
-	                                '<span class="badge-rojo">' + esc(category) + '</span>' +
-	                                '<h3 class="card-title">' + esc(title) + '</h3>' +
-	                                '<p class="text-gray-500 text-sm leading-relaxed">' + esc(description) + '</p>' +
-	                                (meta ? '<div class="card-date">' +
-	                                    '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
-	                                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>' +
-	                                    '</svg>' + esc(meta) + '</div>' : '') +
-	                                '</div>';
-                            eventFragment.appendChild(card);
-                        });
-                        eGrid.insertBefore(eventFragment, eGrid.firstChild);
-                    }
-                } catch (e) { }
-            })();
-    </script>
+    <script src="js/inject-content.js"></script>
 
     <script src="js/main.js?v=20260628-sec1"></script>
 </body>

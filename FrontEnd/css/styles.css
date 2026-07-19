@@ -229,6 +229,136 @@ body {
 
 .oferta-age { font-weight: 600; font-size: 0.75rem; margin-top: 12px; }
 
+/* ============================================================
+   PROCESO DE INSCRIPCIÓN
+   ============================================================ */
+.pasos-grid { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+@media (min-width: 640px) {
+  .pasos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .pasos-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.paso-card {
+  background: #fff;
+  border: 1px solid #F1CACA;
+  border-radius: 1rem;
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-smooth);
+}
+.paso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.paso-numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--rojo);
+  color: white;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.paso-title {
+  font-weight: 700;
+  color: #111827;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.pasos-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.pasos-cta .hero-btn-primary {
+  background: var(--rojo);
+  color: white;
+  box-shadow: 0 4px 18px rgba(178,34,34,0.3);
+}
+.pasos-cta .hero-btn-primary .btn-icon { background: rgba(255,255,255,0.18); }
+.pasos-cta .hero-btn-secondary {
+  border-color: var(--rojo);
+  color: var(--rojo);
+  padding: 14px 24px;
+}
+.pasos-cta .hero-btn-secondary .btn-icon { background: rgba(178,34,34,0.10); }
+.pasos-cta .hero-btn-secondary:hover {
+  border-color: var(--rojo-oscuro);
+  background: rgba(178,34,34,0.06);
+}
+
+.recursos-block {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #F1CACA;
+}
+.recursos-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #111827;
+  margin-bottom: 1.25rem;
+}
+.recursos-grid { display: grid; gap: 1rem; }
+@media (min-width: 640px) {
+  .recursos-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.recurso-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #FFF7F7;
+  border: 1px dashed #F1CACA;
+  border-radius: 0.85rem;
+  padding: 1rem 1.1rem;
+}
+.recurso-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 0.65rem;
+  background: rgba(178,34,34,0.08);
+  color: var(--rojo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recurso-icon svg { width: 20px; height: 20px; }
+.recurso-nombre {
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+}
+.recurso-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #4B5563;
+  background: #F3F4F6;
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+.recursos-nota {
+  font-size: 0.8125rem;
+  color: #6B7280;
+  margin-top: 1.25rem;
+}
+.recursos-nota a {
+  color: var(--rojo);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* Body legible */
 .body-text {
   font-size: 0.9375rem;
@@ -338,7 +468,7 @@ nav {
   background: var(--rojo-suave);
 }
 .hamburger-btn svg { width: 24px; height: 24px; }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .hamburger-btn { display: none; }
 }
 
@@ -735,9 +865,49 @@ footer {
 }
 #back-to-top:active { transform: scale(0.95); }
 
+/* ============================================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   ============================================================ */
+#whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 52px;
+  height: 52px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+  z-index: 1000;
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
+}
+#whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+#whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+}
+#whatsapp-float:active { transform: scale(0.95); }
+
+@media (max-width: 480px) {
+  #whatsapp-float {
+    bottom: 1.25rem;
+    left: 1.25rem;
+    width: 48px;
+    height: 48px;
+  }
+  #whatsapp-float svg { width: 25px; height: 25px; }
+}
+
 /* prefers-reduced-motion: ocultar progress bar y botón sin animación */
 @media (prefers-reduced-motion: reduce) {
   #back-to-top { transition: opacity 0.1s linear; }
+  #whatsapp-float { transition: opacity 0.1s linear; }
   #scroll-progress { transition: none; }
 }
 
@@ -995,7 +1165,7 @@ footer {
   flex-direction: column;
   gap: 4px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .nav-mobile-menu { display: none !important; }
 }
 
@@ -2359,7 +2529,7 @@ nav {
   width: clamp(14rem, 30vw, 28rem);
   aspect-ratio: 1;
   transform: translateY(-50%);
-  background: url("../images/escudo.png") center / contain no-repeat;
+  background: url("../images/escudo-watermark.png") center / contain no-repeat;
   opacity: 0.14;
   filter: grayscale(1) brightness(0) invert(1);
   pointer-events: none;
@@ -3108,8 +3278,8 @@ nav {
 /* ============================================================
    ACERCA DE NOSOTROS
    ============================================================ */
-@media (min-width: 1024px) {
-  nav .lg\:flex {
+@media (min-width: 1280px) {
+  nav .xl\:flex {
     gap: 1.25rem !important;
   }
 }
@@ -3153,4 +3323,154 @@ nav {
   .about-layout {
     display: block;
   }
+}
+
+/* ============================================================
+   PÁGINA 404
+   ============================================================ */
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(216,16,16,0.06) 0%, transparent 60%);
+}
+.error-content {
+  max-width: 30rem;
+  text-align: center;
+}
+.error-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 0 auto 1.5rem;
+}
+.error-code {
+  font-weight: 900;
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  line-height: 1;
+  color: var(--rojo);
+  letter-spacing: -0.02em;
+}
+.error-title {
+  font-weight: 800;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  color: #111827;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.error-desc {
+  color: #6B7280;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.error-btn-primary {
+  background: var(--rojo);
+  color: white;
+  box-shadow: 0 4px 18px rgba(178,34,34,0.3);
+}
+.error-btn-primary .btn-icon { background: rgba(255,255,255,0.18); }
+.error-btn-secondary {
+  border-color: var(--rojo);
+  color: var(--rojo);
+  padding: 14px 24px;
+}
+.error-btn-secondary:hover {
+  border-color: var(--rojo-oscuro);
+  background: rgba(178,34,34,0.06);
+}
+
+/* ============================================================
+   PULIDO VISUAL — Consistencia de sistema de diseño
+   (secciones agregadas después del rediseño editorial: Inscripción,
+   Recursos, WhatsApp, 404 — alineadas a las variables ya definidas
+   en :root en vez de valores sueltos)
+   ============================================================ */
+
+/* 1. Tipografía — .paso-title es una cabecera de tarjeta genuina,
+   se alinea con la misma escala que .card-title */
+.paso-title {
+  font-weight: 800;
+  font-size: var(--text-h3);
+  line-height: var(--lh-heading);
+}
+.recursos-title,
+.recurso-nombre,
+.error-title {
+  line-height: var(--lh-heading);
+}
+
+/* 2. Espaciado — escala --space-* en vez de rem sueltos */
+.pasos-grid { margin-top: var(--space-lg); }
+.pasos-cta { margin-top: var(--space-lg); }
+.recursos-block {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+}
+.footer-social { margin-top: var(--space-md); }
+.footer-grid { gap: var(--space-lg); }
+
+/* 3. Componentes — mismo tratamiento premium que .content-card:
+   sombra en reposo + barra de acento superior animada en hover */
+.paso-card,
+.recurso-card {
+  box-shadow: var(--shadow-card);
+  border-color: var(--line);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-smooth);
+}
+.paso-card::before,
+.recurso-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rojo-oscuro), var(--rojo-claro));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-smooth);
+}
+.paso-card:hover::before,
+.recurso-card:hover::before { transform: scaleX(1); }
+
+.recurso-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.contact-form { box-shadow: var(--shadow-card); }
+
+.nav-link,
+.hamburger-btn {
+  transition-timing-function: var(--ease-smooth);
+}
+
+/* 5. Navegación — sombra de scroll apoyada en el token de elevación */
+nav {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06), var(--shadow-card);
+}
+nav.shadow-lg {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06), var(--shadow-elevated);
+}
+
+/* 6. Micro-interacciones — mismas curvas de animación en footer */
+.social-btn,
+.footer-link {
+  transition-timing-function: var(--ease-smooth);
+}
+.social-btn:hover {
+  transform: translateY(-2px);
 }
