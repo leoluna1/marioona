@@ -8,7 +8,7 @@
     <meta name="description"
         content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en San Gabriel, Carchi, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';" />
+        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="keywords"
         content="Mario Oña Perdomo, colegio San Gabriel, unidad educativa San Gabriel, bachillerato San Gabriel, educación pública Ecuador, Carchi" />
@@ -217,16 +217,27 @@
                         institución.</p>
                 </div>
 
+                <div id="eventos-filtros" class="filter-bar" role="group" aria-label="Filtrar eventos por categoría">
+                    <button type="button" class="filter-pill is-active" data-categoria-filtro="todos">Todos</button>
+                    <button type="button" class="filter-pill" data-categoria-filtro="Acto solemne">Acto solemne</button>
+                    <button type="button" class="filter-pill" data-categoria-filtro="Cívico">Cívico</button>
+                    <button type="button" class="filter-pill" data-categoria-filtro="Académico">Académico</button>
+                    <button type="button" class="filter-pill" data-categoria-filtro="Cultural">Cultural</button>
+                    <button type="button" class="filter-pill" data-categoria-filtro="Deportivo">Deportivo</button>
+                    <button type="button" class="filter-pill" data-categoria-filtro="Reunión">Reunión</button>
+                    <button type="button" class="filter-pill" data-categoria-filtro="Comunicado">Comunicado</button>
+                </div>
+
                 <div id="eventos-grid" class="grid-3col">
 
-                    <div class="content-card fade-up delay-100">
+                    <div class="content-card fade-up delay-100" data-categoria="Cívico">
                         <img src="images/evento-panoramica.jpg"
                             srcset="images/evento-panoramica-sm.jpg 700w, images/evento-panoramica.jpg 1024w"
                             sizes="(max-width: 767px) 100vw, 380px"
                             alt="Desfile Cívico — 120 años Cantón Montúfar"
                             class="media-img media-img--evento-panoramica" loading="lazy" />
                         <div class="card-body">
-                            <span class="badge-rojo">Cívico</span>
+                            <span class="badge-emerald">Cívico</span>
                             <h3 class="card-title">Desfile Cívico — 120 años del Cantón Montúfar</h3>
                             <p class="card-desc">Nuestra institución participó con orgullo en la conmemoración del 120
                                 aniversario de la creación del Cantón Montúfar.</p>
@@ -240,14 +251,14 @@
                         </div>
                     </div>
 
-                    <div class="content-card fade-up delay-200">
+                    <div class="content-card fade-up delay-200" data-categoria="Acto solemne">
                         <img src="images/evento-edificio.jpg"
                             srcset="images/evento-edificio-sm.jpg 700w, images/evento-edificio.jpg 1480w"
                             sizes="(max-width: 767px) 100vw, 380px"
                             alt="Proclamación de Abanderados 2025–2026"
                             class="media-img media-img--evento-edificio" loading="lazy" />
                         <div class="card-body">
-                            <span class="badge-emerald">Orgullo Cívico</span>
+                            <span class="badge-rojo">Orgullo Cívico</span>
                             <h3 class="card-title">Proclamación de Abanderados y Juramento a la Bandera</h3>
                             <p class="card-desc">Solemne ceremonia de proclamación de abanderados y juramento a la
                                 bandera para el año lectivo 2025–2026.</p>
@@ -261,14 +272,14 @@
                         </div>
                     </div>
 
-                    <div class="content-card fade-up delay-300">
+                    <div class="content-card fade-up delay-300" data-categoria="Comunicado">
                         <img src="images/evento-especial.jpg"
                             srcset="images/evento-especial-sm.jpg 700w, images/evento-especial.jpg 1400w"
                             sizes="(max-width: 767px) 100vw, 380px"
                             alt="Culminación del Coliseo Institucional"
                             class="media-img media-img--evento-especial" loading="lazy" />
                         <div class="card-body">
-                            <span class="badge-amber">Infraestructura</span>
+                            <span class="badge-gris">Infraestructura</span>
                             <h3 class="card-title">Culminación del Coliseo Institucional</h3>
                             <p class="card-desc">Obra concluida con una inversión de $230.000 USD, fruto del trabajo
                                 conjunto de la Prefectura, GAD Montúfar y padres de familia.</p>
@@ -299,9 +310,18 @@
                         Haz clic en una imagen para verla.</p>
                 </div>
 
+                <div id="galeria-filtros" class="filter-bar" role="group" aria-label="Filtrar galería por categoría">
+                    <button type="button" class="filter-pill is-active" data-galeria-filtro="todas">Todas</button>
+                    <button type="button" class="filter-pill" data-galeria-filtro="Actos y Ceremonias">Actos y Ceremonias</button>
+                    <button type="button" class="filter-pill" data-galeria-filtro="Académico">Académico</button>
+                    <button type="button" class="filter-pill" data-galeria-filtro="Cultural">Cultural</button>
+                    <button type="button" class="filter-pill" data-galeria-filtro="Deportivo">Deportivo</button>
+                    <button type="button" class="filter-pill" data-galeria-filtro="Infraestructura">Infraestructura</button>
+                </div>
+
                 <div id="galeria-grid" class="gallery-grid">
 
-                    <div class="gallery-item fade-up delay-100" data-caption="Acto de graduación 2024" tabindex="0"
+                    <div class="gallery-item fade-up delay-100" data-caption="Acto de graduación 2024" data-categoria="Actos y Ceremonias" tabindex="0"
                         role="button" aria-label="Ver imagen: Acto de graduación 2024">
                         <img src="images/galeria-1.jpg"
                             srcset="images/galeria-1-sm.jpg 700w, images/galeria-1.jpg 1024w"
@@ -316,7 +336,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-up delay-200" data-caption="Olimpiadas deportivas 2024" tabindex="0"
+                    <div class="gallery-item fade-up delay-200" data-caption="Olimpiadas deportivas 2024" data-categoria="Deportivo" tabindex="0"
                         role="button" aria-label="Ver imagen: Olimpiadas deportivas 2024">
                         <img src="images/galeria-2.jpg"
                             srcset="images/galeria-2-sm.jpg 700w, images/galeria-2.jpg 1400w"
@@ -331,7 +351,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-up delay-300" data-caption="Feria de Ciencias 2024" tabindex="0"
+                    <div class="gallery-item fade-up delay-300" data-caption="Feria de Ciencias 2024" data-categoria="Académico" tabindex="0"
                         role="button" aria-label="Ver imagen: Feria de Ciencias 2024">
                         <img src="images/galeria-3.jpg"
                             srcset="images/galeria-3-sm.jpg 481w, images/galeria-3.jpg 962w"
@@ -346,7 +366,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-up delay-400" data-caption="Acto cívico — Día de la Independencia"
+                    <div class="gallery-item fade-up delay-400" data-caption="Acto cívico — Día de la Independencia" data-categoria="Actos y Ceremonias"
                         tabindex="0" role="button" aria-label="Ver imagen: Acto cívico — Día de la Independencia">
                         <img src="images/galeria-4.jpg"
                             srcset="images/galeria-4-sm.jpg 700w, images/galeria-4.jpg 1400w"
@@ -361,7 +381,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-up delay-100" data-caption="Club de Lectura estudiantil" tabindex="0"
+                    <div class="gallery-item fade-up delay-100" data-caption="Club de Lectura estudiantil" data-categoria="Académico" tabindex="0"
                         role="button" aria-label="Ver imagen: Club de Lectura estudiantil">
                         <img src="images/galeria-5.jpg"
                             srcset="images/galeria-5-sm.jpg 700w, images/galeria-5.jpg 1400w"
@@ -376,7 +396,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-up delay-200" data-caption="Danza folclórica — Festival Cultural"
+                    <div class="gallery-item fade-up delay-200" data-caption="Danza folclórica — Festival Cultural" data-categoria="Cultural"
                         tabindex="0" role="button" aria-label="Ver imagen: Danza folclórica — Festival Cultural">
                         <img src="images/galeria-6.jpg"
                             srcset="images/galeria-6-sm.jpg 700w, images/galeria-6.jpg 1600w"
@@ -391,7 +411,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-up delay-300" data-caption="Laboratorio de Computación" tabindex="0"
+                    <div class="gallery-item fade-up delay-300" data-caption="Laboratorio de Computación" data-categoria="Infraestructura" tabindex="0"
                         role="button" aria-label="Ver imagen: Laboratorio de Computación">
                         <img src="images/galeria-7.jpg"
                             srcset="images/galeria-7-sm.jpg 700w, images/galeria-7.jpg 1400w"
@@ -406,7 +426,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-up delay-400" data-caption="Cancha deportiva institucional"
+                    <div class="gallery-item fade-up delay-400" data-caption="Cancha deportiva institucional" data-categoria="Infraestructura"
                         tabindex="0" role="button" aria-label="Ver imagen: Cancha deportiva institucional">
                         <img src="images/galeria-8.jpg"
                             srcset="images/galeria-8-sm.jpg 700w, images/galeria-8.jpg 1280w"

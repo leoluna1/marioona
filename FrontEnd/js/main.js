@@ -80,28 +80,53 @@ if (!prefersReducedMotion) {
   });
 }
 
-/* ===== 5. GALERÍA: MOSTRAR MÁS ===== */
+/* ===== 4. EVENTOS: FILTRO POR CATEGORÍA ===== */
+const eventosFiltros = document.getElementById('eventos-filtros');
+if (eventosFiltros) {
+  const eventoCards = () => Array.from(document.querySelectorAll('#eventos-grid [data-categoria]'));
+
+  function applyEventFilter(categoria) {
+    eventoCards().forEach(card => {
+      card.classList.toggle('hidden', !(categoria === 'todos' || card.dataset.categoria === categoria));
+    });
+  }
+
+  eventosFiltros.querySelectorAll('[data-categoria-filtro]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      eventosFiltros.querySelectorAll('[data-categoria-filtro]').forEach(p => {
+        p.classList.toggle('is-active', p === pill);
+      });
+      applyEventFilter(pill.dataset.categoriaFiltro);
+    });
+  });
+}
+
+/* ===== 5. GALERÍA: FILTRO POR CATEGORÍA + MOSTRAR MÁS ===== */
 const GALLERY_INITIAL_VISIBLE = 6;
 const GALLERY_STEP = 6;
 let galleryVisibleCount = GALLERY_INITIAL_VISIBLE;
+let activeGalleryFilter = 'todas';
+
+function matchesGalleryFilter(item) {
+  return activeGalleryFilter === 'todas' || item.dataset.categoria === activeGalleryFilter;
+}
 
 function updateGalleryVisibility() {
   const items = Array.from(document.querySelectorAll('.gallery-item'));
   const btn = document.getElementById('gallery-more-btn');
+  const matching = items.filter(matchesGalleryFilter);
+  const matchIndex = new Map(matching.map((item, i) => [item, i]));
 
-  items.forEach((item, index) => {
-    const hidden = index >= galleryVisibleCount;
-    item.classList.toggle('gallery-hidden', hidden);
-    item.setAttribute('aria-hidden', String(hidden));
-    if (hidden) {
-      item.setAttribute('tabindex', '-1');
-    } else {
-      item.setAttribute('tabindex', '0');
-    }
+  items.forEach(item => {
+    const idx = matchIndex.get(item);
+    const visible = idx !== undefined && idx < galleryVisibleCount;
+    item.classList.toggle('gallery-hidden', !visible);
+    item.setAttribute('aria-hidden', String(!visible));
+    item.setAttribute('tabindex', visible ? '0' : '-1');
   });
 
   if (!btn) return;
-  const remaining = Math.max(items.length - galleryVisibleCount, 0);
+  const remaining = Math.max(matching.length - galleryVisibleCount, 0);
   btn.hidden = remaining === 0;
   btn.textContent = remaining > GALLERY_STEP
     ? 'Mostrar más fotos'
@@ -113,6 +138,20 @@ if (galleryMoreBtn) {
   galleryMoreBtn.addEventListener('click', () => {
     galleryVisibleCount += GALLERY_STEP;
     updateGalleryVisibility();
+  });
+}
+
+const galeriaFiltros = document.getElementById('galeria-filtros');
+if (galeriaFiltros) {
+  galeriaFiltros.querySelectorAll('[data-galeria-filtro]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      activeGalleryFilter = pill.dataset.galeriaFiltro;
+      galleryVisibleCount = GALLERY_INITIAL_VISIBLE;
+      galeriaFiltros.querySelectorAll('[data-galeria-filtro]').forEach(p => {
+        p.classList.toggle('is-active', p === pill);
+      });
+      updateGalleryVisibility();
+    });
   });
 }
 
@@ -163,13 +202,27 @@ function closeLightbox() {
   if (lastFocusedEl) lastFocusedEl.focus();
 }
 
+function getVisibleGalleryIndexes() {
+  const visible = [];
+  galleryItems.forEach((item, idx) => {
+    if (!item.classList.contains('gallery-hidden')) visible.push(idx);
+  });
+  return visible;
+}
+
 function showPrev() {
-  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  const visible = getVisibleGalleryIndexes();
+  if (!visible.length) return;
+  const pos = visible.indexOf(currentIndex);
+  currentIndex = visible[pos <= 0 ? visible.length - 1 : pos - 1];
   openLightbox(currentIndex);
 }
 
 function showNext() {
-  currentIndex = (currentIndex + 1) % galleryItems.length;
+  const visible = getVisibleGalleryIndexes();
+  if (!visible.length) return;
+  const pos = visible.indexOf(currentIndex);
+  currentIndex = visible[pos === -1 || pos === visible.length - 1 ? 0 : pos + 1];
   openLightbox(currentIndex);
 }
 

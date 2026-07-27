@@ -54,6 +54,18 @@
   --ease-smooth:    cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out:       cubic-bezier(0, 0, 0.2, 1);
   --ease-cinematic: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Rediseño total — dirección editorial (superficies oscuras: footer, galería, misión) */
+  --ink:        #181818;
+  --paper:      #FFFFFF;
+  --paper-soft: #FFF7F7;
+  --line:       #F1CACA;
+  --accent:        #D50000;
+  --accent-dark:   #9B0000;
+  --accent-bright: #F01818;
+  --red-soft:      #FFE5E5;
+  --shadow-editorial: 0 18px 50px rgba(213,0,0,0.22);
+  --shadow-soft:      0 10px 30px rgba(213,0,0,0.15);
 }
 
 /* ============================================================
@@ -1254,6 +1266,68 @@ footer {
   padding: 2px 8px;
   border-radius: 100px;
 }
+.badge-azul {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2563EB;
+  background: #EFF6FF;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+.badge-morado {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #7C3AED;
+  background: #F5F3FF;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+.badge-teal {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0D9488;
+  background: #F0FDFA;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+.badge-gris {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4B5563;
+  background: #F3F4F6;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+/* ============================================================
+   FILTROS — Barra de pills para Eventos / Galería
+   ============================================================ */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.filter-pill {
+  border: 1.5px solid var(--rojo-suave);
+  background: white;
+  color: var(--gris-medio);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.filter-pill:hover {
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.filter-pill.is-active {
+  background: var(--rojo);
+  border-color: var(--rojo);
+  color: white;
+}
 
 /* ============================================================
    CARD DATE — Fila de fecha en cards
@@ -2051,19 +2125,8 @@ footer {
 
 /* ============================================================
    REDISEÑO TOTAL — Dirección editorial institucional
+   (tokens --ink/--paper/--accent* movidos al :root principal arriba)
    ============================================================ */
-:root {
-  --ink: #181818;
-  --paper: #FFFFFF;
-  --paper-soft: #FFF7F7;
-  --line: #F1CACA;
-  --accent: #D50000;
-  --accent-dark: #9B0000;
-  --accent-bright: #F01818;
-  --red-soft: #FFE5E5;
-  --shadow-editorial: 0 18px 50px rgba(213,0,0,0.22);
-  --shadow-soft: 0 10px 30px rgba(213,0,0,0.15);
-}
 
 body {
   background:
@@ -2461,6 +2524,10 @@ nav {
 .badge-rojo,
 .badge-emerald,
 .badge-amber,
+.badge-azul,
+.badge-morado,
+.badge-teal,
+.badge-gris,
 .role-badge {
   border-radius: 999px;
   background: transparent;
@@ -2469,6 +2536,21 @@ nav {
 
 #galeria {
   background: var(--accent-dark) !important;
+}
+
+#galeria-filtros .filter-pill {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.85);
+}
+#galeria-filtros .filter-pill:hover {
+  border-color: white;
+  color: white;
+}
+#galeria-filtros .filter-pill.is-active {
+  background: white;
+  border-color: white;
+  color: var(--accent-dark);
 }
 
 .gallery-item {

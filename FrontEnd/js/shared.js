@@ -59,3 +59,19 @@ function sanitizeImageSrc(src) {
     return '';
   }
 }
+
+/* Mapa único categoría de evento -> clase de badge, usado tanto en el
+   sitio público (inject-content.js) como en el panel admin (vista previa) */
+var EVENT_BADGE_CLASS_MAP = {
+  'Acto solemne': 'badge-rojo',
+  'Cívico': 'badge-emerald',
+  'Académico': 'badge-azul',
+  'Cultural': 'badge-morado',
+  'Deportivo': 'badge-teal',
+  'Reunión': 'badge-amber',
+  'Comunicado': 'badge-gris'
+};
+
+function categoryBadgeClass(categoria) {
+  return EVENT_BADGE_CLASS_MAP[String(categoria || '').trim()] || 'badge-rojo';
+}

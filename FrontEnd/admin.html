@@ -57,6 +57,15 @@
     .image-preview img { width: 100%; height: 100%; max-height: 230px; object-fit: cover; display: block; }
     .hidden { display: none !important; }
 
+    /* Badges de categoría — mismos colores que el sitio público (css/styles.css) */
+    .badge-rojo    { font-size: 0.75rem; font-weight: 600; color: #d81010; background: #FDECEA; padding: 2px 8px; border-radius: 100px; }
+    .badge-emerald { font-size: 0.75rem; font-weight: 600; color: #059669; background: #ECFDF5; padding: 2px 8px; border-radius: 100px; }
+    .badge-amber   { font-size: 0.75rem; font-weight: 600; color: #D97706; background: #FFFBEB; padding: 2px 8px; border-radius: 100px; }
+    .badge-azul    { font-size: 0.75rem; font-weight: 600; color: #2563EB; background: #EFF6FF; padding: 2px 8px; border-radius: 100px; }
+    .badge-morado  { font-size: 0.75rem; font-weight: 600; color: #7C3AED; background: #F5F3FF; padding: 2px 8px; border-radius: 100px; }
+    .badge-teal    { font-size: 0.75rem; font-weight: 600; color: #0D9488; background: #F0FDFA; padding: 2px 8px; border-radius: 100px; }
+    .badge-gris    { font-size: 0.75rem; font-weight: 600; color: #4B5563; background: #F3F4F6; padding: 2px 8px; border-radius: 100px; }
+
     /* === Utilidades de layout (respaldo si Tailwind CDN no carga) === */
     .flex { display: flex; }
     .inline-flex { display: inline-flex; }
@@ -352,7 +361,28 @@
                      placeholder="Ej: Acto de graduación 2025"
                      maxlength="160"
                      class="input-admin" />
+              <div class="flex justify-end mt-1">
+                <span id="caption-count" class="text-xs text-gray-400">0/160</span>
+              </div>
             </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5" for="gallery-categoria">
+                Categoría de la imagen *
+              </label>
+              <select id="gallery-categoria" required class="input-admin">
+                <option value="" selected disabled>Selecciona una categoría</option>
+                <option value="Actos y Ceremonias">Actos y Ceremonias</option>
+                <option value="Académico">Académico</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Deportivo">Deportivo</option>
+                <option value="Infraestructura">Infraestructura</option>
+              </select>
+              <p class="text-gray-400 text-xs mt-1.5">Los visitantes podrán filtrar la galería por esta categoría.</p>
+            </div>
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <input id="gallery-publicado" type="checkbox" checked class="w-4 h-4 accent-red-700" />
+              Publicar en la página web
+            </label>
             <input id="gallery-edit-index" type="hidden" value="" />
             <div class="flex gap-3">
               <button id="btn-save-gallery" type="submit"
@@ -411,6 +441,10 @@
                        placeholder="Ej: Juramento a la Bandera"
                        maxlength="140"
                        class="input-admin" />
+                <div class="flex justify-between mt-1">
+                  <p id="error-event-titulo" class="hidden text-xs text-red-600">Escribe un título para el evento.</p>
+                  <span id="titulo-count" class="text-xs text-gray-400">0/140</span>
+                </div>
               </div>
               <div>
                 <label class="block text-xs font-semibold text-gray-600 mb-1.5" for="event-categoria">
@@ -425,6 +459,7 @@
                   <option value="Reunión">Reunión</option>
                   <option value="Comunicado">Comunicado</option>
                 </select>
+                <div class="mt-1.5">Así se verá: <span id="event-categoria-preview"></span></div>
               </div>
             </div>
 
@@ -434,6 +469,7 @@
                   Fecha *
                 </label>
                 <input id="event-fecha" type="date" required class="input-admin" />
+                <p id="error-event-fecha" class="hidden text-xs text-red-600 mt-1">Selecciona una fecha.</p>
               </div>
               <div>
                 <label class="block text-xs font-semibold text-gray-600 mb-1.5" for="event-hora">
@@ -457,7 +493,10 @@
                         placeholder="Escribe un resumen claro. Ej: Ceremonia institucional con participación de autoridades, docentes y estudiantes."
                         class="input-admin resize-none"></textarea>
               <div class="flex justify-between mt-1">
-                <p class="text-gray-400 text-xs">Máximo recomendado: 2 o 3 líneas.</p>
+                <span>
+                  <p class="text-gray-400 text-xs inline">Máximo recomendado: 2 o 3 líneas.</p>
+                  <p id="error-event-descripcion" class="hidden text-xs text-red-600">Escribe una descripción breve.</p>
+                </span>
                 <span id="desc-count" class="text-xs text-gray-400">0/260</span>
               </div>
             </div>

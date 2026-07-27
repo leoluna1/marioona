@@ -290,6 +290,8 @@ function normalizeGalleryItem(item) {
   return {
     url: isSafeImageSource(source.url) ? String(source.url || '').trim() : '',
     caption: cleanText(source.caption, MAX_TEXT.caption),
+    categoria: cleanText(source.categoria || 'Actos y Ceremonias', MAX_TEXT.category),
+    publicado: source.publicado !== false,
     createdAt: cleanText(source.createdAt, 40) || new Date().toISOString(),
     createdBy: normalizeAuthor(source.createdBy),
   };
@@ -385,8 +387,22 @@ function resetGalleryForm() {
   if (editIndex) editIndex.value = '';
   if (saveBtn) saveBtn.textContent = 'Agregar imagen';
   if (cancelBtn) cancelBtn.classList.add('hidden');
+  document.getElementById('gallery-caption')?.dispatchEvent(new Event('input'));
   galleryImageData = '';
   setGalleryPreview('');
+}
+
+function setFieldError(inputEl, errorEl, hasError) {
+  if (!inputEl) return;
+  inputEl.setAttribute('aria-invalid', String(!!hasError));
+  inputEl.classList.toggle('border-red-300', !!hasError);
+  if (errorEl) errorEl.classList.toggle('hidden', !hasError);
+}
+
+function clearEventFormErrors() {
+  ['event-titulo', 'event-fecha', 'event-descripcion'].forEach(id => {
+    setFieldError(document.getElementById(id), document.getElementById('error-' + id), false);
+  });
 }
 
 function resetEventForm() {
@@ -401,6 +417,11 @@ function resetEventForm() {
   if (editIndex) editIndex.value = '';
   if (saveBtn) saveBtn.textContent = 'Guardar evento';
   if (cancelBtn) cancelBtn.classList.add('hidden');
+
+  clearEventFormErrors();
+  document.getElementById('event-categoria')?.dispatchEvent(new Event('change'));
+  document.getElementById('event-titulo')?.dispatchEvent(new Event('input'));
+  document.getElementById('event-descripcion')?.dispatchEvent(new Event('input'));
 
   eventImageData = '';
   setPreview('');
@@ -658,24 +679,37 @@ function renderGallery() {
   const container = document.getElementById('gallery-list');
   const count = document.getElementById('gallery-count');
 
-  if (count) count.textContent = items.length + (items.length === 1 ? ' imagen' : ' imagenes');
+  const publishedCount = items.filter(item => item.publicado).length;
+  if (count) count.textContent = `${publishedCount} publicadas / ${items.length} total`;
 
   if (!items.length) {
     container.innerHTML = '<p class="text-gray-400 text-sm col-span-full text-center py-10">No hay imagenes en la galeria aun.<br>Agrega la primera usando el formulario de arriba.</p>';
     return;
   }
 
-  container.innerHTML = items.map((item, index) => `
+  container.innerHTML = items.map((item, index) => {
+    const statusClass = item.publicado ? 'bg-green-50 text-green-700 border-green-200' : 'bg-gray-100 text-gray-500 border-gray-200';
+    const statusText = item.publicado ? 'Publicado' : 'Oculto';
+    return `
     <div class="relative rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-white">
       <div class="h-36 bg-gray-100 overflow-hidden">
         <img src="${esc(item.url)}" alt="${esc(item.caption)}"
              class="w-full h-full object-cover" />
       </div>
       <div class="p-3">
-        <p class="text-sm text-gray-700 leading-snug line-clamp-2">${esc(item.caption)}</p>
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] font-bold text-red-700 uppercase tracking-wide">${esc(item.categoria)}</span>
+          <span class="text-[11px] font-semibold border px-2 py-0.5 rounded-full ${statusClass}">${statusText}</span>
+        </div>
+        <p class="text-sm text-gray-700 leading-snug line-clamp-2 mt-1">${esc(item.caption)}</p>
         ${item.createdBy ? `<p class="text-[11px] text-gray-400 mt-2">Subida por ${esc(authorText(item.createdBy))}</p>` : ''}
       </div>
       <div class="absolute top-2 right-2 flex gap-1">
+        <button data-gallery-action="toggle" data-gallery-index="${index}"
+                class="bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-xs px-2 py-1 rounded-lg shadow-sm"
+                aria-label="${item.publicado ? 'Ocultar' : 'Publicar'} imagen: ${esc(item.caption)}">
+          ${item.publicado ? 'Ocultar' : 'Publicar'}
+        </button>
         <button data-gallery-action="edit" data-gallery-index="${index}"
                 class="bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 text-xs px-2 py-1 rounded-lg shadow-sm"
                 aria-label="Editar imagen: ${esc(item.caption)}">
@@ -688,7 +722,8 @@ function renderGallery() {
         </button>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function deleteGalleryItem(index) {
@@ -701,6 +736,16 @@ function deleteGalleryItem(index) {
   showToast('Imagen eliminada.');
 }
 
+function toggleGalleryPublish(index) {
+  const items = getGallery();
+  if (!items[index]) return;
+  items[index] = { ...items[index], publicado: !items[index].publicado };
+  saveGallery(items);
+  renderGallery();
+  addAudit('Estado de imagen cambiado', items[index].caption);
+  showToast('Estado de la imagen actualizado.');
+}
+
 document.getElementById('gallery-list').addEventListener('click', e => {
   const button = e.target.closest('[data-gallery-action]');
   if (!button) return;
@@ -708,12 +753,15 @@ document.getElementById('gallery-list').addEventListener('click', e => {
   if (!Number.isInteger(index)) return;
   if (button.dataset.galleryAction === 'edit') editGalleryItem(index);
   if (button.dataset.galleryAction === 'delete') deleteGalleryItem(index);
+  if (button.dataset.galleryAction === 'toggle') toggleGalleryPublish(index);
 });
 
 document.getElementById('form-gallery').addEventListener('submit', e => {
   e.preventDefault();
   const url = document.getElementById('gallery-url').value.trim();
   const caption = cleanText(document.getElementById('gallery-caption').value, MAX_TEXT.caption);
+  const categoria = cleanText(document.getElementById('gallery-categoria').value, MAX_TEXT.category);
+  const publicado = document.getElementById('gallery-publicado').checked;
   const image = galleryImageData || url;
   const editIndexVal = document.getElementById('gallery-edit-index').value;
   const editIndex = editIndexVal !== '' ? parseInt(editIndexVal, 10) : -1;
@@ -721,6 +769,10 @@ document.getElementById('form-gallery').addEventListener('submit', e => {
 
   if (!caption) {
     showToast('Escribe una descripcion para la imagen.');
+    return;
+  }
+  if (!categoria) {
+    showToast('Selecciona una categoria para la imagen.');
     return;
   }
   if (!isEditing && !image) {
@@ -737,6 +789,8 @@ document.getElementById('form-gallery').addEventListener('submit', e => {
     items[editIndex] = normalizeGalleryItem({
       ...items[editIndex],
       caption,
+      categoria,
+      publicado,
       url: image || items[editIndex].url,
     });
     saveGallery(items);
@@ -748,6 +802,8 @@ document.getElementById('form-gallery').addEventListener('submit', e => {
     items.unshift({
       url: image,
       caption,
+      categoria,
+      publicado,
       createdAt: new Date().toISOString(),
       createdBy: getCurrentUser(),
     });
@@ -768,6 +824,9 @@ function editGalleryItem(index) {
   document.getElementById('gallery-form-title').textContent = 'Editar imagen';
   document.getElementById('gallery-edit-index').value = index;
   document.getElementById('gallery-caption').value = item.caption;
+  document.getElementById('gallery-categoria').value = item.categoria || '';
+  document.getElementById('gallery-publicado').checked = item.publicado !== false;
+  document.getElementById('gallery-caption').dispatchEvent(new Event('input'));
   document.getElementById('btn-save-gallery').textContent = 'Actualizar imagen';
   document.getElementById('btn-cancel-gallery-edit').classList.remove('hidden');
 
@@ -932,7 +991,18 @@ document.getElementById('form-events').addEventListener('submit', e => {
     updatedBy: getCurrentUser(),
   });
 
-  if (!eventData.titulo || !eventData.fecha || !eventData.descripcion) return;
+  const tituloEl = document.getElementById('event-titulo');
+  const fechaEl = document.getElementById('event-fecha');
+  const descripcionEl = document.getElementById('event-descripcion');
+  setFieldError(tituloEl, document.getElementById('error-event-titulo'), !eventData.titulo);
+  setFieldError(fechaEl, document.getElementById('error-event-fecha'), !eventData.fecha);
+  setFieldError(descripcionEl, document.getElementById('error-event-descripcion'), !eventData.descripcion);
+
+  if (!eventData.titulo || !eventData.fecha || !eventData.descripcion) {
+    const firstInvalid = [tituloEl, fechaEl, descripcionEl].find(el => el.getAttribute('aria-invalid') === 'true');
+    if (firstInvalid) firstInvalid.focus();
+    return;
+  }
 
   let items = getEvents();
   if (editId) {
@@ -974,6 +1044,10 @@ function editEventItem(id) {
   document.getElementById('event-imagen-file').value = '';
   document.getElementById('btn-save-event').textContent = 'Actualizar evento';
   document.getElementById('btn-cancel-edit').classList.remove('hidden');
+
+  clearEventFormErrors();
+  document.getElementById('event-categoria').dispatchEvent(new Event('change'));
+  document.getElementById('event-titulo').dispatchEvent(new Event('input'));
 
   eventImageData = item.imagen && item.imagen.startsWith('data:') ? item.imagen : '';
   setPreview(item.imagen);
@@ -1034,7 +1108,8 @@ document.getElementById('event-import-file').addEventListener('change', e => {
       const parsed = JSON.parse(reader.result);
       const items = Array.isArray(parsed) ? parsed : parsed.events;
       if (!Array.isArray(items)) throw new Error('Formato invalido.');
-      if (!confirm('Importar este archivo reemplazara los eventos actuales. Continuar?')) return;
+      const currentCount = getEvents().length;
+      if (!confirm(`Se reemplazaran ${currentCount} eventos actuales por ${items.length} eventos del archivo. Continuar?`)) return;
       saveEvents(items.map(normalizeEvent));
       renderEvents();
       resetEventForm();
@@ -1070,7 +1145,9 @@ document.getElementById('backup-import-file').addEventListener('change', e => {
       if (!parsed || (!Array.isArray(parsed.events) && !Array.isArray(parsed.gallery))) {
         throw new Error('Formato invalido.');
       }
-      if (!confirm('Importar este respaldo reemplazara eventos, galeria y bitacora actuales. Continuar?')) return;
+      const nextEvents = Array.isArray(parsed.events) ? parsed.events.length : 0;
+      const nextGallery = Array.isArray(parsed.gallery) ? parsed.gallery.length : 0;
+      if (!confirm(`Se reemplazaran ${getEvents().length} eventos y ${getGallery().length} imagenes actuales por ${nextEvents} eventos y ${nextGallery} imagenes del respaldo. Continuar?`)) return;
       restoreFullBackup(parsed);
       renderEvents();
       renderGallery();
@@ -1173,18 +1250,47 @@ document.getElementById('form-settings').addEventListener('submit', async e => {
   showToast('Configuracion guardada.');
 });
 
-/* ===== CONTADOR DE CARACTERES — descripción de evento ===== */
-const descTextarea = document.getElementById('event-descripcion');
-const descCount = document.getElementById('desc-count');
-if (descTextarea && descCount) {
-  const updateCount = () => {
-    const len = descTextarea.value.length;
-    descCount.textContent = `${len}/260`;
-    descCount.classList.toggle('text-red-600', len >= 240);
-    descCount.classList.toggle('text-gray-400', len < 240);
+/* ===== CONTADOR DE CARACTERES REUTILIZABLE ===== */
+function attachCharCounter(inputEl, counterEl, max) {
+  if (!inputEl || !counterEl) return;
+  const update = () => {
+    const len = inputEl.value.length;
+    counterEl.textContent = `${len}/${max}`;
+    const nearLimit = len >= Math.round(max * 0.92);
+    counterEl.classList.toggle('text-red-600', nearLimit);
+    counterEl.classList.toggle('text-gray-400', !nearLimit);
   };
-  descTextarea.addEventListener('input', updateCount);
+  inputEl.addEventListener('input', update);
+  update();
 }
+
+attachCharCounter(document.getElementById('event-descripcion'), document.getElementById('desc-count'), 260);
+attachCharCounter(document.getElementById('event-titulo'), document.getElementById('titulo-count'), 140);
+attachCharCounter(document.getElementById('gallery-caption'), document.getElementById('caption-count'), 160);
+
+/* ===== VISTA PREVIA DE BADGE — tipo de evento ===== */
+const eventCategoriaSelect = document.getElementById('event-categoria');
+const eventCategoriaPreview = document.getElementById('event-categoria-preview');
+if (eventCategoriaSelect && eventCategoriaPreview) {
+  const updateEventCategoriaPreview = () => {
+    const value = eventCategoriaSelect.value;
+    eventCategoriaPreview.innerHTML = `<span class="${categoryBadgeClass(value)}">${esc(value)}</span>`;
+  };
+  eventCategoriaSelect.addEventListener('change', updateEventCategoriaPreview);
+  updateEventCategoriaPreview();
+}
+
+/* ===== LIMPIAR ERRORES AL CORREGIR ===== */
+['event-titulo', 'event-fecha', 'event-descripcion'].forEach(id => {
+  const input = document.getElementById(id);
+  const errorEl = document.getElementById('error-' + id);
+  if (!input) return;
+  input.addEventListener('input', () => {
+    if (input.getAttribute('aria-invalid') === 'true' && input.value.trim()) {
+      setFieldError(input, errorEl, false);
+    }
+  });
+});
 
 /* ===== INIT ===== */
 async function initAdmin() {

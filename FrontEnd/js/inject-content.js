@@ -9,8 +9,10 @@
                     var gGrid = document.getElementById('galeria-grid');
                     if (gGrid && gItems.length) {
 	                        var galleryFragment = document.createDocumentFragment();
-	                        gItems.forEach(function (item) {
-	                            if (!item || typeof item !== 'object') return;
+	                        gItems
+	                            .filter(function (item) { return item && typeof item === 'object'; })
+	                            .filter(function (item) { return item.publicado !== false; })
+	                            .forEach(function (item) {
 	                            var galleryImage = safeImageSrc(item.url);
 	                            if (!galleryImage) return;
 	                            var caption = cleanText(item.caption, 160);
@@ -20,6 +22,7 @@
 	                            div.setAttribute('role', 'button');
 	                            div.setAttribute('aria-label', 'Ver imagen: ' + caption);
 	                            div.setAttribute('data-caption', caption);
+	                            div.setAttribute('data-categoria', cleanText(item.categoria || 'Actos y Ceremonias', 40));
 	                            var image = document.createElement('img');
 	                            image.src = galleryImage;
 	                            image.alt = caption;
@@ -78,10 +81,11 @@
 
                             var card = document.createElement('div');
                             card.className = 'content-card fade-up';
+                            card.setAttribute('data-categoria', category);
                             card.innerHTML =
 	                                imgBlock +
 	                                '<div class="p-5">' +
-	                                '<span class="badge-rojo">' + esc(category) + '</span>' +
+	                                '<span class="' + categoryBadgeClass(category) + '">' + esc(category) + '</span>' +
 	                                '<h3 class="card-title">' + esc(title) + '</h3>' +
 	                                '<p class="text-gray-500 text-sm leading-relaxed">' + esc(description) + '</p>' +
 	                                (meta ? '<div class="card-date">' +
