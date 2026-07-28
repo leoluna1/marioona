@@ -312,20 +312,43 @@ if (form) {
     btn.textContent = 'Enviando...';
     btn.disabled   = true;
 
-    setTimeout(() => {
-      form.reset();
-      fields.forEach(f => {
-        f.removeAttribute('aria-invalid');
-        const err = document.getElementById('error-' + f.name);
-        if (err) { err.classList.add('hidden'); err.classList.remove('visible'); }
-      });
-      btn.textContent = 'Enviar Mensaje';
-      btn.disabled    = false;
+    const formData = new FormData(form);
+    const payload  = Object.fromEntries(formData);
 
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3500);
-    }, 1200);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          form.reset();
+          fields.forEach(f => {
+            f.removeAttribute('aria-invalid');
+            const err = document.getElementById('error-' + f.name);
+            if (err) { err.classList.add('hidden'); err.classList.remove('visible'); }
+          });
+          showToast('✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.');
+        } else {
+          showToast('⚠️ No se pudo enviar el mensaje. Intenta de nuevo o escríbenos por WhatsApp.', true);
+        }
+      })
+      .catch(() => {
+        showToast('⚠️ Error de conexión. Intenta de nuevo o escríbenos por WhatsApp.', true);
+      })
+      .finally(() => {
+        btn.textContent = 'Enviar Mensaje';
+        btn.disabled    = false;
+      });
   });
+}
+
+function showToast(message, isError = false) {
+  toast.textContent = message;
+  toast.classList.toggle('error', isError);
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
 }
 
 /* ===== 7. AÑO DINÁMICO EN FOOTER ===== */

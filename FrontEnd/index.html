@@ -8,7 +8,7 @@
     <meta name="description"
         content="Unidad Educativa Mario Oña Perdomo — Institución educativa pública de excelencia en San Gabriel, Carchi, Ecuador. Oferta educativa: Inicial, Preparatoria, Educación Básica y Bachillerato." />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';" />
+        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src https://maps.google.com https://www.google.com; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="keywords"
         content="Mario Oña Perdomo, colegio San Gabriel, unidad educativa San Gabriel, bachillerato San Gabriel, educación pública Ecuador, Carchi" />
@@ -875,6 +875,9 @@
                     <!-- Formulario -->
                     <div class="fade-right">
                         <form id="contactForm" class="contact-form" novalidate>
+                            <input type="hidden" name="access_key" value="355532c6-c03c-4e3f-b9aa-e59764b4a641">
+                            <input type="hidden" name="subject" value="Nuevo mensaje de contacto — U.E. Mario Oña Perdomo">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
 
                             <div class="form-row">
                                 <div>

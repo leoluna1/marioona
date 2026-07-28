@@ -1036,6 +1036,9 @@ footer {
   transform: translateY(0);
   opacity: 1;
 }
+#toast.error {
+  background: #b91c1c;
+}
 
 /* ============================================================
    ANIMACIONES
